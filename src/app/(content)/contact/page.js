@@ -2,6 +2,9 @@
 import React from 'react'
 import { useState } from 'react'
 import { TextField, Button } from '@mui/material'
+import Image from 'next/image'
+import mclock from '../../../../public/mclock.svg'
+import lt from '../../../../public/lt.svg'
 
 const formStyle = {
   '& .MuiOutlinedInput-root': {
@@ -79,6 +82,12 @@ export default function Contact() {
       <h1 className="contact-title">deliBErate Today!</h1>
       {/* <p className="contact-text">Phase I release includes the Cypress Collection — limited golf-front units starting in the low $800s. Schedule your private hard-hat tour today.</p> */}
       <p className="top-contact">Please fill out the form below for more info!</p>
+      {/* <Image
+        alt="Let's Talk"
+        src={lt}
+        width={150}
+        className="top-contact"
+        /> */}
       {success === 0 ?
       <div className="contact-form">
         <div className="form-child">
@@ -145,6 +154,11 @@ export default function Contact() {
           />
         </div>
         <div className="contact-button">
+            <Image
+                alt="money clock"
+                width={150}
+                src={mclock}
+            />
         <Button 
             onClick={handleFormSubmit}
             variant="outlined"

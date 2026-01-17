@@ -3,12 +3,12 @@
   --foreground: #ededed;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 html,
 body {
@@ -81,7 +81,8 @@ a {
   width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 @media(max-width: 600px) {
@@ -120,6 +121,7 @@ a {
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 }
 
