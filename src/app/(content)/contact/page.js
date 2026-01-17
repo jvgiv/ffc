@@ -51,7 +51,7 @@ export default function Contact() {
     e.preventDefault();
     if (formData.name === "" || formData.phone === "" || formData.email === "" || formData.response === "") {
       Swal.fire({
-        title: "MGX Form Incomplete",
+        title: "Far Flung Change Incomplete",
         text: "Please fill out all fields",
         icon: 'warning',
         confirmButtonText: "OK"
