@@ -3,7 +3,7 @@ import Image from 'next/image'
 import instagram from '../../../../public/instagram.svg'
 import facebook from '../../../../public/facebook.svg'
 
-export default function Footer() {
+export default function TopHeader() {
   return (
     <div className="footer-container">
     <a className="footer-text" href="https://www.facebook.com/farflungchange/" target="_blank" rel="noopener noreferrer">
