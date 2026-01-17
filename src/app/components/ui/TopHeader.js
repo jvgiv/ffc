@@ -7,7 +7,9 @@ export default function TopHeader() {
   return (
     <div className="footer-container">
       <p>firstfinancialadvisory.com</p>
+    <p className="footer-child">85 Beach Street, Westerly, RI 02891</p>
       <p>401-596-0193</p>
+    <p className="footer-child">farflungchange@1stallied.com</p>
     <a className="footer-text" href="https://www.facebook.com/farflungchange/" target="_blank" rel="noopener noreferrer">
       <Image
             src={facebook}
@@ -24,8 +26,6 @@ export default function TopHeader() {
             className="footer-child"
         />
         </a>
-        <p className="footer-child">farflungchange@1stallied.com</p>
-        <p className="footer-child">85 Beach Street, Westerly, RI 02891</p>
     </div>
   )
 }
