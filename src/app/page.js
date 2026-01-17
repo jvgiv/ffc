@@ -10,6 +10,14 @@ export default function Home() {
     <div className={styles.page}>
       {/* <main className={styles.main}> */}
       <Header />
+      <Image
+          // className={styles.logo}
+          src="/pfo.svg"
+          alt="Practical Financial Orientation"
+          width={300}
+          height={300}
+          priority
+        />  
         <Image
           // className={styles.logo}
           src="/ffc-dark.svg"
@@ -18,7 +26,31 @@ export default function Home() {
           height={250}
           priority
         />     
-        <Contact /> 
+        <Image
+          // className={styles.logo}
+          src="/fgus.svg"
+          alt="For Growin Up's Sake"
+          width={250}
+          height={250}
+          priority
+        />  
+        <Image
+          // className={styles.logo}
+          src="/mclock.svg"
+          alt="Money Clock"
+          width={250}
+          height={250}
+          priority
+        />  
+        <Image
+          // className={styles.logo}
+          src="/lt.svg"
+          alt="Lets talk"
+          width={300}
+          height={300}
+          priority
+        />  
+        {/* <Contact />  */}
         <Footer />
         <Disclosures />
       {/* </main> */}
