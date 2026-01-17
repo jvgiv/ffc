@@ -12,7 +12,7 @@ export default function Home() {
       <Header />
         <Image
           // className={styles.logo}
-          src="/FFEmblem.png"
+          src="/ffc-dark.svg"
           alt="FFC logo"
           width={250}
           height={250}
