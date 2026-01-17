@@ -6,6 +6,8 @@ import facebook from '../../../../public/facebook.svg'
 export default function TopHeader() {
   return (
     <div className="footer-container">
+      <p>firstfinancialadvisory.com</p>
+      <p>401-596-0193</p>
     <a className="footer-text" href="https://www.facebook.com/farflungchange/" target="_blank" rel="noopener noreferrer">
       <Image
             src={facebook}
