@@ -38,7 +38,7 @@ export default function Home() {
           priority
         />  
         {/* <Transition /> */}
-        <p className="ptc">Punch the Clock:  Own Your Time</p>
+        <p className="ptc">Punch the Clock  :  Own Your Time</p>
         <a href="https://calendly.com/its-about-time" target="_blank" rel="noopener noreferrer">
         <Image
           // className={styles.logo}
