@@ -3,7 +3,9 @@
   --foreground: #ededed;
 }
 
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* @media (prefers-color-scheme: dark) {
   :root {
@@ -133,16 +135,115 @@ a {
   height: 50px;
 }
 
-/* Footer */
+@media (max-width: 600px) {
+  .header-container {
+    height: 75px;
+  }
+}
+
+/* TOP HEADER */
 .footer-container {
-  padding-top: 3%;
+  background-color: white;
+  width: 100%;
+  height: 38px;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  /* align-items: center; */
+  transition: transform 0.3s ease-in-out;
+}
+.topheader-cont {
+  width: 60%;
+  margin: 0 auto;
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-direction: row;
+}
+
+.topheader-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* border: 1px solid orange; */
+  color: black;
+  align-items: center;
+  font-size: 14px;
+  width: 85%;
+}
+
+.topheader-right {
+  width: 15%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+}
+
+.top-icon-labels {
+  display: flex;
+  flex-direction: row;
+  /* border: 1px solid green; */
+}
+
+@media (max-width: 600px) {
+  .footer-container {
+  background-color: white;
+  width: 100%;
+  height: 64px;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  /* align-items: center; */
+  transition: transform 0.3s ease-in-out;
+}
+.topheader-cont {
+  width: 90%;
+  margin: 0 auto;
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-direction: row;
+}
+
+.topheader-left {
   display: flex;
   flex-direction: column;
+  /* align-content: flex-start; */
+  /* border: 1px solid orange; */
+  color: black;
+  align-items: flex-start;
+  font-size: 12px;
+  width: 85%;
+}
+
+.topheader-right {
+  width: 15%;
+  display: flex;
+  flex-direction: row;
   align-items: center;
+  /* align-content: center; */
+  /* border: 1px solid red; */
+}
+
+.top-icon-labels {
+  display: flex;
+  flex-direction: row;
+  /* border: 1px solid green; */
+}
 }
 
 .footer-child {
-  padding-top: 5%;
+  /* padding-top: 5%; */
 }
 
 /* disclosures */
@@ -150,4 +251,17 @@ a {
   width: 90%;
   color: white;
   padding-top: 5%;
+}
+
+.transition-image {
+  width: 50px;
+  height: 20px;
+}
+
+.svg-logo {
+  color: black;
+}
+
+.ptc {
+  font-size: 22px;
 }

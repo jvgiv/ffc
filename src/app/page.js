@@ -4,6 +4,7 @@ import Contact from './(content)/contact/page';
 import Disclosures from "./components/ui/Disclosures";
 import TopHeader from "./components/ui/TopHeader"
 import Header from "./components/ui/Header"
+import Transition from "./components/ui/Transition";
 
 export default function Home() {
   return (
@@ -28,30 +29,26 @@ export default function Home() {
           height={250}
           priority
         />     
-        {/* <Image
-          // className={styles.logo}
-          src="/fgus.svg"
-          alt="For Growin Up's Sake"
-          width={250}
-          height={250}
-          priority
-        />   */}
         <Image
           // className={styles.logo}
-          src="/mclock.svg"
-          alt="Money Clock"
+          src="/difbe.svg"
+          alt="Be Different"
           width={250}
           height={250}
           priority
         />  
-        {/* <Image
+        {/* <Transition /> */}
+        <p className="ptc">Punch the Clock:  Own Your Time</p>
+        <a href="https://calendly.com/its-about-time" target="_blank" rel="noopener noreferrer">
+        <Image
           // className={styles.logo}
-          src="/lt.svg"
-          alt="Lets talk"
-          width={300}
-          height={300}
+          src="/mclockwhite.svg"
+          alt="Money Clock"
+          width={275}
+          height={275}
           priority
-        />   */}
+          />  
+          </a>
         {/* <Contact />  */}
         
         <Disclosures />
