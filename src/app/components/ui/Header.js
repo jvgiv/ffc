@@ -26,6 +26,11 @@ export default function Header() {
                 href='/scorecard' >
                 ScoreCard
             </Link>
+            <Link 
+                className={`link-header ${pathName === "/scorecard" ? "activeLink" : "" }`}
+                href='/about' >
+                About
+            </Link>
             </ul>
         </div>
     </div>

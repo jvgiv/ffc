@@ -391,3 +391,20 @@ a {
     padding-left: 2.5%;
   }
 }
+
+/* about */
+.about-container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.about-list {
+  width: 80%;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+  padding-top: 2%;
+}
+
+.about-text {
+  padding-top: 5%;
+}
