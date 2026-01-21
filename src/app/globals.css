@@ -408,3 +408,18 @@ a {
 .about-text {
   padding-top: 5%;
 }
+
+@media(max-width: 600px) {
+  .about-container {
+    width: 80%;
+    /* border: 1px solid red; */
+  }
+
+  .about-text {
+    padding-top: 10%;
+  }
+
+  .about-list {
+    padding-top: 5%;
+  }
+}
