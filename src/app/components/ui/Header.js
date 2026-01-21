@@ -17,14 +17,14 @@ export default function Header() {
                     Home
             </Link>
             <Link 
-                className={`link-header ${pathName === "/scorecard" ? "activeLink" : "" }`}
-                href='/scorecard' >
-                Scorecard
-            </Link>
-            <Link 
                 className={`link-header ${pathName === "/menuboard" ? "activeLink" : "" }`}
                 href='/menuboard'>
                 Menu Board
+            </Link>
+            <Link 
+                className={`link-header ${pathName === "/scorecard" ? "activeLink" : "" }`}
+                href='/scorecard' >
+                ScoreCard
             </Link>
             </ul>
         </div>

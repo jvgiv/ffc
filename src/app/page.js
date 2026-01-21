@@ -26,7 +26,8 @@ export default function Home() {
           height={250}
           priority
         />  
-        <p className="ptc">Punch the Clock  :  Own Your Time</p>
+        <p className="ptc">Punch the Clock  :  and</p>
+        <p className="ptc-2">Own Your Time</p>
         <a href="https://calendly.com/its-about-time" target="_blank" rel="noopener noreferrer">
         <Image
           // className={styles.logo}
