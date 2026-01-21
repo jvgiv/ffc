@@ -28,13 +28,13 @@ export default function Home() {
         />  
         <p className="ptc">Punch the Clock  :  and</p>
         <p className="ptc-2">Own Your Time</p>
-        <a href="https://calendly.com/its-about-time" target="_blank" rel="noopener noreferrer">
+        <a href="https://calendly.com/its-about-time" target="_blank" rel="noopener noreferrer" className="money-clock">
         <Image
           // className={styles.logo}
-          src="/mclockwhite.svg"
+          src="/lt.gif"
           alt="Money Clock"
-          width={275}
-          height={275}
+          width={324}
+          height={270}
           priority
           />  
           </a>

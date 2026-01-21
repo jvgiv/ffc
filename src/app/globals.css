@@ -375,3 +375,18 @@ a {
     padding-top: 5%;
   }
 }
+
+
+/* clock image */
+.money-clock {
+  /* border: 1px solid red; */
+  padding-left: .5%;
+  padding-top: 2%;
+}
+
+@media (max-width: 600px) {
+  .money-clock {
+    padding-top: 5%;
+    padding-left: 2.5%;
+  }
+}
