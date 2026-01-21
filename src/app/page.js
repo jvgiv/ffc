@@ -10,17 +10,6 @@ export default function Home() {
   return (
     <div className={styles.page}>
       {/* <main className={styles.main}> */}
-      <TopHeader /> 
-      {/* HAVE TOP HEADER HAVE WHITE BACKGROUND BLACK TEXT */}
-      <Header />
-      {/* <Image
-          // className={styles.logo}
-          src="/pfo.svg"
-          alt="Practical Financial Orientation"
-          width={300}
-          height={300}
-          priority
-        />   */}
         <Image
           // className={styles.logo}
           src="/ffc-dark.svg"
@@ -37,7 +26,6 @@ export default function Home() {
           height={250}
           priority
         />  
-        {/* <Transition /> */}
         <p className="ptc">Punch the Clock  :  Own Your Time</p>
         <a href="https://calendly.com/its-about-time" target="_blank" rel="noopener noreferrer">
         <Image
@@ -49,10 +37,6 @@ export default function Home() {
           priority
           />  
           </a>
-        {/* <Contact />  */}
-        
-        <Disclosures />
-      {/* </main> */}
     </div>
   );
 }
