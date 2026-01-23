@@ -4,6 +4,7 @@ import '../../lib/fontawesome'
 import Header from "./components/ui/Header";
 import TopHeader from "./components/ui/TopHeader";
 import Disclosures from "./components/ui/Disclosures";
+import TempFooter from "./components/ui/TempFooter";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
         <TopHeader />
         <Header />
         {children}
+        <TempFooter />
         <Disclosures />
       </body>
     </html>

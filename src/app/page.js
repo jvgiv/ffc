@@ -10,7 +10,7 @@ export default function Home() {
     <div className={styles.page}>
       {/* <main className={styles.main}> */}
         <Image
-          // className={styles.logo}
+          className="images-test"
           src="/ffc-dark.svg"
           alt="FFC logo"
           width={250}
@@ -18,7 +18,7 @@ export default function Home() {
           priority
         />     
         <Image
-          // className={styles.logo}
+          className="images-test"
           src="/difbe.svg"
           alt="Be Different"
           width={250}
@@ -28,7 +28,7 @@ export default function Home() {
         <p className="ptc">Punch  :  THE CLOCK</p>
         <a href="https://calendly.com/its-about-time" target="_blank" rel="noopener noreferrer" className="money-clock">
         <Image
-          // className={styles.logo}
+          className="images-test"
           src="/clocks.gif"
           alt="Money Clock"
           width={324}
