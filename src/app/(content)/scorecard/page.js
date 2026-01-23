@@ -25,7 +25,7 @@ export default function page() {
         isOpen={isOpen}
         onClose={handleClose}
         title="ScoreCard Restricted"
-        message="Access is exclusive to orienteers"
+        message="Access is Exclusive to Orienteers"
       />
       <div className='scbg'>
       <Image
