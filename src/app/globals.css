@@ -179,7 +179,7 @@ a {
 @media (max-width: 600px) {
   .header-container {
     height: 75px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     margin-bottom: 5%;
     padding-top: 0;
   }
