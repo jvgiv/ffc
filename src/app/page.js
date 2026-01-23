@@ -30,7 +30,7 @@ export default function Home() {
         <a href="https://calendly.com/its-about-time" target="_blank" rel="noopener noreferrer" className="money-clock">
         <Image
           // className={styles.logo}
-          src="/8clatest.gif"
+          src="/8clock.gif"
           alt="Money Clock"
           width={324}
           height={270}
