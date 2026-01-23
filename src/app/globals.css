@@ -394,8 +394,9 @@ a {
 
 /* about */
 .about-container {
-  width: 50%;
+  width: 27%;
   margin: 0 auto;
+  height: 600px;
 }
 
 .about-list {
