@@ -3,8 +3,8 @@ import React from 'react'
 import { useState } from 'react'
 import { TextField, Button } from '@mui/material'
 import Image from 'next/image'
-import mclock from '../../../../public/mclock.svg'
-import lt from '../../../../public/lt.svg'
+// import mclock from '../../../../public/mclock.svg'
+// import lt from '../../../../public/lt.svg'
 
 const formStyle = {
   '& .MuiOutlinedInput-root': {
