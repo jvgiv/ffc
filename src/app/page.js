@@ -1,6 +1,5 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import Contact from './(content)/contact/page';
 import Disclosures from "./components/ui/Disclosures";
 import TopHeader from "./components/ui/TopHeader"
 import Header from "./components/ui/Header"
