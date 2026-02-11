@@ -5,9 +5,12 @@ import { useState, useEffect } from 'react';
 import Modal from '@/app/components/ui/Modal';
 import { useRouter } from 'next/navigation';
 
+
 export default function page() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [passCode, setPassCode] = useState(1406);
+  const [userCode, setUserCode] = useState('')
 
   useEffect(() => {
     setIsOpen(true);           // ← auto-open on mount
@@ -18,6 +21,21 @@ export default function page() {
     router.push('/');  
   };
 
+  const handleChange = (e) => {
+    e.preventDefault();
+    setUserCode(e.target.value)
+    console.log("UC", userCode, passCode)
+    }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (Number(userCode) === passCode) {
+      setIsOpen(false);
+    } else {
+      alert("Code is incorrect")
+    }
+  }
+
 
   return (
     <div className="scorecard-container">
@@ -26,6 +44,10 @@ export default function page() {
         onClose={handleClose}
         title="ScoreCard Restricted"
         message="Access is Exclusive to Orienteers"
+        link="Click Here to Own Your Time"
+        handleChange={handleChange}
+        userCode={userCode}
+        handleSubmit={handleSubmit}
       />
       <div className='scbg'>
       <Image
