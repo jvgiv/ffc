@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function page() {
+export default function About() {
   return (
     <div className="about-container">
       <p className='about-text'>Far Flung Change is the education and orientation division of

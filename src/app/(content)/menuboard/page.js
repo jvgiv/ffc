@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-export default function page() {
+export default function MenuBoard() {
   return (
     <div className="menu-container">
       <Image 

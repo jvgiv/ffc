@@ -6,7 +6,7 @@ import Modal from '@/app/components/ui/Modal';
 import { useRouter } from 'next/navigation';
 
 
-export default function page() {
+export default function ScoreCard() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [passCode, setPassCode] = useState(1406);
