@@ -364,16 +364,21 @@ a {
 
 .scbg {
   background-color: white;
+  width: 324px;
+  height: 816px;
 }
 
 @media(max-width: 600px) {
   .scorecard-container {
     flex-direction: column;
-    width: 90%;
+    height: 1730px;
+    align-content: space-around;
+    align-items: center;
   }
 
   .scbg {
-    padding-top: 5%;
+    display: flex;
+    align-items: center;
   }
 }
 
