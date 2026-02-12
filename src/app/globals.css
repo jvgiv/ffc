@@ -293,7 +293,10 @@ a {
 
 /* disclosures */
 .disc-container {
-  width: 90%;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #ddd;
+  width: 70%;
   color: white;
   margin: 0 auto;
   padding-top: 5%;
@@ -356,6 +359,7 @@ a {
   justify-content: space-evenly;
   width: 50%;
   margin: 0 auto;
+  padding-bottom: 2%;
 }
 
 .scbg {
@@ -436,6 +440,7 @@ a {
     margin: 0 auto;
     /* background-color: red; */
     padding-top: 5%;
+    padding-bottom: 16px;
   }
 
   .tempheader-left {

@@ -52,6 +52,7 @@ export default function Modal({
   handleChange,
   handleSubmit
 }) {
+  
   useEffect(() => {
     if (!isOpen) return;
 

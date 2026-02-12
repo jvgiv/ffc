@@ -11,9 +11,17 @@ export default function page() {
   const [isOpen, setIsOpen] = useState(false);
   const [passCode, setPassCode] = useState(1406);
   const [userCode, setUserCode] = useState('')
+  const STORAGE_KEY = 1679
 
   useEffect(() => {
-    setIsOpen(true);           // ← auto-open on mount
+    const checkCode = localStorage.getItem(STORAGE_KEY);
+    console.log(checkCode, passCode, STORAGE_KEY)
+    if (checkCode === 'true') {
+      return
+    } else {
+      setIsOpen(true);           // ← auto-open on mount
+    }
+
   }, []);
 
   const handleClose = () => {
@@ -30,6 +38,7 @@ export default function page() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (Number(userCode) === passCode) {
+      localStorage.setItem(STORAGE_KEY, "true");
       setIsOpen(false);
     } else {
       alert("Code is incorrect")
