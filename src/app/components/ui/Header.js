@@ -26,6 +26,11 @@ export default function Header() {
                 href='/scorecard' >
                 ScoreCard
             </Link>
+            <Link
+                className={`link-header ${pathName === "/thoughtgallery" ? "activeLink" : "" }`}
+                href='/thoughtgallery' >
+                Thought Gallery
+            </Link>
             <Link 
                 className={`link-header ${pathName === "/about" ? "activeLink" : "" }`}
                 href='/about' >
