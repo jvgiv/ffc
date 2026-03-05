@@ -5,6 +5,10 @@ import TopHeader from "./components/ui/TopHeader"
 import Header from "./components/ui/Header"
 import Transition from "./components/ui/Transition";
 import { Button } from "@mui/material";
+import Problem from "./(content)/problem/page";
+import Program from "./(content)/program/page";
+import Plan from "./(content)/plan/page";
+import Pricing from "./(content)/pricing/page";
 
 export default function Home() {
   return (
@@ -49,9 +53,13 @@ export default function Home() {
     <strong>before it costs you.</strong>
     </p>
     <div>
-      <Button>Get Oriented →</Button>
-      <Button>Unlock Free ScoreCard</Button>
+      {/* <Button>Get Oriented →</Button>
+      <Button>Unlock Free ScoreCard</Button> */}
     </div>
+
+    <Problem />
+    <Plan />
+    <Pricing />
     </div>
   );
 }
