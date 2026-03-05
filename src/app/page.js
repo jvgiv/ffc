@@ -43,19 +43,29 @@ export default function Home() {
           </a>
         <p className="ptc-2">Own :  YOUR TIME</p> */}
 
-        <p>FIRST FINANCIAL ADVISORY · EST. 1974</p>
-        <h1>
-          <em>practical financial</em> Orientation
-        </h1>
-        <p>
+
+  <p className="hero-eyebrow">First Financial Advisory · Est. 1974</p>
+  <div className="hero-logo-ring">
+    <div className="logo-c">C</div>
+    <div className="logo-dot"></div>
+  </div>
+  <h1>
+    <em>practical financial</em>
+    Orientation
+  </h1>
+  <p className="hero-sub">
     Most adults never get a clear introduction to managing their own money. 
-    Far Flung Change fills that gap — 
-    <strong>before it costs you.</strong>
-    </p>
-    <div>
-      {/* <Button>Get Oriented →</Button>
-      <Button>Unlock Free ScoreCard</Button> */}
-    </div>
+    Far Flung Change fills that gap — <strong style={{color: "var(--white)"}}>before it costs you.</strong>
+  </p>
+  <div className="hero-actions">
+    <a href="#cta" className="btn-primary">Get Oriented →</a>
+    <a href="#scorecard" className="btn-ghost">Unlock Free ScoreCard</a>
+  </div>
+  <div className="scroll-hint">
+    <span>scroll</span>
+    <div className="scroll-line"></div>
+  </div>
+
 
     <Problem />
     <Plan />
