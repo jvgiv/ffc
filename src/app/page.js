@@ -4,12 +4,13 @@ import Disclosures from "./components/ui/Disclosures";
 import TopHeader from "./components/ui/TopHeader"
 import Header from "./components/ui/Header"
 import Transition from "./components/ui/Transition";
+import { Button } from "@mui/material";
 
 export default function Home() {
   return (
     <div className={styles.page}>
       {/* <main className={styles.main}> */}
-        <Image
+        {/* <Image
           className="images-test"
           src="/ffc-dark.svg"
           alt="FFC logo"
@@ -36,7 +37,21 @@ export default function Home() {
           priority
           />  
           </a>
-        <p className="ptc-2">Own :  YOUR TIME</p>
+        <p className="ptc-2">Own :  YOUR TIME</p> */}
+
+        <p>FIRST FINANCIAL ADVISORY · EST. 1974</p>
+        <h1>
+          <em>practical financial</em> Orientation
+        </h1>
+        <p>
+    Most adults never get a clear introduction to managing their own money. 
+    Far Flung Change fills that gap — 
+    <strong>before it costs you.</strong>
+    </p>
+    <div>
+      <Button>Get Oriented →</Button>
+      <Button>Unlock Free ScoreCard</Button>
+    </div>
     </div>
   );
 }
