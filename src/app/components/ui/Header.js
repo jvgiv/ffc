@@ -7,37 +7,61 @@ export default function Header() {
     const pathName = usePathname();
 
   return (
-    <div className="header-container">
-      <div className='header-links'>
-            <ul className="navList">
-            <Link 
-                className={`link-header ${pathName === "/" ? "activeLink" : "" }`}
-                // 'link-header'
-                href='/' >
-                    Home
-            </Link>
-            <Link 
-                className={`link-header ${pathName === "/menuboard" ? "activeLink" : "" }`}
-                href='/menuboard'>
-                Menu Board
-            </Link>
-            <Link 
-                className={`link-header ${pathName === "/scorecard" ? "activeLink" : "" }`}
-                href='/scorecard' >
-                ScoreCard
-            </Link>
-            <Link
-                className={`link-header ${pathName === "/thoughtgallery" ? "activeLink" : "" }`}
-                href='/thoughtgallery' >
-                Thought Gallery
-            </Link>
-            <Link 
-                className={`link-header ${pathName === "/about" ? "activeLink" : "" }`}
-                href='/about' >
-                About
-            </Link>
-            </ul>
-        </div>
-    </div>
+    <nav className="ffc-nav">
+      <ul className="ffc-nav-links">
+        <li>
+          <Link
+            className={`ffc-nav-link ${pathName === "/" ? "active" : "" }`}
+            href="/"
+          >
+            HOME
+          </Link>
+        </li>
+        <li>
+          <Link
+            className={`ffc-nav-link ${pathName === "/menuboard" ? "active" : "" }`}
+            href="/menuboard"
+          >
+            MENU BOARD
+          </Link>
+        </li>
+        <li>
+          <Link
+            className={`ffc-nav-link ${pathName === "/scorecard" ? "active" : "" }`}
+            href="/scorecard"
+          >
+            SCORECARD
+          </Link>
+        </li>
+        <li>
+          <Link
+            className={`ffc-nav-link ${pathName === "/thoughtgallery" ? "active" : "" }`}
+            href="/thoughtgallery"
+          >
+            THOUGHT GALLERY
+          </Link>
+        </li>
+        <li>
+          <Link
+            className={`ffc-nav-link ${pathName === "/about" ? "active" : "" }`}
+            href="/about"
+          >
+            ABOUT
+          </Link>
+        </li>
+      </ul>
+
+      <Link className="ffc-nav-brand" href="/">
+        FAR FLUNG CHANGE
+      </Link>
+      <a
+        className="ffc-nav-cta"
+        href="https://calendly.com/its-about-time"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        PUNCH THE CLOCK
+      </a>
+    </nav>
   )
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import "../../homepage.css"
 
 export default function Program() {
   return (
@@ -7,8 +8,8 @@ export default function Program() {
         <div className="container">
             <div className="guide-intro reveal visible">
             <span className="section-label">The Guide</span>
-            <h2 className="section-title">You don't need another product. You need a starting point.</h2>
-            <p>Far Flung Change isn't financial advice. It isn't management or implementation. It's <strong style="color:var(--white)">orientation</strong> — the kind of on-the-ground training in the cockpit that you should've had before anyone asked you to fly.</p>
+            <h2 className="section-title">You do not need another product. You need a starting point.</h2>
+            <p>Far Flung Change is not financial advice. It is not management or implementation. It is <strong style="color:var(--white)">orientation</strong> — the kind of on-the-ground training in the cockpit that you should have had before anyone asked you to fly.</p>
             </div>
             <div className="guide-cards reveal visible" style="transition-delay:0.1s">
             <div className="guide-card">
@@ -32,3 +33,4 @@ export default function Program() {
     </div>
   )
 }
+

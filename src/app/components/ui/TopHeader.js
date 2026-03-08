@@ -4,7 +4,7 @@ import Image from 'next/image'
 import instagram from '../../../../public/instagram.svg'
 import facebook from '../../../../public/facebook.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMapMarkerAlt, faPhone, faEnvelope, faGlobe } from '@fortawesome/free-solid-svg-icons'
+import { faMapMarkerAlt, faGlobe } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react'
 
 
@@ -49,22 +49,6 @@ export default function TopHeader() {
           icon={faMapMarkerAlt}
           />
         <span className="">85 Beach Street, Westerly, RI 02891</span>
-        </div>
-        <div className="top-icon-labels">
-          <a href="tel:4015960193">
-        <FontAwesomeIcon
-          icon={faPhone}
-          />
-        <span>401-596-0193</span>
-          </a>
-        </div>
-        <div className="top-icon-labels">
-          <a href="mailto:farflungchange@1stallied.com" target="_blank" rel="noopener noreferrer">
-        <FontAwesomeIcon
-          icon={faEnvelope}
-          />
-        <span className="">farflungchange@1stallied.com</span>
-        </a>
         </div>
       </div>
       <div className='topheader-right'>
