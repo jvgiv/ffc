@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Caddy Book of Orientation — Far Flung Change</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black: #0a0a0a; --offblack: #111111; --white: #f5f0e8;
+  --red: #c0392b; --red-hot: #e74c3c; --gray: #888;
+  --border: rgba(245,240,232,0.12); --border-hi: rgba(245,240,232,0.3);
+}
+html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(10,10,10,0.95); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2.5rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.hdr-brand { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.15em; }
+.hdr-sub { font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red-hot); margin-top: 0.15rem; }
+.hdr-back { font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+.hdr-back:hover { color: var(--white); }
+
+.progress-wrap { height: 3px; background: var(--border); }
+.progress-fill { height: 100%; background: var(--red); width: 0; transition: width 0.5s ease; }
+
+/* INTRO */
+#screen-intro {
+  min-height: 90vh; display: flex; flex-direction: column;
+  justify-content: center; align-items: center; text-align: center; padding: 4rem 2rem;
+}
+.intro-eyebrow { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red-hot); margin-bottom: 1.5rem; }
+.intro-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 9vw, 6rem); line-height: 0.9; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.intro-title em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--red-hot); display: block; font-size: 0.5em; margin-bottom: 0.25rem; }
+.intro-desc { font-size: 1.05rem; color: rgba(245,240,232,0.6); max-width: 500px; line-height: 1.8; margin: 1.5rem auto 2.5rem; }
+.intro-tags { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
+.intro-tag { font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); padding: 0.3rem 0.7rem; border: 1px solid var(--border); }
+
+/* STEPS */
+#screen-steps { display: none; padding: 3rem 2rem 6rem; max-width: 860px; margin: 0 auto; }
+
+.dots { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 3rem; }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--border); border: none; cursor: pointer; padding: 0; transition: all 0.25s; }
+.dot.active { background: var(--red); transform: scale(1.35); }
+.dot.done { background: var(--border-hi); }
+
+.step { display: none; }
+.step.active { display: block; animation: fadeUp 0.4s ease forwards; }
+@keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+
+.step-eyebrow { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red-hot); margin-bottom: 0.75rem; }
+.step-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.5rem, 9vw, 6rem); line-height: 0.9; letter-spacing: 0.02em; }
+.step-tagline { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: rgba(245,240,232,0.45); margin: 0.3rem 0 2.5rem; }
+.step-divider { width: 100%; height: 1px; background: var(--border); margin-bottom: 2.5rem; }
+
+.step-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-bottom: 2rem; }
+.col-label { font-family: 'Space Mono', monospace; font-size: 0.57rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.75rem; }
+.explain p { font-size: 0.95rem; line-height: 1.8; color: rgba(245,240,232,0.65); margin-bottom: 0.9rem; }
+.explain p:last-child { margin-bottom: 0; }
+.prompts ul { list-style: none; }
+.prompts ul li { font-size: 0.85rem; color: rgba(245,240,232,0.5); padding: 0.45rem 0; border-bottom: 1px solid var(--border); display: flex; gap: 0.6rem; line-height: 1.5; }
+.prompts ul li:last-child { border-bottom: none; }
+.prompts ul li::before { content: '—'; color: var(--red); flex-shrink: 0; }
+
+.sc-chip { display: flex; align-items: center; gap: 1rem; border: 1px solid var(--border); padding: 0.9rem 1.2rem; margin-bottom: 1.75rem; background: var(--offblack); }
+.sc-holes { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--red-hot); line-height: 1; white-space: nowrap; }
+.sc-chip-label { font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.2rem; }
+.sc-chip-holes { font-size: 0.8rem; color: rgba(245,240,232,0.45); }
+
+.notes-label { font-family: 'Space Mono', monospace; font-size: 0.57rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.5rem; display: flex; justify-content: space-between; }
+.tick { color: #2ecc71; opacity: 0; transition: opacity 0.4s; font-size: 0.55rem; }
+.tick.show { opacity: 1; }
+textarea { width: 100%; min-height: 100px; background: var(--offblack); border: 1px solid var(--border); color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 0.92rem; font-weight: 300; line-height: 1.7; padding: 0.9rem 1.1rem; resize: vertical; outline: none; transition: border-color 0.2s; }
+textarea:focus { border-color: var(--border-hi); }
+textarea::placeholder { color: rgba(245,240,232,0.18); }
+
+.step-nav { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+.step-count { font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--gray); }
+.btn { font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.75rem 1.5rem; border: 2px solid; cursor: pointer; transition: all 0.2s; background: transparent; }
+.btn-ghost { color: var(--gray); border-color: var(--border); }
+.btn-ghost:hover { color: var(--white); border-color: var(--border-hi); }
+.btn-red { color: var(--white); background: var(--red); border-color: var(--red); }
+.btn-red:hover { background: var(--red-hot); border-color: var(--red-hot); }
+
+/* SUMMARY */
+#screen-summary { display: none; padding: 4rem 2rem 6rem; max-width: 860px; margin: 0 auto; }
+.sum-head { text-align: center; margin-bottom: 3.5rem; }
+.sum-head h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 7vw, 5rem); line-height: 0.95; margin-bottom: 0.75rem; }
+.sum-head p { font-size: 1rem; color: rgba(245,240,232,0.55); max-width: 480px; margin: 0 auto; line-height: 1.7; }
+
+.sum-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 3rem; }
+.sum-item { background: var(--black); padding: 1.5rem 1.75rem; }
+.sum-key { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.04em; color: var(--red-hot); margin-bottom: 0.15rem; }
+.sum-sub { font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.75rem; }
+.sum-note { font-size: 0.82rem; color: rgba(245,240,232,0.55); font-style: italic; line-height: 1.6; min-height: 1.4em; }
+.sum-note.empty { color: rgba(245,240,232,0.2); }
+
+.sc-block { border: 1px solid var(--border); padding: 2rem; margin-bottom: 3rem; }
+.sc-block-label { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red-hot); margin-bottom: 1.5rem; }
+.sc-half-label { font-family: 'Space Mono', monospace; font-size: 0.52rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); padding-bottom: 0.35rem; border-bottom: 1px solid var(--border); margin-bottom: 0.6rem; }
+.hole-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem; margin-bottom: 1.25rem; }
+.hole { border: 1px solid var(--border); padding: 0.5rem; display: flex; align-items: center; gap: 0.4rem; }
+.hole-n { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: var(--gray); line-height: 1; min-width: 1.2rem; }
+.hole-nm { font-size: 0.57rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(245,240,232,0.35); flex: 1; }
+.hole-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); flex-shrink: 0; }
+
+.cta-block { background: #100505; border: 1px solid var(--border); padding: 3rem 2rem; text-align: center; }
+.cta-block h3 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 6vw, 4rem); line-height: 0.95; margin-bottom: 1rem; }
+.cta-block h3 span { color: var(--red-hot); }
+.cta-block p { font-size: 0.9rem; color: rgba(245,240,232,0.5); max-width: 400px; margin: 0 auto 2rem; line-height: 1.7; }
+.cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+@media print {
+  header, .progress-wrap, #screen-intro, #screen-steps { display: none !important; }
+  #screen-summary { display: block !important; }
+  body { background: white; color: black; }
+  .sum-item { background: #f9f9f9; }
+  .cta-block { display: none; }
+}
+@media (max-width: 600px) {
+  .step-cols, .sum-grid { grid-template-columns: 1fr; }
+  header { padding: 0.9rem 1.25rem; }
+  .hdr-back { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="hdr-brand">FAR FLUNG CHANGE</div>
+    <div class="hdr-sub">The Caddy Book of Orientation</div>
+  </div>
+  <a class="hdr-back" href="farflungchange-v3.html">← Landing Page</a>
+</header>
+<div class="progress-wrap"><div class="progress-fill" id="progressFill"></div></div>
+
+<!-- INTRO -->
+<div id="screen-intro">
+  <p class="intro-eyebrow">A Practical Field Guide · Far Flung Change</p>
+  <h1 class="intro-title">
+    <em>the caddy book of</em>
+    Orientation
+  </h1>
+  <p class="intro-desc">Seven elements. Plain language. Your notes. Before you proceed — scout the course. This is how every deliberately good move begins.</p>
+  <div class="intro-tags">
+    <span class="intro-tag">7 Elements</span>
+    <span class="intro-tag">~10 Minutes</span>
+    <span class="intro-tag">Yours to Keep</span>
+    <span class="intro-tag">No Right Answers</span>
+  </div>
+  <button class="btn btn-red" onclick="startGuide()">Begin Orientation →</button>
+</div>
+
+<!-- STEPS -->
+<div id="screen-steps">
+  <div class="dots" id="dotsWrap"></div>
+
+  <!-- 01 POSITION -->
+  <div class="step" data-i="0">
+    <div class="step-eyebrow">Element 01 of 07</div>
+    <div class="step-title">Position</div>
+    <div class="step-tagline">where you are</div>
+    <div class="step-divider"></div>
+    <div class="step-cols">
+      <div class="explain">
+        <div class="col-label">What This Means</div>
+        <p>Before you navigate anywhere, you need an honest read of where you stand right now. Not where you want to be — where you actually are.</p>
+        <p>Position is your current financial snapshot: what you own, what you owe, what's coming in, what's going out. No judgment. Just a clear-eyed look at the starting line.</p>
+      </div>
+      <div class="prompts">
+        <div class="col-label">Consider</div>
+        <ul>
+          <li>Do I have a clear picture of what I own and owe?</li>
+          <li>Do I know my monthly cash flow — in and out?</li>
+          <li>Have I ever mapped my full financial position on paper?</li>
+          <li>What feels unclear or untracked right now?</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sc-chip">
+      <div class="sc-holes">① ② ⑨</div>
+      <div>
+        <div class="sc-chip-label">ScoreCard Connection — Front 9</div>
+        <div class="sc-chip-holes">Hole 1: Accounts &nbsp;·&nbsp; Hole 2: Reserves &nbsp;·&nbsp; Hole 9: Net$Worth</div>
+      </div>
+    </div>
+    <div class="notes-label"><span>Your Notes</span><span class="tick" id="tick-0">✓ saved</span></div>
+    <textarea id="note-0" placeholder="Where do things stand right now? What's clear — and what isn't?" oninput="saveNote(0)"></textarea>
+    <div class="step-nav">
+      <button class="btn btn-ghost" onclick="prevStep()">← Back</button>
+      <span class="step-count">1 / 7</span>
+      <button class="btn btn-red" onclick="nextStep()">Next →</button>
+    </div>
+  </div>
+
+  <!-- 02 TERRAIN -->
+  <div class="step" data-i="1">
+    <div class="step-eyebrow">Element 02 of 07</div>
+    <div class="step-title">Terrain</div>
+    <div class="step-tagline">what surrounds you</div>
+    <div class="step-divider"></div>
+    <div class="step-cols">
+      <div class="explain">
+        <div class="col-label">What This Means</div>
+        <p>Terrain is the landscape you're operating in — the financial environment around your life. Tax rules, interest rates, insurance markets, employer benefits. You didn't design these conditions, but they're acting on you regardless.</p>
+        <p>Understanding terrain doesn't mean mastering it. It means knowing what's out there so you're not caught off guard by things you could have seen coming.</p>
+      </div>
+      <div class="prompts">
+        <div class="col-label">Consider</div>
+        <ul>
+          <li>Do I understand the basic tax rules that affect me?</li>
+          <li>Am I aware of the benefits available through my employer?</li>
+          <li>Do I know how interest rates affect my debts or savings?</li>
+          <li>What parts of the financial landscape feel foreign?</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sc-chip">
+      <div class="sc-holes">④ ⑤ ⑦</div>
+      <div>
+        <div class="sc-chip-label">ScoreCard Connection — Front 9</div>
+        <div class="sc-chip-holes">Hole 4: Protection &nbsp;·&nbsp; Hole 5: Benefits &nbsp;·&nbsp; Hole 7: Taxes</div>
+      </div>
+    </div>
+    <div class="notes-label"><span>Your Notes</span><span class="tick" id="tick-1">✓ saved</span></div>
+    <textarea id="note-1" placeholder="What parts of the financial landscape feel unclear or unfamiliar to you?" oninput="saveNote(1)"></textarea>
+    <div class="step-nav">
+      <button class="btn btn-ghost" onclick="prevStep()">← Back</button>
+      <span class="step-count">2 / 7</span>
+      <button class="btn btn-red" onclick="nextStep()">Next →</button>
+    </div>
+  </div>
+
+  <!-- 03 FORCES -->
+  <div class="step" data-i="2">
+    <div class="step-eyebrow">Element 03 of 07</div>
+    <div class="step-title">Forces</div>
+    <div class="step-tagline">what's acting on you</div>
+    <div class="step-divider"></div>
+    <div class="step-cols">
+      <div class="explain">
+        <div class="col-label">What This Means</div>
+        <p>Forces are the pressures, obligations, and dynamics actively shaping your financial life — whether you chose them or not. Debt payments. Family obligations. A lease. A mortgage. Time itself.</p>
+        <p>Some forces are visible and understood. Others operate quietly in the background. Naming them is the first step toward managing them — rather than being managed by them.</p>
+      </div>
+      <div class="prompts">
+        <div class="col-label">Consider</div>
+        <ul>
+          <li>What financial obligations are non-negotiable right now?</li>
+          <li>Are there commitments I've made that I don't fully understand?</li>
+          <li>Who or what has the most pull on my financial decisions?</li>
+          <li>What forces am I ignoring that I probably shouldn't be?</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sc-chip">
+      <div class="sc-holes">③ ④ ⑧</div>
+      <div>
+        <div class="sc-chip-label">ScoreCard Connection — Front 9</div>
+        <div class="sc-chip-holes">Hole 3: Debts &nbsp;·&nbsp; Hole 4: Protection &nbsp;·&nbsp; Hole 8: Cash Flow</div>
+      </div>
+    </div>
+    <div class="notes-label"><span>Your Notes</span><span class="tick" id="tick-2">✓ saved</span></div>
+    <textarea id="note-2" placeholder="What forces are acting on your financial life right now — seen or unseen?" oninput="saveNote(2)"></textarea>
+    <div class="step-nav">
+      <button class="btn btn-ghost" onclick="prevStep()">← Back</button>
+      <span class="step-count">3 / 7</span>
+      <button class="btn btn-red" onclick="nextStep()">Next →</button>
+    </div>
+  </div>
+
+  <!-- 04 QUESTIONS -->
+  <div class="step" data-i="3">
+    <div class="step-eyebrow">Element 04 of 07</div>
+    <div class="step-title">Questions</div>
+    <div class="step-tagline">what matters now</div>
+    <div class="step-divider"></div>
+    <div class="step-cols">
+      <div class="explain">
+        <div class="col-label">What This Means</div>
+        <p>The questions you carry are data. What you're unsure about, what keeps surfacing, what you've been meaning to figure out — these aren't signs of failure. They're the map of where orientation is needed most.</p>
+        <p>Getting your real questions on the table is one of the most valuable things you can do. It focuses the work. It tells your caddy where to look. It turns vague unease into actionable inquiry.</p>
+      </div>
+      <div class="prompts">
+        <div class="col-label">Consider</div>
+        <ul>
+          <li>What financial question have I put off the longest?</li>
+          <li>What am I agreeing to that I don't fully understand?</li>
+          <li>What decision is coming that I feel underprepared for?</li>
+          <li>What would I most want explained in plain language?</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sc-chip">
+      <div class="sc-holes">⑫ ⑱</div>
+      <div>
+        <div class="sc-chip-label">ScoreCard Connection — Back 9</div>
+        <div class="sc-chip-holes">Hole 12: Choices &nbsp;·&nbsp; Hole 18: Clarity &nbsp;·&nbsp; All 18 holes are fair game</div>
+      </div>
+    </div>
+    <div class="notes-label"><span>Your Notes</span><span class="tick" id="tick-3">✓ saved</span></div>
+    <textarea id="note-3" placeholder="Write your real questions here. No filter needed — these stay with you." oninput="saveNote(3)"></textarea>
+    <div class="step-nav">
+      <button class="btn btn-ghost" onclick="prevStep()">← Back</button>
+      <span class="step-count">4 / 7</span>
+      <button class="btn btn-red" onclick="nextStep()">Next →</button>
+    </div>
+  </div>
+
+  <!-- 05 PACE -->
+  <div class="step" data-i="4">
+    <div class="step-eyebrow">Element 05 of 07</div>
+    <div class="step-title">Pace</div>
+    <div class="step-tagline">where tempo ties in</div>
+    <div class="step-divider"></div>
+    <div class="step-cols">
+      <div class="explain">
+        <div class="col-label">What This Means</div>
+        <p>Financial life has rhythms — monthly cash flow, annual taxes, decade-long savings horizons, once-in-a-generation decisions. Pace is about understanding the timing of things.</p>
+        <p>Moving too fast invites mistakes. Moving too slow invites costs. Knowing your pace — and the pace of what surrounds you — lets you act when action is right, not just when pressure mounts.</p>
+      </div>
+      <div class="prompts">
+        <div class="col-label">Consider</div>
+        <ul>
+          <li>Am I making decisions reactively — or deliberately?</li>
+          <li>What decisions feel urgent that might actually have more time?</li>
+          <li>What have I delayed that's actually time-sensitive?</li>
+          <li>Do I know the rhythm of my own financial calendar?</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sc-chip">
+      <div class="sc-holes">⑥ ⑪ ⑬</div>
+      <div>
+        <div class="sc-chip-label">ScoreCard Connection — Both 9s</div>
+        <div class="sc-chip-holes">Hole 6: Savings &nbsp;·&nbsp; Hole 11: Timing &nbsp;·&nbsp; Hole 13: Lifestyle</div>
+      </div>
+    </div>
+    <div class="notes-label"><span>Your Notes</span><span class="tick" id="tick-4">✓ saved</span></div>
+    <textarea id="note-4" placeholder="Where is your pace off — too fast, too slow, or just unclear?" oninput="saveNote(4)"></textarea>
+    <div class="step-nav">
+      <button class="btn btn-ghost" onclick="prevStep()">← Back</button>
+      <span class="step-count">5 / 7</span>
+      <button class="btn btn-red" onclick="nextStep()">Next →</button>
+    </div>
+  </div>
+
+  <!-- 06 OPTIONS -->
+  <div class="step" data-i="5">
+    <div class="step-eyebrow">Element 06 of 07</div>
+    <div class="step-title">Options</div>
+    <div class="step-tagline">how to scan for lines</div>
+    <div class="step-divider"></div>
+    <div class="step-cols">
+      <div class="explain">
+        <div class="col-label">What This Means</div>
+        <p>A good caddy scans the course before recommending a line. Options are the paths actually available to you — the choices you have, even when they're not obvious.</p>
+        <p>Many people proceed as if they have fewer options than they do — because no one walked them through what's available. Orientation surfaces those options. It doesn't choose for you. It makes sure you're choosing from a full menu, not a partial one.</p>
+      </div>
+      <div class="prompts">
+        <div class="col-label">Consider</div>
+        <ul>
+          <li>In my biggest financial decisions — did I know all my options?</li>
+          <li>Where am I proceeding by default rather than by choice?</li>
+          <li>What alternatives haven't I explored because I didn't know they existed?</li>
+          <li>Where do I feel stuck with no good path forward?</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sc-chip">
+      <div class="sc-holes">⑫ ⑭ ⑯</div>
+      <div>
+        <div class="sc-chip-label">ScoreCard Connection — Back 9</div>
+        <div class="sc-chip-holes">Hole 12: Choices &nbsp;·&nbsp; Hole 14: Purchases &nbsp;·&nbsp; Hole 16: Volatility</div>
+      </div>
+    </div>
+    <div class="notes-label"><span>Your Notes</span><span class="tick" id="tick-5">✓ saved</span></div>
+    <textarea id="note-5" placeholder="Where are you acting on incomplete options? What choices haven't you fully explored?" oninput="saveNote(5)"></textarea>
+    <div class="step-nav">
+      <button class="btn btn-ghost" onclick="prevStep()">← Back</button>
+      <span class="step-count">6 / 7</span>
+      <button class="btn btn-red" onclick="nextStep()">Next →</button>
+    </div>
+  </div>
+
+  <!-- 07 READINESS -->
+  <div class="step" data-i="6">
+    <div class="step-eyebrow">Element 07 of 07</div>
+    <div class="step-title">Readiness</div>
+    <div class="step-tagline">when action flows</div>
+    <div class="step-divider"></div>
+    <div class="step-cols">
+      <div class="explain">
+        <div class="col-label">What This Means</div>
+        <p>Readiness isn't urgency. It's the quiet signal that you're properly equipped and aligned — that it's the right time to proceed.</p>
+        <p>When you've worked through Position, Terrain, Forces, Questions, Pace, and Options — readiness emerges naturally. Not as pressure. As clarity. This is the point where deliberate action becomes possible. Where you stop reacting and start deciding.</p>
+      </div>
+      <div class="prompts">
+        <div class="col-label">Consider</div>
+        <ul>
+          <li>What would "ready" actually feel like for me?</li>
+          <li>What's the one thing standing between me and forward movement?</li>
+          <li>What do I need to understand before I can act with confidence?</li>
+          <li>Am I waiting for certainty — or am I actually already ready?</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sc-chip">
+      <div class="sc-holes">⑰ ⑱</div>
+      <div>
+        <div class="sc-chip-label">ScoreCard Connection — Back 9</div>
+        <div class="sc-chip-holes">Hole 17: Investing &nbsp;·&nbsp; Hole 18: Clarity &nbsp;·&nbsp; The full 18 now within reach</div>
+      </div>
+    </div>
+    <div class="notes-label"><span>Your Notes</span><span class="tick" id="tick-6">✓ saved</span></div>
+    <textarea id="note-6" placeholder="What would readiness look like for you right now? What's still in the way?" oninput="saveNote(6)"></textarea>
+    <div class="step-nav">
+      <button class="btn btn-ghost" onclick="prevStep()">← Back</button>
+      <span class="step-count">7 / 7</span>
+      <button class="btn btn-red" onclick="showSummary()">See My Caddy Book →</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- SUMMARY -->
+<div id="screen-summary">
+  <div class="sum-head">
+    <h2>Your Caddy Book</h2>
+    <p>A snapshot of where you stand across all seven elements of orientation. Print it, save it, bring it to your first conversation.</p>
+  </div>
+
+  <div class="sum-grid" id="sumGrid"></div>
+
+  <div class="sc-block">
+    <div class="sc-block-label">Your ScoreCard — 18 Holes Ahead</div>
+    <div class="sc-half-label">Front 9</div>
+    <div class="hole-grid">
+      <div class="hole"><span class="hole-n">①</span><span class="hole-nm">Accounts</span><span class="hole-dot"></span></div>
+      <div class="hole"><span class="hole-n">②</span><span class="hole-nm">Reserves</span><span class="hole-dot"></span></div>
+      <div class="hole"><span class="hole-n">③</span><span class="hole-nm">Debts</span><span class="hole-dot"></span></div>
+      <div class="hole"><span class="hole-n">④</span><span class="hole-nm">Protection</span><span class="hole-dot"></span></div>
+      <div class="hole"><span class="hole-n">⑤</span><span class="hole-nm">Benefits</span><span class="hole-dot"></span></div>
+      <div class="hole"><span class="hole-n">⑥</span><span class="hole-nm">Savings</span><span class="hole-dot"></span></div>
+      <div class="hole"><span class="hole-n">⑦</span><span class="hole-nm">Taxes</span><span class="hole-dot"></span></div>
+      <div class="hole"><span class="hole-n">⑧</span><span class="hole-nm">Cash Flow</span><span class="hole-dot"></span></div>
+      <div class="hole"><span class="hole-n">⑨</span><span class="hole-nm">Net$Worth</span><span class="hole-dot"></span></div>
+    </div>
+    <div class="sc-half-label">Back 9</div>
+    <div class="hole-grid">
+      <div class="hole"><span class="hole-n">⑩</span><span class="hole-nm">Spending</span><span class="hole-dot"></span></div>
+      <div class="hole"><span class="hole-n">⑪</span><span class="hole-nm">Timing</span><span class="hole-dot"></span></div>
+      <div class="hole"><span class="hole-n">⑫</span><span class="hole-nm">Choices</span><span class="hole-dot"></span></div>
+      <div class="hole"><span class="hole-n">⑬</span><span class="hole-nm">Lifestyle</span><span class="hole-dot"></span></div>
+      <div class="hole"><span class="hole-n">⑭</span><span class="hole-nm">Purchases</span><span class="hole-dot"></span></div>
+      <div class="hole"><span class="hole-n">⑮</span><span class="hole-nm">Family</span><span class="hole-dot"></span></div>
+      <div class="hole"><span class="hole-n">⑯</span><span class="hole-nm">Volatility</span><span class="hole-dot"></span></div>
+      <div class="hole"><span class="hole-n">⑰</span><span class="hole-nm">Investing</span><span class="hole-dot"></span></div>
+      <div class="hole"><span class="hole-n">⑱</span><span class="hole-nm">Clarity</span><span class="hole-dot" style="background:var(--red)"></span></div>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <h3>Momentum <span>Begins Here.</span></h3>
+    <p>You've oriented. You've mapped your terrain. The next step is a conversation — with a caddy who listens first.</p>
+    <div class="cta-btns">
+      <a href="mailto:info@farflungchange.com" class="btn btn-red">Punch The Clock →</a>
+      <button class="btn btn-ghost" onclick="window.print()">Print My Caddy Book</button>
+      <button class="btn btn-ghost" onclick="startOver()">Start Over</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const TOTAL = 7;
+const ELEMENTS = [
+  { key: 'Position',  sub: 'where you are' },
+  { key: 'Terrain',   sub: 'what surrounds you' },
+  { key: 'Forces',    sub: "what's acting on you" },
+  { key: 'Questions', sub: 'what matters now' },
+  { key: 'Pace',      sub: 'where tempo ties in' },
+  { key: 'Options',   sub: 'how to scan for lines' },
+  { key: 'Readiness', sub: 'when action flows' }
+];
+let cur = 0;
+const notes = Array(TOTAL).fill('');
+
+function startGuide() {
+  document.getElementById('screen-intro').style.display = 'none';
+  document.getElementById('screen-steps').style.display = 'block';
+  buildDots();
+  goTo(0);
+}
+
+function buildDots() {
+  const wrap = document.getElementById('dotsWrap');
+  wrap.innerHTML = '';
+  for (let i = 0; i < TOTAL; i++) {
+    const d = document.createElement('button');
+    d.className = 'dot';
+    d.onclick = () => goTo(i);
+    wrap.appendChild(d);
+  }
+}
+
+function goTo(i) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  const s = document.querySelector('.step[data-i="' + i + '"]');
+  if (s) s.classList.add('active');
+  cur = i;
+  syncDots();
+  syncProgress();
+  const ta = document.getElementById('note-' + i);
+  if (ta) ta.value = notes[i];
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function syncDots() {
+  document.querySelectorAll('.dot').forEach((d, i) => {
+    d.className = 'dot' + (i === cur ? ' active' : i < cur ? ' done' : '');
+  });
+}
+
+function syncProgress() {
+  document.getElementById('progressFill').style.width = ((cur + 1) / TOTAL * 100) + '%';
+}
+
+function nextStep() { if (cur < TOTAL - 1) goTo(cur + 1); }
+function prevStep() { if (cur > 0) goTo(cur - 1); }
+
+function saveNote(i) {
+  const ta = document.getElementById('note-' + i);
+  notes[i] = ta ? ta.value : '';
+  const t = document.getElementById('tick-' + i);
+  if (t) { t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 1800); }
+}
+
+function showSummary() {
+  const ta = document.getElementById('note-6');
+  if (ta) notes[6] = ta.value;
+  document.getElementById('screen-steps').style.display = 'none';
+  document.getElementById('screen-summary').style.display = 'block';
+  document.getElementById('progressFill').style.width = '100%';
+  const grid = document.getElementById('sumGrid');
+  grid.innerHTML = '';
+  ELEMENTS.forEach((el, i) => {
+    const note = (notes[i] || '').trim();
+    const div = document.createElement('div');
+    div.className = 'sum-item';
+    div.innerHTML = '<div class="sum-key">' + el.key + '</div>'
+      + '<div class="sum-sub">' + el.sub + '</div>'
+      + '<div class="sum-note' + (note ? '' : ' empty') + '">' + (note || 'No notes recorded.') + '</div>';
+    grid.appendChild(div);
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function startOver() {
+  notes.fill('');
+  for (let i = 0; i < TOTAL; i++) {
+    const ta = document.getElementById('note-' + i);
+    if (ta) ta.value = '';
+  }
+  document.getElementById('screen-summary').style.display = 'none';
+  document.getElementById('screen-intro').style.display = 'flex';
+  document.getElementById('progressFill').style.width = '0';
+}
+</script>
+</body>
+</html>
