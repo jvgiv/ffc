@@ -56,6 +56,11 @@ body {
   list-style: none;
 }
 
+.ffc-nav-mobile-panel,
+.ffc-nav-toggle {
+  display: none;
+}
+
 .ffc-nav-item {
   position: relative;
 }
@@ -268,22 +273,51 @@ body {
 @media (max-width: 768px) {
   .ffc-nav {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr auto auto;
     align-items: center;
-    row-gap: 1.05rem;
+    row-gap: 0;
     padding: 1.1rem 1rem;
   }
 
   .ffc-nav-links {
-    grid-column: 1 / -1;
-    flex-wrap: wrap;
-    gap: 0.25rem;
+    display: none;
   }
 
-  .ffc-nav-link {
-    font-size: clamp(0.62rem, 0.55rem + 0.2vw, 0.72rem);
-    letter-spacing: 0.09em;
-    padding: 0.32rem 0.45rem;
+  .ffc-nav-toggle {
+    grid-column: 3;
+    grid-row: 1;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.28rem;
+    width: 2.65rem;
+    height: 2.65rem;
+    margin-left: 0.6rem;
+    border: 1px solid var(--border);
+    background: rgba(12, 12, 12, 0.92);
+    color: var(--white);
+    cursor: pointer;
+    padding: 0 0.65rem;
+  }
+
+  .ffc-nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .ffc-nav-toggle.active span:nth-child(1) {
+    transform: translateY(5px) rotate(45deg);
+  }
+
+  .ffc-nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .ffc-nav-toggle.active span:nth-child(3) {
+    transform: translateY(-5px) rotate(-45deg);
   }
 
   .ffc-home-menu {
@@ -298,6 +332,75 @@ body {
     transform: none;
     font-size: 0.75rem;
     padding: 0.46rem 0.78rem;
+  }
+
+  .ffc-nav > .ffc-nav-cta {
+    display: none;
+  }
+
+  .ffc-nav.mobile-open {
+    border-bottom-color: transparent;
+  }
+
+  .ffc-nav-mobile-panel {
+    grid-column: 1 / -1;
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 0;
+    transition: max-height 0.25s ease, opacity 0.2s ease, margin-top 0.2s ease;
+  }
+
+  .ffc-nav-mobile-panel.open {
+    max-height: 34rem;
+    opacity: 1;
+    margin-top: 1rem;
+  }
+
+  .ffc-nav-mobile-links {
+    list-style: none;
+    border: 1px solid var(--border);
+    background: rgba(12, 12, 12, 0.97);
+    padding: 0.7rem;
+  }
+
+  .ffc-nav-mobile-item + .ffc-nav-mobile-item {
+    border-top: 1px solid var(--border);
+  }
+
+  .ffc-nav-link {
+    font-size: 0.74rem;
+    letter-spacing: 0.11em;
+    padding: 0.32rem 0.45rem;
+  }
+
+  .ffc-nav-mobile-item > .ffc-nav-link,
+  .ffc-nav-cta-mobile {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 0.25rem;
+    border-bottom: none;
+  }
+
+  .ffc-home-mobile-menu {
+    list-style: none;
+    margin: 0 0 0.65rem;
+    padding: 0.15rem 0 0 0.9rem;
+    display: grid;
+    gap: 0.1rem;
+  }
+
+  .ffc-home-mobile-menu .ffc-home-menu-link {
+    padding: 0.45rem 0.25rem;
+    font-size: 0.68rem;
+    color: rgba(245, 240, 232, 0.74);
+  }
+
+  .ffc-nav-cta-mobile {
+    justify-self: stretch;
+    text-align: center;
+    margin-top: 0.35rem;
   }
 
   .ffc-nav-brand {
