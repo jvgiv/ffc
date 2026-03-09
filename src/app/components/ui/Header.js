@@ -1,23 +1,39 @@
 'use client'
 import React from 'react'
 import Link from 'next/link'
-import {  usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 
 export default function Header() {
-    const pathName = usePathname();
+  const pathName = usePathname();
+  const homeSectionLinks = [
+    { href: '/#problem', label: 'The Problem' },
+    { href: '/#solution', label: 'The Guide' },
+    { href: '/#plan', label: 'The Plan' },
+    { href: '/#pricing', label: 'MenuBoard' },
+    { href: '/#scorecard', label: 'ScoreCard' },
+  ]
 
   return (
     <nav className="ffc-nav">
       <ul className="ffc-nav-links">
-        <li>
+        <li className="ffc-nav-item ffc-nav-item-home">
           <Link
             className={`ffc-nav-link ${pathName === "/" ? "active" : "" }`}
             href="/"
           >
             HOME
           </Link>
+          <ul className="ffc-home-menu" aria-label="Home section links">
+            {homeSectionLinks.map((item) => (
+              <li key={item.href}>
+                <Link className="ffc-home-menu-link" href={item.href}>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </li>
-        <li>
+        <li className="ffc-nav-item">
           <Link
             className={`ffc-nav-link ${pathName === "/menuboard" ? "active" : "" }`}
             href="/menuboard"
@@ -25,7 +41,7 @@ export default function Header() {
             MENU BOARD
           </Link>
         </li>
-        <li>
+        <li className="ffc-nav-item">
           <Link
             className={`ffc-nav-link ${pathName === "/scorecard" ? "active" : "" }`}
             href="/scorecard"
@@ -33,7 +49,7 @@ export default function Header() {
             SCORECARD
           </Link>
         </li>
-        <li>
+        <li className="ffc-nav-item">
           <Link
             className={`ffc-nav-link ${pathName === "/thoughtgallery" ? "active" : "" }`}
             href="/thoughtgallery"
@@ -41,7 +57,7 @@ export default function Header() {
             THOUGHT GALLERY
           </Link>
         </li>
-        <li>
+        <li className="ffc-nav-item">
           <Link
             className={`ffc-nav-link ${pathName === "/about" ? "active" : "" }`}
             href="/about"

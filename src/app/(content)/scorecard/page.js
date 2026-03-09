@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react';
 import Modal from '@/app/components/ui/Modal';
 import { useRouter } from 'next/navigation';
-import '../../old.css'
+import '../../OLD.css'
 
 
 

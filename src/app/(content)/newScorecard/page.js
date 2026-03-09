@@ -33,7 +33,7 @@ export default function NewScorecard() {
           <div className="hole"><span className="hole-num">⑮</span><span className="hole-name">Family</span><span className="hole-status"></span></div>
           <div className="hole"><span className="hole-num">⑯</span><span className="hole-name">Volatility</span><span className="hole-status"></span></div>
           <div className="hole"><span className="hole-num">⑰</span><span className="hole-name">Investing</span><span className="hole-status"></span></div>
-          <div className="hole"><span className="hole-num">⑱</span><span className="hole-name">Clarity</span><span class="hole-status begun"></span></div>
+          <div className="hole"><span className="hole-num">⑱</span><span className="hole-name">Clarity</span><span className="hole-status begun"></span></div>
         </div>
       </div>
     </div>
