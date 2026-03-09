@@ -738,24 +738,3 @@
     gap: 2.5rem;
   }
 }
-
-/* ── GUIDE (The Solution) ── */
-  .guide { border-top: 1px solid var(--border); }
-  .guide-intro { max-width: 640px; margin-bottom: 4rem; }
-  .guide-intro p { font-size: 1.1rem; line-height: 1.8; color: rgba(245,240,232,0.7); }
-  .guide-cards {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px;
-    background: var(--border);
-    border: 1px solid var(--border);
-  }
-  .guide-card {
-    background: var(--black); padding: 2.5rem 2rem;
-    transition: background 0.2s;
-  }
-  .guide-card:hover { background: var(--offblack); }
-  .card-icon { font-size: 1.5rem; margin-bottom: 1.5rem; }
-  .card-title {
-    font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.03em;
-    margin-bottom: 0.75rem; line-height: 1;
-  }
-  .card-body { font-size: 0.85rem; line-height: 1.7; color: rgba(245,240,232,0.55); }
