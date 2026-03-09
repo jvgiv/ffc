@@ -10,25 +10,19 @@ import '../../old.css'
 
 export default function ScoreCard() {
   const router = useRouter();
-  // const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const STORAGE_KEY = 1679
-  const [isOpen, setIsOpen] = useState(() => {
-    const checkCode = localStorage.getItem(STORAGE_KEY);
-    return checkCode !== 'true';
-  });
   const [passCode, setPassCode] = useState(1406);
   const [userCode, setUserCode] = useState('')
 
-  // useEffect(() => {
-  //   const checkCode = localStorage.getItem(STORAGE_KEY);
-  //   if (checkCode === 'true') {
-  //     return
-  //   } else {
-  //     setIsOpen(true);           // ← auto-open on mount
-  //   }
+    useEffect(() => {
+    const checkCode = localStorage.getItem(STORAGE_KEY);
 
-  // }, []);
-
+    if (checkCode !== 'true') {
+      setIsOpen(true);
+    }
+  }, []);
+  
   const handleClose = () => {
     setIsOpen(false);
     router.push('/');  
@@ -47,6 +41,7 @@ export default function ScoreCard() {
       setIsOpen(false);
     } else {
       alert("Code is incorrect")
+      setUserCode('')
     }
   }
 
