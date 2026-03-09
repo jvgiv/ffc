@@ -4,25 +4,30 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react';
 import Modal from '@/app/components/ui/Modal';
 import { useRouter } from 'next/navigation';
+import '../../old.css'
+
 
 
 export default function ScoreCard() {
   const router = useRouter();
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
+  const STORAGE_KEY = 1679
+  const [isOpen, setIsOpen] = useState(() => {
+    const checkCode = localStorage.getItem(STORAGE_KEY);
+    return checkCode !== 'true';
+  });
   const [passCode, setPassCode] = useState(1406);
   const [userCode, setUserCode] = useState('')
-  const STORAGE_KEY = 1679
 
-  useEffect(() => {
-    const checkCode = localStorage.getItem(STORAGE_KEY);
-    console.log(checkCode, passCode, STORAGE_KEY)
-    if (checkCode === 'true') {
-      return
-    } else {
-      setIsOpen(true);           // ← auto-open on mount
-    }
+  // useEffect(() => {
+  //   const checkCode = localStorage.getItem(STORAGE_KEY);
+  //   if (checkCode === 'true') {
+  //     return
+  //   } else {
+  //     setIsOpen(true);           // ← auto-open on mount
+  //   }
 
-  }, []);
+  // }, []);
 
   const handleClose = () => {
     setIsOpen(false);
