@@ -1,6 +1,7 @@
 import Problem from "./(content)/problem/page";
 import Plan from "./(content)/plan/page";
 import Pricing from "./(content)/pricing/page";
+import Guide from "./(content)/guide/page";
 import "./homepage.css";
 
 export default function Home() {
@@ -33,6 +34,7 @@ export default function Home() {
         </div>
       </section>
       <Problem />
+      <Guide />
       <Plan />
       <Pricing />
     </main>
