@@ -13,6 +13,7 @@ export default function Header() {
     { href: '/#plan', label: 'The Plan' },
     { href: '/#pricing', label: 'MenuBoard' },
     { href: '/#scorecard', label: 'ScoreCard' },
+    { href: '/#cta', label: 'Punch The Clock' },
   ]
 
   useEffect(() => {

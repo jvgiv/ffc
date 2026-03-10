@@ -4,6 +4,8 @@ import Pricing from "./(content)/pricing/page";
 import Guide from "./(content)/guide/page";
 import NewScorecard from "./(content)/newScorecard/page";
 import "./homepage.css";
+import Quote from "./(content)/quote/page";
+import PunchTheClock from "./(content)/punchTheClock/page";
 
 export default function Home() {
   return (
@@ -39,6 +41,8 @@ export default function Home() {
       <Plan />
       <Pricing />
       <NewScorecard />
+      <Quote />
+      <PunchTheClock />
     </main>
   );
 }
