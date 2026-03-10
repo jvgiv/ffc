@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Lightbox from 'yet-another-react-lightbox'
 import 'yet-another-react-lightbox/styles.css'
 import Image from 'next/image'
+import styles from './GameTheory.module.css'
 
 let images = [
     { src: '/GT.1.png', alt: '', width: 1500, height: 1500 },
@@ -29,14 +30,17 @@ export default function GameTheory() {
 
 
   return (
-      <div className='gt-container'>
-      <h2 className='tg-title'>Game Theory</h2>
-      <div className='mapped-pictures'>
+      <div className={styles.gallery}>
+      <div className={styles.header}>
+        <h2 className={styles.title}>Game Theory</h2>
+        <p className={styles.meta}>9 frames in view</p>
+      </div>
+      <div className={styles.grid}>
         {images.map(function (img, idx) {
             return (
                 <div
                     key={idx}
-                    className='group cursor-pointer overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300 gt-photo'
+                    className={styles.tile}
                     onClick={function () {
                         setIndex(idx);
                     }}
@@ -47,7 +51,7 @@ export default function GameTheory() {
                         width={400} // thumbnail size
                         height={300}
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 20vw"
-                        className="w-full h-auto object-cover aspect-square group-hover:scale-105 transition-transform duration-300"
+                        className={styles.image}
                         placeholder="blur"
                         blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAErgH3Xv0Z3QAAAABJRU5ErkJggg=="
                     />
