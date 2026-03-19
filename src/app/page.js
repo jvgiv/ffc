@@ -6,16 +6,21 @@ import NewScorecard from "./(content)/newScorecard/page";
 import "./homepage.css";
 import Quote from "./(content)/quote/page";
 import PunchTheClock from "./(content)/punchTheClock/page";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <main className="home-page">
       <section className="hero">
         <div className="hero-inner container">
-          <p className="hero-eyebrow">First Financial Advisory - Est. 1974</p>
+          <p className="hero-eyebrow-top">First Financial Advisory - Est. 1974</p>
           <div className="hero-logo-ring">
-            <div className="logo-c">C</div>
-            <div className="logo-dot"></div>
+            <Image
+              src='/ffc-dark.svg'
+              alt="FFC Logo"
+              width={110}
+              height={110}
+            />
           </div>
           <h1 className="hero-title">
             <em>practical financial</em>
