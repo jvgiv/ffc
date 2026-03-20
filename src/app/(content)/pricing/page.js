@@ -36,7 +36,7 @@ export default function Pricing() {
             </div>
           </div>
           <div className="pricing-card">
-            <div className="pricing-badge" style={{ background: "transparent", border: "1px solid var(--border)", color: "var(--gray)" }}>Add-on</div>
+            <div className="pricing-badge" style={{ background: "#cececeef", border: "1px solid var(--border)", color: "var(--red)" }}>Add-on</div>
             <div className="pricing-name">Premium Expansion Pack</div>
             <div className="pricing-price">+$250</div>
             <div className="pricing-desc">For orienteers who value structure, tools, and accountability.</div>
