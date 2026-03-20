@@ -1,5 +1,6 @@
 import React from 'react'
 import "../../homepage.css"
+import Link from 'next/link'
 
 export default function Pricing() {
   return (
@@ -14,16 +15,16 @@ export default function Pricing() {
             <div className="pricing-badge">Core Program</div>
             <div className="pricing-name">Financial Orientation</div>
             <div className="pricing-price">$500 <span>/ 1 year</span></div>
-            <div className="pricing-desc">A flat-fee educational engagement to foster financial clarity and confidence.</div>
+            <div className="pricing-desc">A flat-fee educational engagement to foster financial clarity and confidence. Forge Fog into Focus.</div>
             <ul className="pricing-features">
               <li>Learn core financial concepts and trade-offs</li>
               <li>Ask real-world questions, anytime</li>
               <li>Conversations by phone, Zoom, or in person</li>
               <li>Guidance without products, pressure, or pitches</li>
-              <li>Orientation only - no advice, no management, no implementation</li>
+              <li>Access to 360-point compendium of essential terms</li>
             </ul>
             <div className="pricing-cta">
-              <a
+              <Link
                 href="https://calendly.com/its-about-time"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -31,31 +32,20 @@ export default function Pricing() {
                 style={{ width: "100%", textAlign: "center", display: "block" }}
               >
                 Get Started -&gt;
-              </a>
+              </Link>
             </div>
           </div>
           <div className="pricing-card">
             <div className="pricing-badge" style={{ background: "transparent", border: "1px solid var(--border)", color: "var(--gray)" }}>Add-on</div>
-            <div className="pricing-name">ScoreCard Expansion</div>
+            <div className="pricing-name">Premium Expansion Pack</div>
             <div className="pricing-price">+$250</div>
-            <div className="pricing-desc">For orienteers who value added structure and follow-through.</div>
+            <div className="pricing-desc">For orienteers who value structure, tools, and accountability.</div>
             <ul className="pricing-features">
-              <li>Scheduled check-ins</li>
-              <li>Progress tracking</li>
-              <li>Understanding personal goals</li>
-              <li>Self-assessment tool</li>
-            </ul>
-          </div>
-          <div className="pricing-card">
-            <div className="pricing-badge" style={{ background: "transparent", border: "1px solid var(--border)", color: "var(--gray)" }}>Add-on</div>
-            <div className="pricing-name">Net$Worth Aggregator</div>
-            <div className="pricing-price">+$50</div>
-            <div className="pricing-desc">For orienteers who value a financial dashboard and ledger.</div>
-            <ul className="pricing-features">
-              <li>Track assets and debts</li>
-              <li>Consolidate spending data</li>
-              <li>Build budgets</li>
-              <li>Identify financial goals</li>
+              <li>Scheduled check-ins & follow ups</li>
+              <li>Dynamic progress mapping</li>
+              <li>Track assets + debts with a financial aggregator</li>
+              <li>Consolidate spending data and build budgets</li>
+              <li>Identify and prioritize financial goals</li>
             </ul>
           </div>
         </div>
