@@ -7,7 +7,7 @@ export default function Problem() {
     <section id="problem" className="friction">
       <div className="container">
         <div className="friction-grid">
-          <div className="friction-copy reveal visible">
+          <div className="friction-copy reveal">
             <span className="section-label">THE PROBLEM</span>
             <h2 className="section-title">YOU ARE DECIDING WITHOUT A MAP.</h2>
             <p>
@@ -35,7 +35,7 @@ export default function Problem() {
             </ul>
           </div>
 
-          <div className="friction-stat reveal visible">
+          <div className="friction-stat reveal">
             <div className="stat-item">
               <p className="stat-num">
                 88

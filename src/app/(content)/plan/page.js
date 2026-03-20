@@ -5,11 +5,11 @@ export default function Plan() {
   return (
     <section id="plan" className="plan">
       <div className="container">
-        <div className="reveal visible">
+        <div className="reveal">
           <span className="section-label">The Plan</span>
           <h2 className="section-title">Five moves. Zero mystery.</h2>
         </div>
-        <div className="plan-steps reveal visible" style={{ transitionDelay: "0.1s" }}>
+        <div className="plan-steps reveal" style={{ transitionDelay: "0.1s" }}>
           <div className="plan-step">
             <div className="step-num">1</div>
             <div className="step-title">Review the Offering</div>

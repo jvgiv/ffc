@@ -5,16 +5,14 @@ export default function NewScorecard() {
     <div className="scorecard" id="scorecard">
   <div className="container">
     <div className="scorecard-inner">
-      {/* <div className="scorecard-copy reveal"> */}
-      <div className="scorecard-copy">
+      <div className="scorecard-copy reveal">
         <span className="section-label">Start Here — Free</span>
         <h2 className="section-title">Your Orientation ScoreCard</h2>
         <p>The ScoreCard is your personal field guide through 18 essential areas of financial life — from Accounts and Cash Flow to Investing and Clarity.</p>
         <p>Think of it as your course map before the round begins. Unlock it free. Keep it. Use it to track where you are and what comes next.</p>
         <a href="#cta" className="btn-ghost" style={{marginTop: '1rem', display: 'inline-block'}}>Unlock ScoreCard →</a>
       </div>
-      {/* <div className="scorecard-visual reveal" style="transition-delay:0.15s"> */}
-      <div className="scorecard-visual" style={{transitionDelay: '0.15s'}}>
+      <div className="scorecard-visual reveal" style={{transitionDelay: '0.15s'}}>
         <div className="hole-grid">
           <div className="hole"><span className="hole-num">①</span><span className="hole-name">Accounts</span><span className="hole-status"></span></div>
           <div className="hole"><span className="hole-num">②</span><span className="hole-name">Reserves</span><span className="hole-status"></span></div>

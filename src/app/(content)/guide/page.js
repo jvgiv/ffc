@@ -5,8 +5,7 @@ export default function Guide() {
   return (
     <div className="guide" id="solution">
         <div className="container">
-            {/* <div className="guide-intro reveal"> */}
-            <div className="guide-intro">
+            <div className="guide-intro reveal">
             <span className="section-label">The Guide</span>
             <h2 className="section-title">You don't need another product. You need a starting point.</h2>
             <p>Far Flung Change isn't financial advice. It isn't management or implementation. It's <strong style={{color: "var(--white)"}}>orientation</strong> — the kind of on-the-ground training in the cockpit that you should've had before anyone asked you to fly.</p>

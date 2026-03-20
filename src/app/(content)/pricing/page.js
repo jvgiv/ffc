@@ -5,11 +5,11 @@ export default function Pricing() {
   return (
     <section id="pricing" className="pricing">
       <div className="container">
-        <div className="reveal visible">
+        <div className="reveal">
           <span className="section-label">The MenuBoard</span>
           <h2 className="section-title">Flat-fee. No products. No pressure.</h2>
         </div>
-        <div className="pricing-grid reveal visible" style={{ transitionDelay: "0.1s" }}>
+        <div className="pricing-grid reveal" style={{ transitionDelay: "0.1s" }}>
           <div className="pricing-card featured">
             <div className="pricing-badge">Core Program</div>
             <div className="pricing-name">Financial Orientation</div>

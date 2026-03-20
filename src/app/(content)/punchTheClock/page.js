@@ -4,8 +4,7 @@ export default function PunchTheClock() {
   return (
     <div className="final-cta" id="cta">
         <div className="container">
-            {/* <div className="reveal"> */}
-            <div className="">
+            <div className="reveal">
             <span className="section-label">Momentum Begins Here</span>
             <h2 className="section-title display">Punch<br /><span className="red">The Clock.</span></h2>
             <p>Confidence comes with clarity. If you're ready to understand what you're deciding and agreeing to — if you're ready to move forward with steadiness — this is where it starts.</p>
