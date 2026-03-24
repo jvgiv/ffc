@@ -19,9 +19,8 @@ export default function SubSideNav({ chapterId, currentSubId, terms, title, numb
           const isActive = number === currentSubId;
 
           return (
-            <>
             <Link
-            //   key={number}
+              key={number}
               href={`/definitions/${chapterId}/${number}`}
               style={{
                 textDecoration: 'none',
@@ -41,7 +40,6 @@ export default function SubSideNav({ chapterId, currentSubId, terms, title, numb
                     <span className='pi-dot'></span>
                     </div>
             </Link>
-            </>
           );
         })}
         </div>

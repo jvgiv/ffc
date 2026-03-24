@@ -8,7 +8,7 @@ import '../../definitions.css';
 export default async function Subpage({ params }) {
   const { chapterId, subId } = await params;
 
-  console.log("Received → chapterId:", chapterId, " | subId:", subId);
+  
 
   // Find chapter by the clean numeric id
   const chapter = chapters.find((c) => c.id === chapterId);
@@ -25,15 +25,9 @@ export default async function Subpage({ params }) {
   }
 
   const [number, title, pronunciation, partOfSpeech, definition, type, insight, time] = sub;
-
+console.log('num', chapter);
   return (
     <div>
-      <Link
-        href={`/definitions/${chapter.id}`}
-        // className="inline-flex items-center text-sm text-gray-500 hover:text-black mb-8"
-      >
-        ← Back to {chapter.title}
-      </Link>
 
 <div id="view-entry" className="view active">
       <div className="entry-layout">
@@ -58,7 +52,7 @@ export default async function Subpage({ params }) {
                             color: 'inherit',
                         }}    
                     >
-                    <span id="bcChapter" class="bc-item">{chapter.num} {chapter.title}</span>
+                    <span id="bcChapter" className="bc-item">{chapter.num} {chapter.title}</span>
                     </Link>
                     <span className="bc-sep">›</span>
                     <span id="bcTerm" className="bc-current">{title}</span>
@@ -85,9 +79,42 @@ export default async function Subpage({ params }) {
                 <span id="progLabel" className="prog-label">Mark as in progress</span>
             </div>
             <div className="entry-nav-bottom">
-                <button id="btnPrev" className="nav-btn">← Previous</button>
-                <button id="btnChapter" className="nav-btn">Chapter Index</button>
-                <button id="btnNext" className="nav-btn primary">Next →</button>
+                {number > 1 ? (
+                <Link
+                    href={`/definitions/${chapter.id}/${parseInt(number) - 1}`}
+                    style={{
+                        textDecoration: 'none',
+                        color: 'inherit',
+                    }}    
+                    id="btnPrev" 
+                    className="nav-btn"
+                >
+                    ← Previous
+                </Link>
+                ) : <button id="btnPrev" className="nav-btn" style={{cursor: 'none'}}>← Previous</button> }
+                <Link
+                    href={`/definitions/${chapter.id}`}
+                    id="btnIndex" className="nav-btn"
+                    style={{
+                        textDecoration: 'none',
+                        color: 'inherit',
+                    }}    
+                >
+                  Chapter Index
+                </Link>
+                {number < 20 ? (
+                    <Link
+                    href={`/definitions/${chapter.id}/${parseInt(number) + 1}`}
+                    style={{
+                        textDecoration: 'none',
+                        color: 'inherit'
+                    }}    
+                    id="btnNext" 
+                    className="nav-btn primary"
+                    >
+                    Next →
+                </Link>
+                ) : <button id="btnNext" className="nav-btn primary" style={{cursor: 'none'}}>Next →</button> }
             </div>
 
         </div>
