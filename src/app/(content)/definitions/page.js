@@ -1,6 +1,7 @@
 import React from 'react'
 import chapters from '../../../data/def.js'
 import Link from 'next/link.js'
+import './definitions.css'
 
 export default function Definitions() {
   return (
@@ -25,14 +26,24 @@ export default function Definitions() {
 
         {/* <!-- Chapter grid --> */}
         <div id="chapterGrid" style={{maxWidth: '860px', margin: '2.5rem auto 0', display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(200px,1fr))', gap:'0.6rem'}}>
+
             {chapters.map((chapter) => (
                 // console.log(chapter),
                 <Link
                     key={chapter.id}
                     href={`/definitions/${chapter.id}`}
+                    style={{
+                        textDecoration: 'none',
+                        color: 'inherit',
+                    }}
                 >
-                <span>{chapter.num}</span>
-                <span>{chapter.title}</span>
+                <div style={{border: '1px solid rgba(245, 240, 232, 0.1)', padding: '0.85rem 1rem', cursor: 'pointer', transition: '0.15s', background: 'var(--offblack)'}}>
+                    <div style={{display:'flex',alignItems:'center',gap:'0.6rem',marginBottom:'0.3rem'}}>
+                        <span style={{fontFamily: "'Bebas Neue',sans-serif", fontSize: '1.6rem', color: 'var(--orange)', lineHeight: '1'}}>{chapter.num}</span>
+                        <span className="v6-link" style={{fontFamily: "'Bebas Neue',sans-serif", fontSize: '1rem', color: 'var(--white)', letterSpacing: '0.05em'}}>{chapter.title}</span>
+                    </div>
+                    <div style={{fontFamily: "'Space Mono',monospace", fontSize: '0.48rem', color: 'var(--mgray)', letterSpacing: '0.08em'}}>{chapter.terms[0][7]} - {chapter.terms[19][7]}</div>
+                </div>
                 </Link>
             ))}
         </div>
