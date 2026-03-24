@@ -91,6 +91,15 @@ export default function Header() {
         </li>
         <li className="ffc-nav-item">
           <Link
+            className={`ffc-nav-link ${pathName === "/definitions" ? "active" : "" }`}
+            href="/definitions"
+            onClick={handleNavClose}
+          >
+            DOGSTAR DEFINITIONS
+          </Link>
+        </li>
+        <li className="ffc-nav-item">
+          <Link
             className={`ffc-nav-link ${pathName === "/about" ? "active" : "" }`}
             href="/about"
             onClick={handleNavClose}
@@ -145,6 +154,15 @@ export default function Header() {
               onClick={handleNavClose}
             >
               THOUGHT GALLERY
+            </Link>
+          </li>
+          <li className="ffc-nav-mobile-item">
+            <Link
+              className={`ffc-nav-link ${pathName === "/definitions" ? "active" : "" }`}
+              href="/definitions"
+              onClick={handleNavClose}
+            >
+              DOGSTAR DEFINITIONS
             </Link>
           </li>
           <li className="ffc-nav-mobile-item">
