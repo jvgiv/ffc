@@ -31,7 +31,7 @@ export default function Pricing() {
                 className="btn-primary"
                 style={{ width: "100%", textAlign: "center", display: "block" }}
               >
-                Get Started -&gt;
+                Click Here to Review the Agreement -&gt;
               </Link>
             </div>
           </div>
