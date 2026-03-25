@@ -27,10 +27,10 @@ export default function Definitions() {
                 alt="Definitions Clock"
                 width={240}
                 height={240}
-                />
-                </div>
-        <p className="master-hint">Select a chapter below &nbsp;·&nbsp; <span>or search above</span></p>
+            />
         </div>
+        <p className="master-hint">Select a chapter below &nbsp;·&nbsp; <span>or search above</span></p>
+    </div>
        
         <div id="chapterGrid" style={{maxWidth: '860px', margin: '2.5rem auto 0', display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(200px,1fr))', gap:'0.6rem'}}>
 
