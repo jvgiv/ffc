@@ -2,14 +2,12 @@ import React from 'react'
 import chapters from '../../../data/def.js'
 import Link from 'next/link.js'
 import './definitions.css'
+import Image from 'next/image.js'
 
 export default function Definitions() {
   return (
     <div>
-      <div>
-        <div className="hdr-brand">DogStar <span>Definitions</span></div>
-        <div className="hdr-sub">Financial Orientation Compendium · Far Flung Change</div>
-    </div>
+      
     <div className="hdr-right">
         {/* <input className="hdr-search" id="searchInput" type="text" placeholder="Search 360 terms..." oninput="doSearch(this.value)"> */}
         {/* <a className="hdr-home" onclick="showMaster()" href="#">◎ Home</a> */}
@@ -20,11 +18,20 @@ export default function Definitions() {
         <p className="master-sub">A Financial Orientation Compendium</p>
         <p className="master-tag">18 Chapters · 20 Terms · 360° · ◷ 00:00 → 59:50</p>
         {/* <div className="clock-wrap" onclick="window.location.href=FFC_URL"> */}
-      {/* IMAGE HERE */}
-        </div>
+      
+        
+        {/* </div> */}
+        <div className="clock-wrap">
+            <Image
+                src='/def.png'
+                alt="Definitions Clock"
+                width={240}
+                height={240}
+                />
+                </div>
         <p className="master-hint">Select a chapter below &nbsp;·&nbsp; <span>or search above</span></p>
-
-        {/* <!-- Chapter grid --> */}
+        </div>
+       
         <div id="chapterGrid" style={{maxWidth: '860px', margin: '2.5rem auto 0', display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(200px,1fr))', gap:'0.6rem'}}>
 
             {chapters.map((chapter) => (
