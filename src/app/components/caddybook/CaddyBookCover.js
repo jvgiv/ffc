@@ -20,7 +20,7 @@ export default function CaddyBookCover() {
             <div className="cover-stat"><span className="stat-num"><span className="circled">7</span></span>Essential<br />Elements</div>
             <div className="cover-stat"><span className="stat-num"><span className="circled">10</span></span>Minutes<br />to Complete</div>
             <div className="cover-stat"><span className="stat-num"><span className="circled">0</span></span>Wrong<br />Answers</div>
-            <div className="cover-stat"><span className="stat-num"><span className="circled">$0</span></span>Cost<br />Keep or Share</div>
+            <div className="cover-stat"><span className="stat-num"><span className="circled">0</span></span>$ Cost<br />Keep or Share</div>
             </div>
         </div>
         <div className="cover-bottom">

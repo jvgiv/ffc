@@ -1,13 +1,19 @@
 import React from 'react'
+import CaddyBookCover from './CaddyBookCover'
+import CaddyBookTOC from './CaddyBookTOC'
+import ElementPage from './ElementPage'
+import SummaryPage from './SummaryPage'
+import ScorecardPage from './ScoreCardPage'
+import ClosingPage from './ClosingPage'
 
-export default function CurrentPage({ index, page }) {
+export default function CurrentPage({ index, data }) {
     const elementIndex = index - 2;
+    console.log(data)
     
-    
-    if (index === 0)  return <CaddyBookCover meta={data.meta} stats={data.coverStats} />
-    if (index === 1)  return <CaddyBookTOC elements={data.elements} />
-    if (index >= 2 && index <= 8) return <ElementPage element={data.elements[elementIndex]} />
-    if (index === 9)  return <SummaryNotes elements={data.elements} />
+    if (index === 0)  return <CaddyBookCover />
+    if (index === 1)  return <CaddyBookTOC />
+    if (index >= 2 && index <= 8) return <ElementPage element={data[elementIndex]} />
+    if (index === 9)  return <SummaryPage elements={data.elements} />
     if (index === 10) return <ScorecardPage scorecard={data.scorecard} />
     if (index === 11) return <ClosingPage closing={data.closing} />
 }

@@ -1,4 +1,4 @@
-export const elements = [
+const elements = [
   {
     id: 1,
     slug: "position",
@@ -137,3 +137,5 @@ export const elements = [
     notesPrompt: "what would readiness look and feel like for you right now?"
   }
 ]
+
+export default elements

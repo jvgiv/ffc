@@ -7,6 +7,8 @@ import NavBar from '@/app/components/caddybook/CaddyNavBar'
 import CaddyBookTOC from '@/app/components/caddybook/CaddyBookTOC'
 import SummaryPage from '@/app/components/caddybook/SummaryPage'
 import ClosingPage from '@/app/components/caddybook/ClosingPage'
+import CurrentPage from '@/app/components/caddybook/CurrentPage'
+import elements from '../../../data/caddybook.js'
 
 
 const PAGES = [
@@ -39,7 +41,8 @@ export default function CaddyBook() {
         {/* <CaddyBookCover /> */}
       {/* <CaddyBookTOC /> */}
       {/* <SummaryPage /> */}
-      <ClosingPage />
+      {/* <ClosingPage /> */}
+      <CurrentPage index={current} data={elements} />
       <NavBar 
         pages={PAGES}
         current={current}
