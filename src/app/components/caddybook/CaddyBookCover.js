@@ -1,12 +1,17 @@
 import React from 'react'
 import '../../(content)/caddybook/caddybook.css'
+import Image from 'next/image'
 
 export default function CaddyBookCover() {
   return (
     <div className="cover">
         <div className="cover-logo">
-            <div className="c-letter">C</div>
-            <div className="logo-ring-text">Far Flung Change<br />First Financial Advisory</div>
+            <Image
+                src='/ffc-dark.svg'
+                alt="FFC Logo"
+                width={110}
+                height={110}
+            />
         </div>
         <div className="cover-mid">
             <p className="cover-eyebrow">· A Practical Field Guide · Identify Where You Are Now ·</p>
@@ -29,8 +34,18 @@ export default function CaddyBookCover() {
             <div className="brand-sub">Forging Fog Into Focus</div>
             </div>
             <div className="cover-getready">
-            <span className="get">GET</span>
-            <span className="ready">READY</span>
+              <div className="cover-getready-logo" aria-hidden="true">
+                <Image
+                  src='/ffc-dark.svg'
+                  alt=""
+                  width={110}
+                  height={110}
+                />
+              </div>
+              <div className="cover-getready-text">
+                <span className="get">GET</span>
+                <span className="ready">READY</span>
+              </div>
             </div>
         </div>
     </div>
