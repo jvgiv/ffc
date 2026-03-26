@@ -9,7 +9,8 @@ export default function Home() {
   return (
     <div className={styles.page}>
       {/* <main className={styles.main}> */}
-        <Image
+      <h2>This page is currently under construction.  Please check back later.</h2>
+        {/* <Image
           className="images-test"
           src="/ffc-dark.svg"
           alt="FFC logo"
@@ -36,7 +37,7 @@ export default function Home() {
           priority
           />  
           </a>
-        <p className="ptc-2">Own :  YOUR TIME</p>
+        <p className="ptc-2">Own :  YOUR TIME</p> */}
     </div>
   );
 }
