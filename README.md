@@ -1,5 +1,46 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Firebase setup
+
+This project uses the Next.js App Router under `src/app`, so the cleanest Firebase database setup is a shared client initializer plus a Firestore helper.
+
+1. Install the Firebase SDK:
+
+```bash
+npm install firebase
+```
+
+2. Copy `.env.example` to `.env.local` and replace the placeholders with your Firebase web app config from the Firebase console.
+
+3. Import the shared Firestore helper from `src/lib/firebase/firestore.js` anywhere you need to read or write Firestore data in a client component.
+
+Example:
+
+```js
+'use client';
+
+import { useEffect, useState } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import { getDb } from '@/lib/firebase/firestore';
+
+export default function ExampleList() {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    async function loadItems() {
+      const snapshot = await getDocs(collection(getDb(), 'items'));
+      setItems(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+    }
+
+    loadItems();
+  }, []);
+
+  return <pre>{JSON.stringify(items, null, 2)}</pre>;
+}
+```
+
+If you meant Firebase Realtime Database instead of Firestore, the app initializer in `src/lib/firebase/client.js` still stays the same and only the database helper/imports change.
+
 ## Getting Started
 
 First, run the development server:

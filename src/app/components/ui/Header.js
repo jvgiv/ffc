@@ -175,15 +175,13 @@ export default function Header() {
             </Link>
           </li>
           <li className="ffc-nav-mobile-item">
-            <a
+            <Link
               className="ffc-nav-cta ffc-nav-cta-mobile"
-              href="https://calendly.com/its-about-time"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/login"
               onClick={handleNavClose}
             >
-              PUNCH THE CLOCK
-            </a>
+              LOG IN
+            </Link>
           </li>
         </ul>
       </div>
@@ -191,14 +189,12 @@ export default function Header() {
       <Link className="ffc-nav-brand" href="/">
         FAR FLUNG CHANGE
       </Link>
-      <a
+      <Link
         className="ffc-nav-cta"
-        href="https://calendly.com/its-about-time"
-        target="_blank"
-        rel="noopener noreferrer"
+        href="/login"
       >
-        PUNCH THE CLOCK
-      </a>
+        LOG IN
+      </Link>
     </nav>
   )
 }
