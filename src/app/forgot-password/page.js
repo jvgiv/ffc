@@ -61,23 +61,7 @@ export default function ForgotPasswordPage() {
             </p>
           </div>
 
-          <div>
-            <div className={styles.authStats}>
-              <div className={styles.stat}>
-                <span className={styles.statValue}>Inbox</span>
-                <span className={styles.statLabel}>Reset Link</span>
-              </div>
-              <div className={styles.stat}>
-                <span className={styles.statValue}>Secure</span>
-                <span className={styles.statLabel}>One Time Code</span>
-              </div>
-            </div>
 
-            <div className={styles.leadFooter}>
-              <span className={styles.leadChip}>Email Reset</span>
-              <span className={styles.leadChip}>Account Access</span>
-            </div>
-          </div>
         </section>
 
         <section className={styles.authCard}>

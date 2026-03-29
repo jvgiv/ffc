@@ -101,23 +101,7 @@ export default function ResetPasswordPage() {
             </p>
           </div>
 
-          <div>
-            <div className={styles.authStats}>
-              <div className={styles.stat}>
-                <span className={styles.statValue}>One Time</span>
-                <span className={styles.statLabel}>Secure Code</span>
-              </div>
-              <div className={styles.stat}>
-                <span className={styles.statValue}>6+</span>
-                <span className={styles.statLabel}>Password Length</span>
-              </div>
-            </div>
 
-            <div className={styles.leadFooter}>
-              <span className={styles.leadChip}>Reset Password</span>
-              <span className={styles.leadChip}>Secure Link</span>
-            </div>
-          </div>
         </section>
 
         <section className={styles.authCard}>

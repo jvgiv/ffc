@@ -18,7 +18,7 @@ const AGE_RANGE_OPTIONS = ["18-24", "25-34", "35-44", "45-54", "55-64", "65+"];
 const FORM_COPY = {
   login: {
     eyebrow: "Member Access",
-    leadTitle: ["Return to", "your orientation"],
+    leadTitle: ["Welcome to", "Orientation."],
     leadCopy:
       "Sign in to pick up where you left off. Your account keeps your orientation details, scorecard access, and progress connected to you.",
     cardKicker: "Login",
@@ -193,24 +193,7 @@ export default function AuthForm({ mode }) {
             <p className={styles.leadCopy}>{copy.leadCopy}</p>
           </div>
 
-          <div>
-            <div className={styles.authStats}>
-              <div className={styles.stat}>
-                <span className={styles.statValue}>Secure</span>
-                <span className={styles.statLabel}>Account Access</span>
-              </div>
-              <div className={styles.stat}>
-                <span className={styles.statValue}>Saved</span>
-                <span className={styles.statLabel}>Profile Details</span>
-              </div>
-            </div>
 
-            <div className={styles.leadFooter}>
-              <span className={styles.leadChip}>Email + Password</span>
-              <span className={styles.leadChip}>Personal Access</span>
-              <span className={styles.leadChip}>Site Progress</span>
-            </div>
-          </div>
         </section>
 
         <section className={styles.authCard}>
@@ -397,4 +380,3 @@ export default function AuthForm({ mode }) {
     </main>
   );
 }
-

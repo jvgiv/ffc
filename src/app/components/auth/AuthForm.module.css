@@ -29,7 +29,7 @@
   padding: 3rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   min-height: 36rem;
 }
 
@@ -92,60 +92,6 @@
   color: rgba(245, 240, 232, 0.7);
   font-size: 1rem;
   line-height: 1.85;
-}
-
-.authStats {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1px;
-  margin-top: 2.5rem;
-  border: 1px solid rgba(245, 240, 232, 0.08);
-  background: rgba(245, 240, 232, 0.08);
-}
-
-.stat {
-  background: rgba(8, 8, 8, 0.95);
-  padding: 1.2rem 1.15rem;
-}
-
-.statValue {
-  display: block;
-  font-family: var(--font-bebas-neue), sans-serif;
-  font-size: 2rem;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  color: var(--white);
-}
-
-.statLabel {
-  display: block;
-  margin-top: 0.4rem;
-  font-family: "Space Mono", monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(245, 240, 232, 0.5);
-}
-
-.leadFooter {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 2.5rem;
-}
-
-.leadChip {
-  padding: 0.55rem 0.9rem;
-  border: 1px solid rgba(245, 240, 232, 0.16);
-  font-family: "Space Mono", monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(245, 240, 232, 0.7);
 }
 
 .authCard {
@@ -342,10 +288,6 @@
   .authLead,
   .authCard {
     padding: 1.4rem;
-  }
-
-  .authStats {
-    grid-template-columns: 1fr;
   }
 
   .helperRow {
