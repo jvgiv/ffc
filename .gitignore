@@ -23,6 +23,9 @@
 # misc
 .DS_Store
 *.pem
+*.key
+firebase-admin-service-account*.json
+service-account*.json
 
 # debug
 npm-debug.log*
@@ -40,3 +43,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+keys/firebase-private.json

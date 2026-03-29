@@ -50,7 +50,7 @@ export default function LoggedInPage() {
       <section
         style={{
           width: "100%",
-          maxWidth: "40rem",
+          maxWidth: "46rem",
           border: "1px solid rgba(245, 240, 232, 0.12)",
           background: "rgba(10, 10, 10, 0.88)",
           padding: "3rem 2rem",
@@ -96,31 +96,84 @@ export default function LoggedInPage() {
           style={{
             color: "rgba(245, 240, 232, 0.68)",
             lineHeight: "1.8",
-            maxWidth: "30rem",
-            margin: "0 auto 2rem",
+            maxWidth: "31rem",
+            margin: "0 auto 1.25rem",
           }}
         >
           Your sign-in was successful and your account is ready to use.
         </p>
-        <Link
-          href="/"
+        <p
           style={{
-            display: "inline-block",
-            padding: "0.95rem 1.25rem",
-            border: "1px solid var(--red)",
-            background: "var(--red)",
-            color: "var(--white)",
-            textDecoration: "none",
-            fontFamily: "'Space Mono', monospace",
-            fontSize: "0.75rem",
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
+            color: "rgba(245, 240, 232, 0.68)",
+            lineHeight: "1.8",
+            maxWidth: "31rem",
+            margin: "0 auto 2rem",
           }}
         >
-          Back Home
-        </Link>
+          You can launch a DocuSign embedded-signing session or open your signed-documents history
+          to review what has already been stored in Firestore for your account.
+        </p>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "0.85rem",
+            justifyContent: "center",
+          }}
+        >
+          <Link
+            href="/logged-in/docusign"
+            style={{
+              display: "inline-block",
+              padding: "0.95rem 1.25rem",
+              border: "1px solid var(--red)",
+              background: "var(--red)",
+              color: "var(--white)",
+              textDecoration: "none",
+              fontFamily: "'Space Mono', monospace",
+              fontSize: "0.75rem",
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+            }}
+          >
+            Open DocuSign Demo
+          </Link>
+          <Link
+            href="/logged-in/documents"
+            style={{
+              display: "inline-block",
+              padding: "0.95rem 1.25rem",
+              border: "1px solid rgba(245, 240, 232, 0.18)",
+              background: "transparent",
+              color: "var(--white)",
+              textDecoration: "none",
+              fontFamily: "'Space Mono', monospace",
+              fontSize: "0.75rem",
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+            }}
+          >
+            View Signed Documents
+          </Link>
+          <Link
+            href="/"
+            style={{
+              display: "inline-block",
+              padding: "0.95rem 1.25rem",
+              border: "1px solid rgba(245, 240, 232, 0.18)",
+              background: "transparent",
+              color: "var(--white)",
+              textDecoration: "none",
+              fontFamily: "'Space Mono', monospace",
+              fontSize: "0.75rem",
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+            }}
+          >
+            Back Home
+          </Link>
+        </div>
       </section>
     </main>
   );
 }
-
