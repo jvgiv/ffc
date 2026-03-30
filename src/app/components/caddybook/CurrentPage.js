@@ -11,9 +11,18 @@ export default function CurrentPage({ index, data, notes, handleChange }) {
 
     if (index === 0) return <CaddyBookCover />
     if (index === 1) return <CaddyBookTOC />
-    if (index >= 2 && index <= 8) return <ElementPage element={data[elementIndex]} handleChange={handleChange} />
-    if (index === 9) return <SummaryPage elements={data.elements} notes={notes}/>
+    if (index >= 2 && index <= 8) {
+        const element = data[elementIndex]
+
+        return (
+            <ElementPage
+                element={element}
+                note={notes[element.slug]}
+                handleChange={(e) => handleChange(element.slug, e.target.value)}
+            />
+        )
+    }
+    if (index === 9) return <SummaryPage elements={data.elements} notes={notes} />
     if (index === 10) return <ScorecardPage scorecard={data.scorecard} />
     if (index === 11) return <ClosingPage closing={data.closing} />
 }
-

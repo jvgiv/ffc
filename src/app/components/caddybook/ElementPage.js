@@ -2,7 +2,7 @@ import Link from 'next/link'
 import '../../(content)/caddybook/caddybook.css'
 import { getDefinitionHref } from '@/lib/definitions'
 
-export default function ElementPage({ element }) {
+export default function ElementPage({ element, note, handleChange }) {
   const { id, title, subtitle, fraction, whatThisMeans,
           consider, scorecardNum,scorecardConnections, notesPrompt } = element
   return (
@@ -43,6 +43,8 @@ export default function ElementPage({ element }) {
             className="notes-prompt"
             placeholder={notesPrompt}
             rows={4}
+            value={note}
+            onChange={handleChange}
           />
         </div>
       </div>

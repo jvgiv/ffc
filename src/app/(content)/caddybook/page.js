@@ -38,12 +38,11 @@ export default function CaddyBook() {
       readiness: '',
     })
     
-    const handleChange = (e) => {
-      e.preventDefault();
-      console.log("notes", notes)
+    const handleChange = (slug, value) => {
+      console.log("slug", slug, value, notes)
       setNotes(prev => ({
         ...prev,
-        [slug]: e.target.value,
+        [slug]: value,
       }))
     }
 

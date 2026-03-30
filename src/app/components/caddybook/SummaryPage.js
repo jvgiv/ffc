@@ -47,31 +47,31 @@ export default function SummaryPage({ notes }) {
         </div>
         <div className="summary-notes-col">
             <div className="summary-notes-entry">
-            <span className="sn-placeholder">your notes will be recorded here after enrollment</span>
+            <span className="sn-placeholder">{notes.position}</span>
             <div className="sn-line"></div><div className="sn-line light"></div><div className="sn-line light"></div>
             </div>
             <div className="summary-notes-entry">
-            <span className="sn-placeholder">your notes will be recorded here after enrollment</span>
+            <span className="sn-placeholder">{notes.terrain}</span>
             <div className="sn-line"></div><div className="sn-line light"></div><div className="sn-line light"></div>
             </div>
             <div className="summary-notes-entry">
-            <span className="sn-placeholder">your notes will be recorded here after enrollment</span>
+            <span className="sn-placeholder">{notes.forces}</span>
             <div className="sn-line"></div><div className="sn-line light"></div><div className="sn-line light"></div>
             </div>
             <div className="summary-notes-entry">
-            <span className="sn-placeholder">your notes will be recorded here after enrollment</span>
+            <span className="sn-placeholder">{notes.questions}</span>
             <div className="sn-line"></div><div className="sn-line light"></div><div className="sn-line light"></div>
             </div>
             <div className="summary-notes-entry">
-            <span className="sn-placeholder">your notes will be recorded here after enrollment</span>
+            <span className="sn-placeholder">{notes.pace}</span>
             <div className="sn-line"></div><div className="sn-line light"></div><div className="sn-line light"></div>
             </div>
             <div className="summary-notes-entry">
-            <span className="sn-placeholder">your notes will be recorded here after enrollment</span>
+            <span className="sn-placeholder">{notes.options}</span>
             <div className="sn-line"></div><div className="sn-line light"></div><div className="sn-line light"></div>
             </div>
             <div className="summary-notes-entry">
-            <span className="sn-placeholder">your notes will be recorded here after enrollment</span>
+            <span className="sn-placeholder">{notes.readiness}</span>
             <div className="sn-line"></div><div className="sn-line light"></div><div className="sn-line light"></div>
             </div>
         </div>
