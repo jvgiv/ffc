@@ -16,7 +16,20 @@ const elements = [
       "Have I ever mapped my full financial position on paper?",
       "What feels unclear or untracked right now?"
     ],
-    scorecardConnections: ["Accounts", "Reserves", "Net $ Worth"],
+    scorecardConnections: [
+      {
+        "num": "1",
+        "title": "Accounts"
+      },
+      {
+        "num": "2",
+        "title": "Reserves"
+      },
+      {
+        "num": "9",
+        "title": "Net $ Worth"
+      }
+    ],
     notesPrompt: "where do things stand? what's clear? what isn't?"
   },
   {
@@ -35,7 +48,20 @@ const elements = [
       "Do I know how interest rates affect my debts or savings or bond values?",
       "What parts of the financial landscape feel foreign?"
     ],
-    scorecardConnections: ["Protection", "Benefits", "Taxes"],
+    scorecardConnections: [
+      {
+        "num": "4",
+        "title": "Protection"
+      },
+      {
+        "num": "5",
+        "title": "Benefits"
+      },
+      {
+        "num": "8",
+        "title": "Taxes"
+      }
+    ],
     notesPrompt: "what parts of your money matters landscape feel unclear or unfamiliar?"
   },
   {
@@ -54,7 +80,20 @@ const elements = [
       "Who or what has the most pull on my financial decisions?",
       "What forces am I ignoring that I probably shouldn't be?"
     ],
-    scorecardConnections: ["Debts", "Protection", "Cash Flow"],
+    scorecardConnections: [
+      {
+        "num": "3",
+        "title": "Debts"
+      },
+      {
+        "num": "4",
+        "title": "Protection"
+      },
+      {
+        "num": "7",
+        "title": "Cash Flow"
+      }
+    ],
     notesPrompt: "what forces are acting on your financial life — seen or unseen?"
   },
   {
@@ -74,7 +113,20 @@ const elements = [
       "What decision is coming that I feel less-than-prepared for?",
       "What term or concept do I most want explained in plain language?"
     ],
-    scorecardConnections: ["Choices", "Clarity", "All: Fair Game"],
+    scorecardConnections: [
+      {
+        "num": "12",
+        "title": "Choices"
+      },
+      {
+        "num": "18",
+        "title": "Clarity"
+      },
+      {
+        "num": "1 - 18",
+        "title": "All: Fair Game"
+      }
+    ],
     notesPrompt: "write your real questions here. no filter needed."
   },
   {
@@ -93,7 +145,20 @@ const elements = [
       "What have I delayed that's actually time-sensitive?",
       "Do I know the rhythm of my own financial calendar?"
     ],
-    scorecardConnections: ["Savings", "Timing", "Lifestyle"],
+    scorecardConnections: [
+      {
+        "num": "6",
+        "title": "Savings"
+      },
+      {
+        "num": "11",
+        "title": "Timing"
+      },
+      {
+        "num": "15",
+        "title": "Lifestyle"
+      }
+    ],
     notesPrompt: "where is your pace off? too fast? too slow? unclear?"
   },
   {
@@ -113,7 +178,20 @@ const elements = [
       "Any alternatives I didn't explore because I only later learned they existed?",
       "Where do I feel stuck with no good path forward?"
     ],
-    scorecardConnections: ["Choices", "Purchases", "Volatility"],
+    scorecardConnections: [
+      {
+        "num": "12",
+        "title": "Choices"
+      },
+      {
+        "num": "14",
+        "title": "Purchases"
+      },
+      {
+        "num": "17",
+        "title": "Volatility"
+      }
+    ],
     notesPrompt: "are you making choices unaware of all options? ever do so in the past?"
   },
   {
@@ -133,7 +211,20 @@ const elements = [
       "What do I need to understand before I can act with confidence?",
       "Am I waiting for certainty? Or am I actually already ready?"
     ],
-    scorecardConnections: ["Investing", "Clarity", "All: Fair Game"],
+    scorecardConnections: [
+      {
+        "num": "13",
+        "title": "Investing"
+      },
+      {
+        "num": "18",
+        "title": "Clarity"
+      },
+      {
+        "num": "1 - 18",
+        "title": "All: Fair Game"
+      }
+    ],
     notesPrompt: "what would readiness look and feel like for you right now?"
   }
 ]

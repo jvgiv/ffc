@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../(content)/caddybook/caddybook.css'
 
-export default function SummaryPage() {
+export default function SummaryPage({ notes }) {
   return (
     <>
     <div className="doc-header"><span className="brand-left">Far Flung Change · the Caddy Book</span><span className="brand-right">Forging Fog Into Focus</span></div>

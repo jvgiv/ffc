@@ -28,6 +28,24 @@ const PAGES = [
 
 export default function CaddyBook() {
     const [current, setCurrent] = useState(0)
+    const [notes, setNotes] = useState({
+      position: '',
+      terrain: '',
+      forces: '',
+      questions: '',
+      pace: '',
+      options: '',
+      readiness: '',
+    })
+    
+    const handleChange = (e) => {
+      e.preventDefault();
+      console.log("notes", notes)
+      setNotes(prev => ({
+        ...prev,
+        [slug]: e.target.value,
+      }))
+    }
 
     function goTo(n) {
     setCurrent(n)
@@ -37,12 +55,17 @@ export default function CaddyBook() {
   const page = PAGES[current]
 
   return (
-    <div>
+    <div className="page">
         {/* <CaddyBookCover /> */}
       {/* <CaddyBookTOC /> */}
       {/* <SummaryPage /> */}
       {/* <ClosingPage /> */}
-      <CurrentPage index={current} data={elements} />
+      <CurrentPage 
+        index={current} 
+        data={elements} 
+        notes={notes}
+        handleChange={handleChange}
+      />
       <NavBar 
         pages={PAGES}
         current={current}

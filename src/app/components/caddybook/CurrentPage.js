@@ -6,14 +6,13 @@ import SummaryPage from './SummaryPage'
 import ScorecardPage from './ScoreCardPage'
 import ClosingPage from './ClosingPage'
 
-export default function CurrentPage({ index, data }) {
+export default function CurrentPage({ index, data, notes, handleChange }) {
     const elementIndex = index - 2;
-    console.log(data)
-    
-    if (index === 0)  return <CaddyBookCover />
-    if (index === 1)  return <CaddyBookTOC />
-    if (index >= 2 && index <= 8) return <ElementPage element={data[elementIndex]} />
-    if (index === 9)  return <SummaryPage elements={data.elements} />
+
+    if (index === 0) return <CaddyBookCover />
+    if (index === 1) return <CaddyBookTOC />
+    if (index >= 2 && index <= 8) return <ElementPage element={data[elementIndex]} handleChange={handleChange} />
+    if (index === 9) return <SummaryPage elements={data.elements} notes={notes}/>
     if (index === 10) return <ScorecardPage scorecard={data.scorecard} />
     if (index === 11) return <ClosingPage closing={data.closing} />
 }
