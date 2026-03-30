@@ -13,7 +13,7 @@ export default function Definitions() {
         {/* <a className="hdr-home" onclick="showMaster()" href="#">◎ Home</a> */}
     </div>
 
-    <div id="view-master" class="view active">
+    <div id="view-master" className="view active">
         <h1 className="master-title">DogStar <span>Definitions</span></h1>
         <p className="master-sub">A Financial Orientation Compendium</p>
         <p className="master-tag">18 Chapters · 20 Terms · 360° · ◷ 00:00 → 59:50</p>

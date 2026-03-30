@@ -62,7 +62,7 @@ export default function Header() {
             ))}
           </ul>
         </li>
-        <li className="ffc-nav-item">
+        {/* <li className="ffc-nav-item">
           <Link
             className={`ffc-nav-link ${pathName === "/menuboard" ? "active" : "" }`}
             href="/menuboard"
@@ -78,6 +78,15 @@ export default function Header() {
             onClick={handleNavClose}
           >
             SCORECARD
+          </Link>
+        </li> */}
+        <li className="ffc-nav-item">
+          <Link
+            className={`ffc-nav-link ${pathName === "/caddybook" ? "active" : "" }`}
+            href="/caddybook"
+            onClick={handleNavClose}
+          >
+            CADDY BOOK
           </Link>
         </li>
         <li className="ffc-nav-item">
@@ -129,7 +138,7 @@ export default function Header() {
               ))}
             </ul>
           </li>
-          <li className="ffc-nav-mobile-item">
+          {/* <li className="ffc-nav-mobile-item">
             <Link
               className={`ffc-nav-link ${pathName === "/menuboard" ? "active" : "" }`}
               href="/menuboard"
@@ -145,6 +154,15 @@ export default function Header() {
               onClick={handleNavClose}
             >
               SCORECARD
+            </Link>
+          </li> */}
+          <li className="ffc-nav-mobile-item">
+            <Link
+              className={`ffc-nav-link ${pathName === "/caddybook" ? "active" : "" }`}
+              href="/caddybook"
+              onClick={handleNavClose}
+            >
+              CADDY BOOK
             </Link>
           </li>
           <li className="ffc-nav-mobile-item">
