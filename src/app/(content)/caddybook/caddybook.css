@@ -646,7 +646,8 @@ body {
   grid-template-columns: 28px 1fr auto;
   gap: 10px;
   align-items: center;
-  padding: 7px 0;
+  min-height: 57px;
+  padding: 11px 0;
   border-bottom: 1px solid #141414;
 }
 .sc-row:last-child {
