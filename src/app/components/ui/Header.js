@@ -2,11 +2,15 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
+import { onAuthStateChanged, signOut } from 'firebase/auth'
+import { getFirebaseAuth } from '@/lib/firebase/auth'
 
 export default function Header() {
   const pathName = usePathname();
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [authUser, setAuthUser] = useState(null)
   const homeSectionLinks = [
     { href: '/#problem', label: 'The Problem' },
     { href: '/#solution', label: 'The Guide' },
@@ -21,12 +25,29 @@ export default function Header() {
     setIsMenuOpen(false)
   }, [pathName])
 
+  useEffect(() => {
+    const auth = getFirebaseAuth()
+
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setAuthUser(user)
+    })
+
+    return unsubscribe
+  }, [])
+
   const handleMenuToggle = () => {
     setIsMenuOpen((current) => !current)
   }
 
   const handleNavClose = () => {
     setIsMenuOpen(false)
+  }
+
+  const handleLogout = async () => {
+    await signOut(getFirebaseAuth())
+    setIsMenuOpen(false)
+    router.push('/')
+    router.refresh()
   }
 
   return (
@@ -194,13 +215,23 @@ export default function Header() {
             </Link>
           </li>
           <li className="ffc-nav-mobile-item">
-            <Link
-              className="ffc-nav-cta ffc-nav-cta-mobile"
-              href="/login"
-              onClick={handleNavClose}
-            >
-              LOG IN
-            </Link>
+            {authUser ? (
+              <button
+                type="button"
+                className="ffc-nav-cta ffc-nav-cta-mobile"
+                onClick={handleLogout}
+              >
+                LOG OUT
+              </button>
+            ) : (
+              <Link
+                className="ffc-nav-cta ffc-nav-cta-mobile"
+                href="/login"
+                onClick={handleNavClose}
+              >
+                LOG IN
+              </Link>
+            )}
           </li>
         </ul>
       </div>
@@ -208,12 +239,22 @@ export default function Header() {
       <Link className="ffc-nav-brand" href="/">
         FAR FLUNG CHANGE
       </Link>
-      <Link
-        className="ffc-nav-cta"
-        href="/login"
-      >
-        LOG IN
-      </Link>
+      {authUser ? (
+        <button
+          type="button"
+          className="ffc-nav-cta"
+          onClick={handleLogout}
+        >
+          LOG OUT
+        </button>
+      ) : (
+        <Link
+          className="ffc-nav-cta"
+          href="/login"
+        >
+          LOG IN
+        </Link>
+      )}
     </nav>
   )
 }

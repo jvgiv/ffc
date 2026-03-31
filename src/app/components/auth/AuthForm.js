@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
@@ -92,6 +93,7 @@ export default function AuthForm({ mode }) {
   const isRegister = mode === "register";
   const copy = FORM_COPY[mode] ?? FORM_COPY.login;
   const router = useRouter();
+  const [hasCheckedExistingSession, setHasCheckedExistingSession] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     phoneNumber: "",
@@ -104,6 +106,33 @@ export default function AuthForm({ mode }) {
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (mode !== "login") {
+      setHasCheckedExistingSession(true);
+      return undefined;
+    }
+
+    const auth = getFirebaseAuth();
+    let isFirstEmission = true;
+
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (isFirstEmission && user) {
+        router.replace("/logged-in");
+      }
+
+      if (isFirstEmission) {
+        setHasCheckedExistingSession(true);
+        isFirstEmission = false;
+      }
+    });
+
+    return unsubscribe;
+  }, [mode, router]);
+
+  if (mode === "login" && !hasCheckedExistingSession) {
+    return null;
+  }
 
   function handleChange(event) {
     const { name, value } = event.target;

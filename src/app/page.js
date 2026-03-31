@@ -7,6 +7,7 @@ import "./homepage.css";
 import Quote from "./(content)/quote/page";
 import PunchTheClock from "./(content)/punchTheClock/page";
 import Image from "next/image";
+import Link from "next/link";
 import HomePageDefs from "./components/homepagedefs/HomePageDefs";
 
 export default function Home() {
@@ -33,8 +34,8 @@ export default function Home() {
             <strong style={{ color: "var(--white)" }}>before it costs you.</strong>
           </p>
           <div className="hero-actions">
-            <a href="#pricing" className="btn-primary">Get Oriented -&gt;</a>
-            <a href="/scorecard" className="btn-ghost">Unlock Free ScoreCard</a>
+            <Link href="#pricing" className="btn-primary">Get Oriented -&gt;</Link>
+            <Link href="/login" className="btn-ghost">Unlock Free Caddy Book</Link>
           </div>
           <div className="scroll-hint">
             <span>scroll</span>
