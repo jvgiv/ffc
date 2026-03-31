@@ -15,34 +15,30 @@ export default function HomePageDefs() {
               <div className="entry-layout">
                 <div className="entry-header fade-up">
                   <div id="entryNum" className="entry-num">
-                    2
+                    14
                   </div>
                   <div id="entryWord" className="entry-word">
-                    RISK
+                    THE GAP
                   </div>
                   <div className="entry-meta">
                     <span id="entryPron" className="entry-pron">
-                      /risk/
+                      /ðə ˈgap/
                     </span>
                     <span id="entryPos" className="entry-pos">
-                      Noun
+                      concept
                     </span>
                   </div>
                 </div>
                 <div className="entry-divider"></div>
                 <div id="entryDef" className="entry-def fade-up">
-                  The possibility that outcomes will differ from expectations,
-                  encompassing both downside loss and upside deviation.
+                  The difference between what comes in and what goes out. Simple arithmetic. Profound consequence. When the gap is positive: you have something to work with. When it is negative: everything else is noise. When it is zero: you are running, not building. But the gap is more than a number. It is the hinge, the moment of now between then¹ and then²: between the financial life already lived and the financial life still possible. Then¹ is fixed. Then² is not yet written. The gap is where you stand between them, and the only place any act of financial liberty is ever actually available. Find your gap. Widen it. Then decide what it is for.
                 </div>
                 <div id="entryNoteWrap" className="entry-note fade-up">
                   <div id="entryNoteLabel" className="entry-note-label">
                     Field Note:
                   </div>
                   <div id="entryNote" className="entry-note-text">
-                    Risk is uncertainty, not danger. Conflating the two leads to
-                    decisions that eliminate both loss and growth. Understanding
-                    the distinction allows risk to be managed rather than simply
-                    avoided.
+                    The gap is not what is left over. It is what you were working toward.  |  → see: Surplus; Deficit; Savings Rate (Savings ⑥); Investing (Investing ⑬)
                   </div>
                 </div>
               </div>
