@@ -121,6 +121,24 @@ export default function LoggedInPage() {
             justifyContent: "center",
           }}
         >
+          <a
+            href="/files/CaddyBook.pdf"
+            download
+            style={{
+              display: "inline-block",
+              padding: "0.95rem 1.25rem",
+              border: "1px solid var(--red)",
+              background: "var(--red)",
+              color: "var(--white)",
+              textDecoration: "none",
+              fontFamily: "'Space Mono', monospace",
+              fontSize: "0.75rem",
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+            }}
+          >
+            Get your Free Caddy Book + ScoreCard
+          </a>
           <Link
             href="/logged-in/docusign"
             style={{

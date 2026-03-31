@@ -143,6 +143,11 @@ body {
   border: 1px solid var(--red);
   padding: 0.58rem 0.98rem;
   transition: background 0.2s, border-color 0.2s;
+  cursor: pointer;
+}
+
+button.ffc-nav-cta {
+  appearance: none;
 }
 
 .ffc-nav-cta:hover {
