@@ -1,91 +1,129 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../(content)/caddybook/caddybook.css'
 
-export default function SummaryPage({ notes }) {
+const SUMMARY_FIELDS = [
+  ['position', 'Position', 'where you are'],
+  ['terrain', 'Terrain', 'what surrounds you'],
+  ['forces', 'Forces', "what's acting on you"],
+  ['questions', 'Questions', 'what matters now'],
+  ['pace', 'Pace', 'where tempo ties in'],
+  ['options', 'Options', 'how to scan for lines'],
+  ['readiness', 'Readiness', 'when clarity compounds'],
+]
+
+export default function SummaryPage({ notes, onSave }) {
+  const [isEditing, setIsEditing] = useState(false)
+  const [draftNotes, setDraftNotes] = useState(notes)
+
+  useEffect(() => {
+    if (!isEditing) {
+      setDraftNotes(notes)
+    }
+  }, [notes, isEditing])
+
+  const handleDraftChange = (key, value) => {
+    setDraftNotes(prev => ({
+      ...prev,
+      [key]: value,
+    }))
+  }
+
+  const handleCancel = () => {
+    setDraftNotes(notes)
+    setIsEditing(false)
+  }
+
+  const handleSave = () => {
+    onSave?.(draftNotes)
+    setIsEditing(false)
+  }
+
   return (
     <>
-    <div className="doc-header"><span className="brand-left">Far Flung Change · the Caddy Book</span><span className="brand-right">Forging Fog Into Focus</span></div>
-    <div className="summary-page">
-    <div className="summary-outer">
-        <div className="summary-header">
-        <span className="sh-brand">FAR FLUNG CHANGE</span>
-        <span className="sh-right">the Caddy Book</span>
+      <div className="doc-header">
+        <span className="brand-left">Far Flung Change · the Caddy Book</span>
+        <span className="brand-right">Forging Fog Into Focus</span>
+      </div>
+      <div className="summary-page">
+        <div className="summary-outer">
+          <div className="summary-header">
+            <span className="sh-brand">FAR FLUNG CHANGE</span>
+            <span className="sh-right">the Caddy Book</span>
+          </div>
+          <div className="summary-title-bar">
+            <p>
+              YOUR CADDY BOOK of <em><strong>ORIENTATION</strong></em>
+            </p>
+            <div className="summary-toolbar">
+              {isEditing ? (
+                <>
+                  <button
+                    className="summary-action-btn primary"
+                    type="button"
+                    onClick={handleSave}
+                  >
+                    Save
+                  </button>
+                  <button
+                    className="summary-action-btn"
+                    type="button"
+                    onClick={handleCancel}
+                  >
+                    Cancel
+                  </button>
+                </>
+              ) : (
+                <button
+                  className="summary-action-btn primary"
+                  type="button"
+                  onClick={() => setIsEditing(true)}
+                >
+                  Edit Summary
+                </button>
+              )}
+            </div>
+          </div>
+          <div className="summary-grid">
+            <div className="summary-items">
+              {SUMMARY_FIELDS.map(([key, title, subtitle], index) => (
+                <div className="summary-item" key={key}>
+                  <div className="summary-num">{index + 1}</div>
+                  <div className="summary-item-text">
+                    <strong>{title}</strong>
+                    <em>{subtitle}</em>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="summary-notes-col">
+              {SUMMARY_FIELDS.map(([key]) => (
+                <div className="summary-notes-entry" key={key}>
+                  {isEditing ? (
+                    <textarea
+                      className="summary-note-input"
+                      value={draftNotes[key] || ''}
+                      onChange={(e) => handleDraftChange(key, e.target.value)}
+                    />
+                  ) : (
+                    <span className="sn-placeholder">
+                      {notes[key] || 'No note yet'}
+                    </span>
+                  )}
+                  <div className="sn-line"></div>
+                  <div className="sn-line light"></div>
+                  <div className="sn-line light"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="summary-footer">
+            <p>Each element has its own page. Space for notes included.</p>
+          </div>
+          <div className="summary-forging">
+            <p>Forging Fog Into Focus</p>
+          </div>
         </div>
-        <div className="summary-title-bar">
-        <p>YOUR CADDY BOOK of <em><strong>ORIENTATION</strong></em></p>
-        </div>
-        <div className="summary-grid">
-        <div className="summary-items">
-            <div className="summary-item">
-            <div className="summary-num">1</div>
-            <div className="summary-item-text"><strong>Position</strong><em>where you are</em></div>
-            </div>
-            <div className="summary-item">
-            <div className="summary-num">2</div>
-            <div className="summary-item-text"><strong>Terrain</strong><em>what surrounds you</em></div>
-            </div>
-            <div className="summary-item">
-            <div className="summary-num">3</div>
-            <div className="summary-item-text"><strong>Forces</strong><em>what's acting on you</em></div>
-            </div>
-            <div className="summary-item">
-            <div className="summary-num">4</div>
-            <div className="summary-item-text"><strong>Questions</strong><em>what matters now</em></div>
-            </div>
-            <div className="summary-item">
-            <div className="summary-num">5</div>
-            <div className="summary-item-text"><strong>Pace</strong><em>where tempo ties in</em></div>
-            </div>
-            <div className="summary-item">
-            <div className="summary-num">6</div>
-            <div className="summary-item-text"><strong>Options</strong><em>how to scan for lines</em></div>
-            </div>
-            <div className="summary-item">
-            <div className="summary-num">7</div>
-            <div className="summary-item-text"><strong>Readiness</strong><em>when clarity compounds</em></div>
-            </div>
-        </div>
-        <div className="summary-notes-col">
-            <div className="summary-notes-entry">
-            <span className="sn-placeholder">{notes.position}</span>
-            <div className="sn-line"></div><div className="sn-line light"></div><div className="sn-line light"></div>
-            </div>
-            <div className="summary-notes-entry">
-            <span className="sn-placeholder">{notes.terrain}</span>
-            <div className="sn-line"></div><div className="sn-line light"></div><div className="sn-line light"></div>
-            </div>
-            <div className="summary-notes-entry">
-            <span className="sn-placeholder">{notes.forces}</span>
-            <div className="sn-line"></div><div className="sn-line light"></div><div className="sn-line light"></div>
-            </div>
-            <div className="summary-notes-entry">
-            <span className="sn-placeholder">{notes.questions}</span>
-            <div className="sn-line"></div><div className="sn-line light"></div><div className="sn-line light"></div>
-            </div>
-            <div className="summary-notes-entry">
-            <span className="sn-placeholder">{notes.pace}</span>
-            <div className="sn-line"></div><div className="sn-line light"></div><div className="sn-line light"></div>
-            </div>
-            <div className="summary-notes-entry">
-            <span className="sn-placeholder">{notes.options}</span>
-            <div className="sn-line"></div><div className="sn-line light"></div><div className="sn-line light"></div>
-            </div>
-            <div className="summary-notes-entry">
-            <span className="sn-placeholder">{notes.readiness}</span>
-            <div className="sn-line"></div><div className="sn-line light"></div><div className="sn-line light"></div>
-            </div>
-        </div>
-        </div>
-        <div className="summary-footer">
-        <p>Each element has its own page. Space for notes included.</p>
-        {/* <div className="summary-scorecard-badge">
-            <div className="ssb-icon">⊙</div>
-            <div className="ssb-text">Score<br />Card →</div>
-        </div> */}
-        </div>
-        <div className="summary-forging"><p>Forging Fog Into Focus</p></div>
-    </div>
-    </div>
+      </div>
     </>
   )
 }

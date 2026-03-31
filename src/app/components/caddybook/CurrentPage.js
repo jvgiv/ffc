@@ -22,7 +22,15 @@ export default function CurrentPage({ index, data, notes, handleChange }) {
             />
         )
     }
-    if (index === 9) return <SummaryPage elements={data.elements} notes={notes} />
+    if (index === 9) return <SummaryPage elements={data.elements} notes={notes} onSave={(nextNotes) => handleChangeBulk(handleChange, nextNotes, notes)} />
     if (index === 10) return <ScorecardPage scorecard={data.scorecard} />
     if (index === 11) return <ClosingPage closing={data.closing} />
+}
+
+function handleChangeBulk(handleChange, nextNotes, currentNotes) {
+    Object.entries(nextNotes).forEach(([key, value]) => {
+        if (currentNotes[key] !== value) {
+            handleChange(key, value)
+        }
+    })
 }

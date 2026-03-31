@@ -10,7 +10,6 @@ export default function ScoreCardPage() {
       <div className="scorecard-page">
         <h2>Orientation Scorecard</h2>
         <p className="sc-meta">
-          Each element has its own page. Space for notes included. &nbsp;·&nbsp;
           Forge →
         </p>
         <div className="sc-grid">

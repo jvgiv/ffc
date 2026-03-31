@@ -38,6 +38,7 @@ body {
   padding: 48px 40px 40px;
   position: relative;
   overflow: hidden;
+  border-left: 5px solid var(--red);
 }
 .cover::before {
   content: "";
@@ -866,6 +867,11 @@ body {
 .summary-title-bar {
   padding: 10px 20px;
   border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 .summary-title-bar p {
   font-family: "Roboto Condensed", sans-serif;
@@ -873,6 +879,7 @@ body {
   color: var(--red);
   font-weight: 700;
   letter-spacing: 1px;
+  margin: 0;
 }
 .summary-title-bar p em {
   font-family: "EB Garamond", serif;
@@ -881,9 +888,42 @@ body {
   font-size: 14px;
   color: #333;
 }
+.summary-toolbar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.summary-action-btn {
+  border: 1px solid #bbb;
+  background: transparent;
+  color: #333;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+.summary-action-btn:hover {
+  border-color: #777;
+  background: rgba(0, 0, 0, 0.04);
+}
+.summary-action-btn.primary {
+  background: #111;
+  border-color: #111;
+  color: #fff;
+}
+.summary-action-btn.primary:hover {
+  background: #222;
+  border-color: #222;
+}
 .summary-grid {
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 220px minmax(0, 1fr);
   grid-template-rows: repeat(7, minmax(88px, 1fr));
   border-top: 1px solid #ccc;
 }
@@ -948,6 +988,7 @@ body {
   display: grid;
   grid-template-rows: subgrid;
   grid-row: 1 / -1;
+  min-width: 0;
 }
 .summary-notes-entry {
   border-bottom: 1px solid #ddd;
@@ -956,16 +997,38 @@ body {
   flex-direction: column;
   justify-content: center;
   gap: 5px;
+  min-width: 0;
 }
 .summary-notes-entry:last-child {
   border-bottom: none;
 }
 .summary-notes-entry .sn-placeholder {
+  display: block;
   font-family: "EB Garamond", serif;
   font-style: italic;
-  font-size: 10px;
-  color: #bbb;
+  font-size: 12px;
+  color: var(--rule);
   margin-bottom: 4px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.summary-note-input {
+  width: 100%;
+  min-height: 72px;
+  border: 1px solid #d4cdc2;
+  background: rgba(255, 255, 255, 0.45);
+  color: #222;
+  padding: 8px 10px;
+  font-family: "EB Garamond", serif;
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.4;
+  resize: vertical;
+  outline: none;
+}
+.summary-note-input:focus {
+  border-color: #c41230;
+  box-shadow: 0 0 0 2px rgba(196, 18, 48, 0.08);
 }
 .summary-notes-entry .sn-line {
   height: 1px;
@@ -1042,9 +1105,9 @@ body {
 
 /* ── NAV BAR ── */
 .nav-bar {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  justify-content: space-between;
   border-top: 1px solid #222;
   padding: 20px 32px 28px;
   background: var(--black);
@@ -1058,6 +1121,13 @@ body {
   cursor: pointer;
   padding: 0;
   text-decoration: none;
+  min-width: 0;
+}
+.nav-bar > .nav-btn:first-child {
+  justify-self: start;
+}
+.nav-bar > .nav-btn:last-child {
+  justify-self: end;
 }
 .nav-btn:disabled {
   opacity: 0.2;
@@ -1117,6 +1187,7 @@ body {
   display: flex;
   gap: 5px;
   align-items: center;
+  justify-self: center;
 }
 .nav-dot {
   width: 6px;
