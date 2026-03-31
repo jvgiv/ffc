@@ -54,10 +54,6 @@ export default function CaddyBook() {
 
   return (
     <div className="page">
-        {/* <CaddyBookCover /> */}
-      {/* <CaddyBookTOC /> */}
-      {/* <SummaryPage /> */}
-      {/* <ClosingPage /> */}
       <CurrentPage 
         index={current} 
         data={elements} 

@@ -576,6 +576,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  min-width: 0;
 }
 
 .hole-num {
@@ -591,6 +592,8 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: rgba(245,240,232,0.4);
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .hole-status {
@@ -747,5 +750,23 @@
   .scorecard-inner {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+  }
+
+  .scorecard-visual {
+    padding: 1.5rem;
+  }
+
+  .hole-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hole {
+    gap: 0.55rem;
+    padding: 0.65rem;
+  }
+
+  .hole-name {
+    font-size: 0.58rem;
+    letter-spacing: 0.05em;
   }
 }

@@ -84,20 +84,16 @@ export default function SummaryPage({ notes, onSave }) {
             </div>
           </div>
           <div className="summary-grid">
-            <div className="summary-items">
-              {SUMMARY_FIELDS.map(([key, title, subtitle], index) => (
-                <div className="summary-item" key={key}>
+            {SUMMARY_FIELDS.map(([key, title, subtitle], index) => (
+              <div className="summary-row" key={key}>
+                <div className="summary-item">
                   <div className="summary-num">{index + 1}</div>
                   <div className="summary-item-text">
                     <strong>{title}</strong>
                     <em>{subtitle}</em>
                   </div>
                 </div>
-              ))}
-            </div>
-            <div className="summary-notes-col">
-              {SUMMARY_FIELDS.map(([key]) => (
-                <div className="summary-notes-entry" key={key}>
+                <div className="summary-notes-entry">
                   {isEditing ? (
                     <textarea
                       className="summary-note-input"
@@ -113,8 +109,8 @@ export default function SummaryPage({ notes, onSave }) {
                   <div className="sn-line light"></div>
                   <div className="sn-line light"></div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
           <div className="summary-footer">
             <p>Each element has its own page. Space for notes included.</p>
