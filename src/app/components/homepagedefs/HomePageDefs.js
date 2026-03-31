@@ -22,7 +22,7 @@ export default function HomePageDefs() {
                   </div>
                   <div className="entry-meta">
                     <span id="entryPron" className="entry-pron">
-                      /ðə ˈgap/
+                      /the gap/
                     </span>
                     <span id="entryPos" className="entry-pos">
                       concept
@@ -31,14 +31,28 @@ export default function HomePageDefs() {
                 </div>
                 <div className="entry-divider"></div>
                 <div id="entryDef" className="entry-def fade-up">
-                  The difference between what comes in and what goes out. Simple arithmetic. Profound consequence. When the gap is positive: you have something to work with. When it is negative: everything else is noise. When it is zero: you are running, not building. But the gap is more than a number. It is the hinge, the moment of now between then¹ and then²: between the financial life already lived and the financial life still possible. Then¹ is fixed. Then² is not yet written. The gap is where you stand between them, and the only place any act of financial liberty is ever actually available. Find your gap. Widen it. Then decide what it is for.
+                  The difference between what comes in and what goes out. Simple
+                  arithmetic. Profound consequence. When the gap is positive:
+                  you have something to work with. When it is negative:
+                  everything else is noise. When it is zero: you are running,
+                  not building.
+                  <div style={{ height: "0.75rem" }} />
+                  But the gap is more than a number. It is the hinge, the
+                  moment of now between then1 and then2: between the financial
+                  life already lived and the financial life still possible.
+                  Then1 is fixed. Then2 is not yet written. The gap is where you
+                  stand between them, and the only place any act of financial
+                  liberty is ever actually available. Find your gap. Widen it.
+                  Then decide what it is for.
                 </div>
                 <div id="entryNoteWrap" className="entry-note fade-up">
                   <div id="entryNoteLabel" className="entry-note-label">
                     Field Note:
                   </div>
                   <div id="entryNote" className="entry-note-text">
-                    The gap is not what is left over. It is what you were working toward.  |  → see: Surplus; Deficit; Savings Rate (Savings ⑥); Investing (Investing ⑬)
+                    The gap is not what is left over. It is what you were
+                    working toward. | see: Surplus; Deficit; Savings Rate
+                    (Savings 6); Investing (Investing 14)
                   </div>
                 </div>
               </div>
@@ -46,7 +60,7 @@ export default function HomePageDefs() {
           </div>
           <div className="scorecard-copy reveal">
             <span className="section-label">Dogstar Definitions</span>
-            <h2 className="section-title">Your Financial Dictionary</h2>
+            <h2 className="section-title">Your Financial Orientation Dictionary</h2>
             <p>
               The Dogstar Definitions are your personal field guide through 18
               essential areas of financial life from Accounts and Cash Flow to
