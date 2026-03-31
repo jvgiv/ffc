@@ -6,26 +6,6 @@ export default function HomePageDefs() {
     <div className="defs-homepage" id="definitions-preview">
       <div className="container">
         <div className="scorecard-inner">
-          <div className="scorecard-copy reveal">
-            <span className="section-label">Dogstar Definitions</span>
-            <h2 className="section-title">Your Financial Dictionary</h2>
-            <p>
-              The Dogstar Definitions are your personal field guide through 18
-              essential areas of financial life — from Accounts and Cash Flow to
-              Investing and Clarity.
-            </p>
-            <p>
-              Think of it as your go to resource for understanding financial
-              concepts.
-            </p>
-            <a
-              href="#cta"
-              className="btn-ghost"
-              style={{ marginTop: "1rem", display: "inline-block" }}
-            >
-              Unlock Dogstar Definitions →
-            </a>
-          </div>
           <div
             className="definitions-visual reveal"
             style={{ transitionDelay: "0.15s" }}
@@ -66,6 +46,26 @@ export default function HomePageDefs() {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="scorecard-copy reveal">
+            <span className="section-label">Dogstar Definitions</span>
+            <h2 className="section-title">Your Financial Dictionary</h2>
+            <p>
+              The Dogstar Definitions are your personal field guide through 18
+              essential areas of financial life — from Accounts and Cash Flow to
+              Investing and Clarity.
+            </p>
+            <p>
+              Think of it as your go to resource for understanding financial
+              concepts.
+            </p>
+            <a
+              href="#cta"
+              className="btn-ghost"
+              style={{ marginTop: "1rem", display: "inline-block" }}
+            >
+              Unlock Dogstar Definitions →
+            </a>
           </div>
         </div>
       </div>
