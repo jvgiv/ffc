@@ -63,7 +63,7 @@ export default function ClosingPage() {
         <button className="submit-btn" 
         // onClick="handleSubmit()"
         >
-          Submit Your Responses <span className="submit-arrow">&#8594;</span>
+          Submit Your Caddybook <span className="submit-arrow">&#8594;</span>
         </button>
       </div>
     </>

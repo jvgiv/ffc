@@ -21,8 +21,10 @@ export default function ElementPage({ element, note, handleChange }) {
       </div>
       <div className="element-body">
         <div className="el-col">
-        <h3><span className="element-num-title">1</span> What this means:</h3>
-          {whatThisMeans.map((p, i) => <p key={i}>{p}</p>)}
+          <h3><span className="element-num-title">1</span> What this means:</h3>
+          <div className="el-body-text">
+            {whatThisMeans.map((p, i) => <p key={i}>{p}</p>)}
+          </div>
         </div>
         <div className="el-col">
           <ul className="el-consider-list">

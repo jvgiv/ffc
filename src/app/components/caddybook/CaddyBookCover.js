@@ -9,8 +9,8 @@ export default function CaddyBookCover() {
             <Image
                 src='/ffc-dark.svg'
                 alt="FFC Logo"
-                width={110}
-                height={110}
+                width={150}
+                height={150}
             />
         </div>
         <div className="cover-mid">
