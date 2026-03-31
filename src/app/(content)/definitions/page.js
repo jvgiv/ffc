@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import chapters from '../../../data/def.js'
 import Link from 'next/link.js'
