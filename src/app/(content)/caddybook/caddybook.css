@@ -834,6 +834,17 @@ body {
   .element-hero {
     grid-template-columns: 1fr auto;
   }
+  .cover-title {
+    width: 100%;
+    max-width: 100%;
+    font-size: clamp(22px, 9vw, 40px);
+    line-height: 0.94;
+    letter-spacing: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    left: 0;
+    transform: none;
+  }
   .nav-bar {
     grid-template-columns: 38px 1fr 38px;
     gap: 12px;
