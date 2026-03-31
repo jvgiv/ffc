@@ -7,6 +7,10 @@ export default function ElementPage({ element, note, handleChange }) {
           consider, scorecardNum,scorecardConnections, notesPrompt } = element
   return (
     <div className="element-page">
+      <div className="doc-header">
+        <span className="brand-left">Far Flung Change · the Caddy Book</span>
+        <span className="brand-right">Forging Fog Into Focus</span>
+      </div>
       <div className="element-hero">
         <div className="element-big-num">{id}</div>
         <div className="element-title-block">
