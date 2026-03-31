@@ -207,6 +207,7 @@
 .plan,
 .pricing,
 .scorecard,
+.defs-homepage,
 .creed,
 .final-cta {
   padding: clamp(4.5rem, 8vw, 7rem) 2rem;
@@ -528,6 +529,12 @@
 /* Scorecard */
 .scorecard {
   border-top: 1px solid var(--border);
+  /* background: var(--offblack); */
+}
+
+/* homepagedefs */
+.defs-homepage {
+  border-top: 1px solid var(--border);
   background: var(--offblack);
 }
 
@@ -680,6 +687,7 @@
 .creed {
   border-top: 1px solid var(--border);
   text-align: center;
+  background-color: var(--offblack);
 }
 
 .creed blockquote {

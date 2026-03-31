@@ -12,6 +12,7 @@ export default function Header() {
     { href: '/#solution', label: 'The Guide' },
     { href: '/#plan', label: 'The Plan' },
     { href: '/#pricing', label: 'MenuBoard' },
+    { href: '/#definitions-preview', label: 'Definitions' },
     { href: '/#scorecard', label: 'ScoreCard' },
     { href: '/#cta', label: 'Punch The Clock' },
   ]
