@@ -47,6 +47,17 @@ export default function Pricing() {
               <li>Consolidate spending data and build budgets</li>
               <li>Identify and prioritize financial goals</li>
             </ul>
+            <div className="pricing-cta">
+              <Link
+                href="https://calendly.com/its-about-time"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+                style={{ width: "100%", textAlign: "center", display: "block" }}
+              >
+                Click Here to Review the Agreement -&gt;
+              </Link>
+            </div>
           </div>
         </div>
       </div>
