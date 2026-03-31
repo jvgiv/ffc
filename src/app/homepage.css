@@ -564,10 +564,74 @@
   color: var(--red-hot);
 }
 
+.definitions-visual {
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+  position: relative;
+}
+
+.definitions-visual::before {
+  content: 'DEFINITIONS';
+  position: absolute;
+  top: -0.6rem;
+  left: 1.5rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  background: var(--offblack);
+  padding: 0 0.5rem;
+  color: var(--red-hot);
+}
+
+
 .hole-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.75rem;
+}
+
+.hole-grid-defs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.hole-grid-defs .entry-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+}
+
+.hole-grid-defs .entry-header {
+  margin-bottom: 0.6rem;
+}
+
+.hole-grid-defs .entry-word {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 0.2rem;
+}
+
+.hole-grid-defs .entry-meta {
+  gap: 0.5rem;
+}
+
+.hole-grid-defs .entry-divider {
+  margin: 0.5rem 0;
+}
+
+.hole-grid-defs .entry-def {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin-bottom: 0.75rem;
+}
+
+.hole-grid-defs .entry-note-label {
+  margin-bottom: 0.25rem;
+}
+
+.hole-grid-defs .entry-note-text {
+  font-size: 0.82rem;
+  line-height: 1.55;
 }
 
 .hole {

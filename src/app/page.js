@@ -7,6 +7,7 @@ import "./homepage.css";
 import Quote from "./(content)/quote/page";
 import PunchTheClock from "./(content)/punchTheClock/page";
 import Image from "next/image";
+import HomePageDefs from "./components/homepagedefs/HomePageDefs";
 
 export default function Home() {
   return (
@@ -45,6 +46,7 @@ export default function Home() {
       <Guide />
       <Plan />
       <Pricing />
+      <HomePageDefs />
       <NewScorecard />
       <Quote />
       <PunchTheClock />
