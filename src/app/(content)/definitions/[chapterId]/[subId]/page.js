@@ -25,7 +25,6 @@ export default async function Subpage({ params }) {
   }
 
   const [number, title, pronunciation, partOfSpeech, definition, type, insight, time] = sub;
-console.log('num', chapter);
   return (
     <div>
 

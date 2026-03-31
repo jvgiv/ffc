@@ -39,7 +39,6 @@ export default function CaddyBook() {
     })
     
     const handleChange = (slug, value) => {
-      console.log("slug", slug, value, notes)
       setNotes(prev => ({
         ...prev,
         [slug]: value,

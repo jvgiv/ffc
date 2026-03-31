@@ -31,7 +31,6 @@ export default function ScoreCard() {
   const handleChange = (e) => {
     e.preventDefault();
     setUserCode(e.target.value)
-    console.log("UC", userCode, passCode)
     }
 
   const handleSubmit = (e) => {

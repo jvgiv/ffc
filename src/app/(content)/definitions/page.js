@@ -35,7 +35,6 @@ export default function Definitions() {
         <div id="chapterGrid" style={{maxWidth: '860px', margin: '2.5rem auto 0', display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(200px,1fr))', gap:'0.6rem'}}>
 
             {chapters.map((chapter) => (
-                // console.log(chapter),
                 <Link
                     key={chapter.id}
                     href={`/definitions/${chapter.id}`}
