@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import "../../(content)/definitions/definitions.css";
 
 export default function HomePageDefs() {
@@ -52,20 +53,20 @@ export default function HomePageDefs() {
             <h2 className="section-title">Your Financial Dictionary</h2>
             <p>
               The Dogstar Definitions are your personal field guide through 18
-              essential areas of financial life — from Accounts and Cash Flow to
+              essential areas of financial life from Accounts and Cash Flow to
               Investing and Clarity.
             </p>
             <p>
               Think of it as your go to resource for understanding financial
               concepts.
             </p>
-            <a
-              href="#cta"
+            <Link
+              href="/definitions"
               className="btn-ghost"
               style={{ marginTop: "1rem", display: "inline-block" }}
             >
-              Unlock Dogstar Definitions →
-            </a>
+              Unlock Dogstar Definitions -
+            </Link>
           </div>
         </div>
       </div>
