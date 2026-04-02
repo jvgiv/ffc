@@ -42,22 +42,18 @@ export default function Problem() {
                 <span>%</span>
               </p>
               <p className="stat-label">
-                of adults report lacking confidence in at least one core area of personal finance
+                of Americans say high school did not leave them fully prepared for handling money in the real world.
               </p>
               <div className="stat-divider" />
-              <p className="stat-num">0</p>
+              <p className="stat-num">23<span>%</span></p>
               <p className="stat-label">
-                required personal finance courses in most high school and college curricula
+                of Americans say their income would be sufficient if they understood how to manage it more effectively. <br /> Another 19% indicate their financial situation is best described by <i>both – my income is limited and I struggle with money management.</i>
               </p>
               <div className="stat-divider" />
               <p className="stat-num">
-                <span>FOR</span>
-                <br />
-                GROWING UP
-                <br />
-                SAKE
+                $388 <span>BILLION</span>
               </p>
-              <p className="stat-label">clarity should come first and not after the fact</p>
+              <p className="stat-label">The estimated cost of financial illiteracy in the United States in 2023.</p>
             </div>
           </div>
         </div>
