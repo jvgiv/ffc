@@ -55,7 +55,7 @@ export const AGREEMENT_DEFINITIONS = {
       "An add-on agreement for clients who want more structure, recurring accountability, and organized progress tracking.",
     viewerIntro:
       "This agreement covers the Premium Expansion Pack add-on. It should be reviewed separately from the core package agreement.",
-    ctaLabel: "Continue To Add-On Signing",
+    ctaLabel: "Continue To Premium Expansion Signing",
     sections: [
       {
         heading: "Add-On Nature",

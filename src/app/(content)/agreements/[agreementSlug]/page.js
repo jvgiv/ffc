@@ -170,7 +170,7 @@ export default async function AgreementPage({ params }) {
             </Link>
           ) : null}
           <Link
-            href="/pricing"
+            href="/agreements"
             style={{
               display: "inline-block",
               padding: "0.95rem 1.25rem",
@@ -184,7 +184,7 @@ export default async function AgreementPage({ params }) {
               textTransform: "uppercase",
             }}
           >
-            Back To Pricing
+            Back To Agreements
           </Link>
         </div>
 
