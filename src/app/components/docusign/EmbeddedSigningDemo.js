@@ -5,6 +5,7 @@ import { useEffect, useEffectEvent, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { getFirebaseAuth } from "@/lib/firebase/auth";
 import styles from "./EmbeddedSigningDemo.module.css";
+import { AGREEMENT_DEFINITIONS } from "@/lib/agreements";
 
 const EMPTY_STATUS = {
   type: "",
@@ -28,12 +29,16 @@ function buildSigningCompleteUrl(baseUrl, envelopeId, sessionEndType) {
   return url.toString();
 }
 
-export default function EmbeddedSigningDemo() {
+const AGREEMENT_OPTIONS = Object.values(AGREEMENT_DEFINITIONS);
+
+export default function EmbeddedSigningDemo({ initialAgreementSlug }) {
   const [config, setConfig] = useState(null);
   const [formData, setFormData] = useState({
     signerName: "",
     signerEmail: "",
-    agreementTitle: "Far Flung Change Starter Agreement",
+    agreementSlug: AGREEMENT_DEFINITIONS[initialAgreementSlug]
+      ? initialAgreementSlug
+      : AGREEMENT_OPTIONS[0]?.slug || "",
   });
   const [authUser, setAuthUser] = useState(null);
   const [isAuthReady, setIsAuthReady] = useState(false);
@@ -366,7 +371,10 @@ export default function EmbeddedSigningDemo() {
     Boolean(config?.ready) &&
     Boolean(config?.firestoreAdminReady) &&
     isAuthReady &&
-    Boolean(authUser);
+    Boolean(authUser) &&
+    Boolean(formData.agreementSlug);
+
+  const selectedAgreement = AGREEMENT_DEFINITIONS[formData.agreementSlug];
 
   return (
     <main className={styles.page}>
@@ -375,9 +383,8 @@ export default function EmbeddedSigningDemo() {
           <span className={styles.eyebrow}>Embedded Signing</span>
           <h1 className={styles.title}>DocuSign In-Site Scaffold</h1>
           <p className={styles.copy}>
-            This starter flow creates a demo agreement on the server, opens DocuSign focused view,
-            and stores DocuSign envelope metadata in Firestore when the session starts and when it
-            ends.
+            Start the agreement that matches the package the user selected, open DocuSign focused
+            view, and store envelope metadata in Firestore when the session starts and ends.
           </p>
         </section>
 
@@ -484,19 +491,30 @@ export default function EmbeddedSigningDemo() {
               </div>
 
               <div className={styles.field}>
-                <label className={styles.label} htmlFor="agreementTitle">
-                  Agreement Title
+                <label className={styles.label} htmlFor="agreementSlug">
+                  Agreement
                 </label>
-                <input
-                  id="agreementTitle"
+                <select
+                  id="agreementSlug"
                   className={styles.input}
-                  name="agreementTitle"
-                  type="text"
-                  value={formData.agreementTitle}
+                  name="agreementSlug"
+                  value={formData.agreementSlug}
                   onChange={handleChange}
                   required
-                />
+                >
+                  {AGREEMENT_OPTIONS.map((agreement) => (
+                    <option key={agreement.slug} value={agreement.slug}>
+                      {agreement.packageName}
+                    </option>
+                  ))}
+                </select>
               </div>
+
+              {selectedAgreement ? (
+                <p className={styles.smallMeta}>
+                  Sending: <span className={styles.inlineCode}>{selectedAgreement.agreementTitle}</span>
+                </p>
+              ) : null}
 
               {status.text ? (
                 <p
@@ -520,6 +538,14 @@ export default function EmbeddedSigningDemo() {
                 >
                   {isSubmitting ? "Starting Session..." : "Start Embedded Signing"}
                 </button>
+                {selectedAgreement ? (
+                  <Link
+                    className={styles.textLink}
+                    href={`/agreements/${selectedAgreement.slug}`}
+                  >
+                    Review Agreement
+                  </Link>
+                ) : null}
                 <Link className={styles.textLink} href="/logged-in">
                   Back To Logged In
                 </Link>

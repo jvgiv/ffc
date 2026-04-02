@@ -14,13 +14,14 @@ import {
   FirebaseAuthenticationError,
   requireVerifiedFirebaseUser,
 } from "@/lib/firebase/serverAuth";
+import { getAgreementBySlug } from "@/lib/agreements";
 
 export const runtime = "nodejs";
 
 function validatePayload(body) {
   const signerName = body?.signerName?.trim();
   const signerEmail = body?.signerEmail?.trim();
-  const agreementTitle = body?.agreementTitle?.trim() || "Please sign this agreement";
+  const agreementSlug = body?.agreementSlug?.trim();
 
   if (!signerName) {
     return "Signer name is required.";
@@ -30,10 +31,21 @@ function validatePayload(body) {
     return "Signer email is required.";
   }
 
+  if (!agreementSlug) {
+    return "Agreement selection is required.";
+  }
+
+  const agreement = getAgreementBySlug(agreementSlug);
+
+  if (!agreement) {
+    return "The selected agreement could not be found.";
+  }
+
   return {
     signerName,
     signerEmail,
-    agreementTitle,
+    agreementSlug: agreement.slug,
+    agreementTitle: agreement.agreementTitle,
   };
 }
 
@@ -50,7 +62,9 @@ export async function POST(request) {
     const requestOrigin = request.headers.get("origin") || new URL(request.url).origin;
     const returnUrl = getDocuSignSigningReturnUrl(requestOrigin);
     const signingSession = await createEmbeddedSigningSession({
-      ...validated,
+      signerName: validated.signerName,
+      signerEmail: validated.signerEmail,
+      agreementSlug: validated.agreementSlug,
       requestOrigin,
       returnUrl,
     });

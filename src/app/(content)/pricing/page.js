@@ -1,6 +1,7 @@
 import React from 'react'
 import "../../homepage.css"
 import Link from 'next/link'
+import { AGREEMENT_DEFINITIONS } from '@/lib/agreements'
 
 export default function Pricing() {
   return (
@@ -25,9 +26,7 @@ export default function Pricing() {
             </ul>
             <div className="pricing-cta">
               <Link
-                href="https://calendly.com/its-about-time"
-                target="_blank"
-                rel="noopener noreferrer"
+                href={`/agreements/${AGREEMENT_DEFINITIONS["financial-orientation"].slug}`}
                 className="btn-primary"
                 style={{ width: "100%", textAlign: "center", display: "block" }}
               >
@@ -49,9 +48,7 @@ export default function Pricing() {
             </ul>
             <div className="pricing-cta">
               <Link
-                href="https://calendly.com/its-about-time"
-                target="_blank"
-                rel="noopener noreferrer"
+                href={`/agreements/${AGREEMENT_DEFINITIONS["premium-expansion-pack"].slug}`}
                 className="btn-primary"
                 style={{ width: "100%", textAlign: "center", display: "block" }}
               >
