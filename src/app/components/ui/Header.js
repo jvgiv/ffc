@@ -46,8 +46,7 @@ export default function Header() {
   const handleLogout = async () => {
     await signOut(getFirebaseAuth())
     setIsMenuOpen(false)
-    router.push('/')
-    router.refresh()
+    window.location.assign('/')
   }
 
   return (
