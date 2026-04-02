@@ -26,8 +26,8 @@ export default function Definitions() {
             <Image
                 src='/def.png'
                 alt="Definitions Clock"
-                width={240}
-                height={240}
+                width={480}
+                height={480}
             />
         </div>
         <p className="master-hint">Select a chapter below &nbsp;·&nbsp; <span>or search above</span></p>
