@@ -74,8 +74,8 @@ export default async function Subpage({ params }) {
                 <div id="entryNote" className="entry-note-text">{insight}</div>
             </div>
             <div id="progressRow" className="entry-progress fade-up">
-                <div id="progBox" className="prog-box"></div>
-                <span id="progLabel" className="prog-label">Mark as in progress</span>
+                {/* <div id="progBox" className="prog-box"></div> */}
+                {/* <span id="progLabel" className="prog-label">Mark as in progress</span> */}
             </div>
             <div className="entry-nav-bottom">
                 {number > 1 ? (
