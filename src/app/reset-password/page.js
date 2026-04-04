@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { confirmPasswordReset, verifyPasswordResetCode } from "firebase/auth";
 import { getFirebaseAuth } from "@/lib/firebase/auth";
@@ -24,8 +24,10 @@ function getResetErrorMessage(error) {
 
 export default function ResetPasswordPage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const oobCode = searchParams.get("oobCode");
+  const oobCode =
+    typeof window === "undefined"
+      ? ""
+      : new URLSearchParams(window.location.search).get("oobCode") || "";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -100,8 +102,6 @@ export default function ResetPasswordPage() {
               This page verifies the one-time reset code from your email, then lets you choose a new password.
             </p>
           </div>
-
-
         </section>
 
         <section className={styles.authCard}>
@@ -188,4 +188,3 @@ export default function ResetPasswordPage() {
     </main>
   );
 }
-

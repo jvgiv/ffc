@@ -35,7 +35,7 @@ export default function Home() {
           </p>
           <div className="hero-actions">
             <Link href="#pricing" className="btn-primary">Get Oriented -&gt;</Link>
-            <Link href="/login" className="btn-ghost">Unlock Free Caddy Book</Link>
+            <Link href="/caddybook" className="btn-ghost">Unlock Free Caddy Book</Link>
           </div>
           <div className="scroll-hint">
             <span>scroll</span>

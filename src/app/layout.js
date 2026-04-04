@@ -6,6 +6,7 @@ import TopHeader from "./components/ui/TopHeader";
 import Disclosures from "./components/ui/Disclosures";
 import TempFooter from "./components/ui/TempFooter";
 import ScrollEffects from "./ScrollEffects";
+import { AuthProvider } from "./components/auth/AuthProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,12 +33,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${bebasNeue.variable}`}>
-        <ScrollEffects />
-        <TopHeader />
-        <Header />
-        {children}
-        <TempFooter />
-        <Disclosures />
+        <AuthProvider>
+          <ScrollEffects />
+          <TopHeader />
+          <Header />
+          {children}
+          <TempFooter />
+          <Disclosures />
+        </AuthProvider>
       </body>
     </html>
   );

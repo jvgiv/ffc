@@ -2,6 +2,6 @@
 
 import AuthGate from "@/app/components/auth/AuthGate";
 
-export default function CaddyBookLayout({ children }) {
+export default function LoggedInLayout({ children }) {
   return <AuthGate>{children}</AuthGate>;
 }

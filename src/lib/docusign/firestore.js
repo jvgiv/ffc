@@ -32,6 +32,7 @@ function buildEnvelopePayload({
       uid: requestUser.uid,
       email: requestUser.email || "",
       name: requestUser.name || "",
+      role: requestUser.role || "client",
     },
     lastSessionEvent: "recipient_view_created",
     createdAt: FieldValue.serverTimestamp(),
@@ -107,6 +108,15 @@ function serializeTimestamp(value) {
   return null;
 }
 
+function getSortTime(record) {
+  return (
+    Date.parse(record.completedAt || "") ||
+    Date.parse(record.updatedAt || "") ||
+    Date.parse(record.createdAt || "") ||
+    0
+  );
+}
+
 function serializeEnvelope(docSnapshot) {
   const data = docSnapshot.data() || {};
 
@@ -118,6 +128,9 @@ function serializeEnvelope(docSnapshot) {
     status: data.status || "unknown",
     lastSessionEvent: data.lastSessionEvent || data.status || "unknown",
     signer: data.signer || null,
+    requestedBy: data.requestedBy || null,
+    requestOrigin: data.requestOrigin || "",
+    returnUrl: data.returnUrl || "",
     docusign: data.docusign || null,
     createdAt: serializeTimestamp(data.createdAt),
     updatedAt: serializeTimestamp(data.updatedAt),
@@ -220,6 +233,28 @@ export async function getUserDocuSignEnvelope({ uid, envelopeId }) {
     .collection("docusignEnvelopes")
     .doc(envelopeId)
     .get();
+
+  if (!snapshot.exists) {
+    return null;
+  }
+
+  return serializeEnvelope(snapshot);
+}
+
+export async function listAllSignedDocuSignEnvelopes({ limit = 250 } = {}) {
+  const db = getAdminDb();
+  const snapshot = await db.collection("docusignEnvelopes").get();
+
+  return snapshot.docs
+    .map(serializeEnvelope)
+    .filter((document) => document.isSigned)
+    .sort((left, right) => getSortTime(right) - getSortTime(left))
+    .slice(0, limit);
+}
+
+export async function getDocuSignEnvelope({ envelopeId }) {
+  const db = getAdminDb();
+  const snapshot = await db.collection("docusignEnvelopes").doc(envelopeId).get();
 
   if (!snapshot.exists) {
     return null;
