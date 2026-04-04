@@ -14,10 +14,10 @@ import {
   ensureFirebaseUserProfile,
   syncFirebaseUserProfile,
 } from "@/lib/firebase/userProfiles";
+import { AGE_RANGE_OPTIONS } from "@/lib/firebase/profileOptions";
 import { USER_ROLES } from "@/lib/firebase/userRoles";
 import styles from "./AuthForm.module.css";
 
-const AGE_RANGE_OPTIONS = ["18-24", "25-34", "35-44", "45-54", "55-64", "65+"];
 
 const FORM_COPY = {
   login: {

@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { getFirebaseAuth } from "@/lib/firebase/auth";
 import {
@@ -77,16 +77,54 @@ export function AuthProvider({ children }) {
     };
   }, []);
 
-  const value = useMemo(() => {
-    const role = state.profile?.role || DEFAULT_USER_ROLE;
+  async function refreshProfile() {
+    const currentAuthUser = getFirebaseAuth().currentUser || state.authUser;
 
-    return {
-      ...state,
-      isAuthenticated: Boolean(state.authUser),
-      role,
-      roleLabel: formatUserRole(role),
-    };
-  }, [state]);
+    if (!currentAuthUser) {
+      setState({
+        isLoading: false,
+        authUser: null,
+        profile: null,
+      });
+
+      return null;
+    }
+
+    try {
+      const profile = await ensureFirebaseUserProfile(currentAuthUser);
+
+      setState({
+        isLoading: false,
+        authUser: currentAuthUser,
+        profile,
+      });
+
+      return profile;
+    } catch (error) {
+      console.error("Firebase user profile refresh failed", error);
+
+      const fallbackProfile = buildResolvedFirebaseUserProfile(currentAuthUser, {
+        role: DEFAULT_USER_ROLE,
+      });
+
+      setState({
+        isLoading: false,
+        authUser: currentAuthUser,
+        profile: fallbackProfile,
+      });
+
+      return fallbackProfile;
+    }
+  }
+
+  const role = state.profile?.role || DEFAULT_USER_ROLE;
+  const value = {
+    ...state,
+    isAuthenticated: Boolean(state.authUser),
+    role,
+    roleLabel: formatUserRole(role),
+    refreshProfile,
+  };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

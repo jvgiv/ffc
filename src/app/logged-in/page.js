@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import ClientDashboard from "@/app/components/account/ClientDashboard";
 import { useAuth } from "@/app/components/auth/AuthProvider";
 import { USER_ROLES } from "@/lib/firebase/userRoles";
 
@@ -208,111 +209,6 @@ function UserCard({ user }) {
         <UserInfoRow label="UID" value={user.uid} mono />
       </div>
     </article>
-  );
-}
-
-function ClientDashboard({ displayName, roleLabel }) {
-  return (
-    <main style={{ ...pageStyle, display: "grid", placeItems: "center" }}>
-      <section
-        style={{
-          width: "100%",
-          maxWidth: "46rem",
-          border: "1px solid rgba(245, 240, 232, 0.12)",
-          background: "rgba(10, 10, 10, 0.88)",
-          padding: "3rem 2rem",
-          textAlign: "center",
-        }}
-      >
-        <p
-          style={{
-            color: "var(--red-hot)",
-            fontFamily: "'Space Mono', monospace",
-            fontSize: "0.72rem",
-            letterSpacing: "0.2em",
-            textTransform: "uppercase",
-            marginBottom: "1rem",
-          }}
-        >
-          {roleLabel} Access
-        </p>
-        <h1
-          style={{
-            fontFamily: "var(--font-bebas-neue), sans-serif",
-            fontSize: "clamp(3rem, 7vw, 5rem)",
-            letterSpacing: "0.04em",
-            textTransform: "uppercase",
-            marginBottom: "1rem",
-          }}
-        >
-          Welcome back.
-        </h1>
-        <p
-          style={{
-            color: "var(--white)",
-            fontFamily: "'Space Mono', monospace",
-            fontSize: "0.95rem",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            marginBottom: "1rem",
-          }}
-        >
-          {displayName ? `Welcome, ${displayName}` : "Welcome"}
-        </p>
-        <p
-          style={{
-            color: "rgba(245, 240, 232, 0.68)",
-            lineHeight: "1.8",
-            maxWidth: "31rem",
-            margin: "0 auto 1.25rem",
-          }}
-        >
-          Signed in as <strong style={{ color: "var(--white)" }}>{roleLabel}</strong>.
-        </p>
-        <p
-          style={{
-            color: "rgba(245, 240, 232, 0.68)",
-            lineHeight: "1.8",
-            maxWidth: "31rem",
-            margin: "0 auto 1.25rem",
-          }}
-        >
-          Your sign-in was successful and your account is ready to use.
-        </p>
-        <p
-          style={{
-            color: "rgba(245, 240, 232, 0.68)",
-            lineHeight: "1.8",
-            maxWidth: "31rem",
-            margin: "0 auto 2rem",
-          }}
-        >
-          You can launch a DocuSign embedded-signing session or open your signed-documents history
-          to review what has already been stored in Firestore for your account.
-        </p>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "0.85rem",
-            justifyContent: "center",
-          }}
-        >
-          <a href="/files/CaddyBook.pdf" download style={primaryButtonStyle}>
-            Get your Free Caddy Book + ScoreCard
-          </a>
-          <Link href="/logged-in/docusign" style={primaryButtonStyle}>
-            Open DocuSign Demo
-          </Link>
-          <Link href="/logged-in/documents" style={secondaryButtonStyle}>
-            View Signed Documents
-          </Link>
-          <Link href="/" style={secondaryButtonStyle}>
-            Back Home
-          </Link>
-        </div>
-      </section>
-    </main>
   );
 }
 
@@ -537,12 +433,20 @@ function AdminDashboard({ authUser, displayName, roleLabel }) {
 }
 
 export default function LoggedInPage() {
-  const { authUser, profile, role, roleLabel } = useAuth();
+  const { authUser, profile, refreshProfile, role, roleLabel } = useAuth();
   const displayName = profile?.displayName || authUser?.displayName || authUser?.email || "friend";
 
   if (role === USER_ROLES.ADMIN) {
     return <AdminDashboard authUser={authUser} displayName={displayName} roleLabel={roleLabel} />;
   }
 
-  return <ClientDashboard displayName={displayName} roleLabel={roleLabel} />;
+  return (
+    <ClientDashboard
+      authUser={authUser}
+      profile={profile}
+      roleLabel={roleLabel}
+      displayName={displayName}
+      refreshProfile={refreshProfile}
+    />
+  );
 }
