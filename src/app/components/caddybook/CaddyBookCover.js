@@ -13,8 +13,10 @@ export default function CaddyBookCover({ memberProfile }) {
             <Image
                 src='/FFLogo.png'
                 alt="FFC Logo"
-                width={180}
-                height={201}
+                fill
+                sizes="(max-width: 580px) 120px, (max-width: 900px) 150px, 180px"
+                className="cover-logo-image"
+                style={{ objectFit: 'contain', objectPosition: 'center 46%' }}
             />
         </div>
         <div className="cover-mid">

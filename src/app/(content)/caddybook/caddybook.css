@@ -48,8 +48,8 @@ body {
   pointer-events: none;
 }
 .cover-logo {
-  width: 160px;
-  height: 160px;
+  width: clamp(108px, 16vw, 160px);
+  aspect-ratio: 1;
   border-radius: 50%;
   border: 2px solid rgba(255, 255, 255, 0.2);
   display: flex;
@@ -57,9 +57,12 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 16px;
+  padding: clamp(12px, 2vw, 16px);
   position: relative;
   z-index: 1;
+}
+.cover-logo-image {
+  padding: clamp(8px, 1.6vw, 12px);
 }
 .cover-logo .c-letter {
   font-family: "EB Garamond", serif;
