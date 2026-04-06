@@ -143,6 +143,44 @@ body {
   background: var(--rule);
   margin-bottom: 24px;
 }
+.cover-member-card {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border: 1px solid #2a2a2a;
+  background: rgba(255, 255, 255, 0.03);
+  text-align: left;
+}
+.cover-member-label {
+  display: block;
+  margin-bottom: 12px;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.cover-member-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.cover-member-item {
+  display: grid;
+  gap: 4px;
+}
+.cover-member-key {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.42);
+}
+.cover-member-value {
+  font-family: "EB Garamond", serif;
+  font-size: 16px;
+  color: var(--white);
+  line-height: 1.35;
+}
 .cover-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -827,6 +865,9 @@ body {
   }
   .cover-stats {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .cover-member-grid {
+    grid-template-columns: 1fr;
   }
   .element-big-num {
     display: none;
