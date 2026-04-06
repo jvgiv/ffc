@@ -54,8 +54,8 @@
 }
 
 .hero-logo-ring {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   border: 2px solid rgba(245,240,232,0.15);
   display: flex;

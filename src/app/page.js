@@ -20,8 +20,8 @@ export default function Home() {
             <Image
               src='/ffc-dark.svg'
               alt="FFC Logo"
-              width={110}
-              height={110}
+              width={140}
+              height={140}
             />
           </div>
           <h1 className="hero-title">
@@ -30,9 +30,10 @@ export default function Home() {
           </h1>
           <p className="hero-sub">
             Most adults never get a clear introduction to managing their own money.
-            Far Flung Change fills that gap -{" "}
+            Far Flung Change fills that gap  - {" "}
             <strong style={{ color: "var(--white)" }}>before it costs you.</strong>
           </p>
+          <p className="hero-sub">Welcome to <span style={{color: "var(--red)"}}>Financial</span> Orientation</p>
           <div className="hero-actions">
             <Link href="#pricing" className="btn-primary">Get Oriented -&gt;</Link>
             <Link href="/caddybook" className="btn-ghost">Unlock Free Caddy Book</Link>

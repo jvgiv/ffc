@@ -10,6 +10,14 @@ export default function Pricing() {
         <div className="reveal">
           <span className="section-label">The MenuBoard</span>
           <h2 className="section-title">Flat-fee. No products. No pressure.</h2>
+        <ul className="pricing-features reveal">
+          <li>Learn core financial concepts and trade-offs</li>
+          <li>Access a 360-point Compendium of DogStar Definitions</li>
+          <li>Explore 6 Supplements with 275+ more terms explained</li>
+          <li>Ask any questions - anytime: get answers - in 2 business days</li>
+          <li>Have follow-up conversations by phone, Zoom, or in person</li>
+          <li>Process information without products, pressure, or pitches</li>
+        </ul>
         </div>
         <div className="pricing-grid reveal" style={{ transitionDelay: "0.1s" }}>
           <div className="pricing-card featured">
@@ -18,11 +26,10 @@ export default function Pricing() {
             <div className="pricing-price">$500 <span>/ 1 year</span></div>
             <div className="pricing-desc">A flat-fee educational engagement to foster financial clarity and confidence. Forge Fog into Focus.</div>
             <ul className="pricing-features">
-              <li>Learn core financial concepts and trade-offs</li>
-              <li>Ask real-world questions, anytime</li>
-              <li>Conversations by phone, Zoom, or in person</li>
-              <li>Guidance without products, pressure, or pitches</li>
-              <li>Access to 360-point compendium of essential terms</li>
+              <li>No recommendations</li>
+              <li>No advice</li>
+              <li>No management</li>
+              <li>No implementation</li>
             </ul>
             <div className="pricing-cta">
               <Link
@@ -40,11 +47,13 @@ export default function Pricing() {
             <div className="pricing-price">+$250</div>
             <div className="pricing-desc">For orienteers who value structure, tools, and accountability.</div>
             <ul className="pricing-features">
-              <li>Scheduled check-ins & follow ups</li>
               <li>Dynamic progress mapping</li>
-              <li>Track assets + debts with a financial aggregator</li>
-              <li>Consolidate spending data and build budgets</li>
-              <li>Identify and prioritize financial goals</li>
+              <li>Scheduled check-ins & follow ups</li>
+              <li>Personal financial aggregator to:</li>
+              <li>View assets + debts</li>
+              <li>Track Spending</li>
+              <li>Build budgets</li>
+              <li>Set + prioritize goals</li>
             </ul>
             <div className="pricing-cta">
               <Link
