@@ -36,7 +36,7 @@ export default function Home() {
           <p className="hero-sub">Welcome to <span style={{color: "var(--red)"}}>Financial</span> Orientation</p>
           <div className="hero-actions">
             <Link href="#pricing" className="btn-primary">Get Oriented -&gt;</Link>
-            <Link href="/caddybook" className="btn-ghost">Unlock Free Caddy Book</Link>
+            <Link href="/logged-in" className="btn-ghost">Unlock Free Caddy Book</Link>
           </div>
           <div className="scroll-hint">
             <span>scroll</span>
