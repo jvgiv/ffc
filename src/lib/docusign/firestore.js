@@ -4,6 +4,7 @@ import { getAdminDb, FieldValue } from "@/lib/firebase/admin";
 
 function buildEnvelopePayload({
   envelopeId,
+  agreementSlug,
   agreementTitle,
   signerName,
   signerEmail,
@@ -15,6 +16,7 @@ function buildEnvelopePayload({
   return {
     envelopeId,
     provider: "docusign",
+    agreementSlug,
     agreementTitle,
     status: "recipient_view_created",
     requestOrigin,
@@ -43,6 +45,7 @@ function buildEnvelopePayload({
 
 function buildUserEnvelopePayload({
   envelopeId,
+  agreementSlug,
   agreementTitle,
   signerName,
   signerEmail,
@@ -51,6 +54,7 @@ function buildUserEnvelopePayload({
   return {
     envelopeId,
     provider: "docusign",
+    agreementSlug,
     agreementTitle,
     status: "recipient_view_created",
     signer: {
@@ -124,6 +128,7 @@ function serializeEnvelope(docSnapshot) {
     id: docSnapshot.id,
     envelopeId: data.envelopeId || docSnapshot.id,
     provider: data.provider || "docusign",
+    agreementSlug: data.agreementSlug || "",
     agreementTitle: data.agreementTitle || "Untitled agreement",
     status: data.status || "unknown",
     lastSessionEvent: data.lastSessionEvent || data.status || "unknown",
@@ -145,6 +150,7 @@ function serializeEnvelope(docSnapshot) {
 
 export async function storeDocuSignEnvelopeRecord({
   envelopeId,
+  agreementSlug,
   agreementTitle,
   signerName,
   signerEmail,
@@ -166,6 +172,7 @@ export async function storeDocuSignEnvelopeRecord({
     envelopeRef,
     buildEnvelopePayload({
       envelopeId,
+      agreementSlug,
       agreementTitle,
       signerName,
       signerEmail,
@@ -180,6 +187,7 @@ export async function storeDocuSignEnvelopeRecord({
     userEnvelopeRef,
     buildUserEnvelopePayload({
       envelopeId,
+      agreementSlug,
       agreementTitle,
       signerName,
       signerEmail,

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import ClientDashboard from "@/app/components/account/ClientDashboard";
 import { useAuth } from "@/app/components/auth/AuthProvider";
+import { listPurchases } from "@/lib/purchases";
 import { USER_ROLES } from "@/lib/firebase/userRoles";
 
 const pageStyle = {
@@ -57,6 +58,8 @@ const secondaryButtonStyle = {
   letterSpacing: "0.14em",
   textTransform: "uppercase",
 };
+
+const PURCHASE_OPTIONS = listPurchases();
 
 function formatDate(value) {
   if (!value) {
@@ -143,6 +146,11 @@ function UserInfoRow({ label, value, mono = false }) {
 }
 
 function UserCard({ user }) {
+  const paymentEntries = PURCHASE_OPTIONS.map((purchase) => ({
+    purchase,
+    summary: user.paymentSummary?.[purchase.agreementSlug] || null,
+  }));
+
   return (
     <article
       style={{
@@ -207,6 +215,84 @@ function UserCard({ user }) {
         <UserInfoRow label="Joined" value={formatDate(user.createdAt)} />
         <UserInfoRow label="Last Updated" value={formatDate(user.updatedAt)} />
         <UserInfoRow label="UID" value={user.uid} mono />
+      </div>
+
+      <div style={{ display: "grid", gap: "0.8rem" }}>
+        <span
+          style={{
+            color: "rgba(245, 240, 232, 0.55)",
+            fontFamily: "'Space Mono', monospace",
+            fontSize: "0.65rem",
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+          }}
+        >
+          Payment Status
+        </span>
+        <div style={{ display: "grid", gap: "0.8rem", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))" }}>
+          {paymentEntries.map(({ purchase, summary }) => {
+            const isPaid = Boolean(summary?.isPaid);
+
+            return (
+              <div
+                key={purchase.agreementSlug}
+                style={{
+                  border: "1px solid rgba(245, 240, 232, 0.12)",
+                  background: "rgba(255, 255, 255, 0.03)",
+                  padding: "0.95rem",
+                  display: "grid",
+                  gap: "0.5rem",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    gap: "0.75rem",
+                    alignItems: "start",
+                    flexWrap: "wrap",
+                  }}
+                >
+                  <strong style={{ color: "var(--white)", lineHeight: 1.5 }}>
+                    {purchase.displayName}
+                  </strong>
+                  <span
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      minHeight: "1.8rem",
+                      padding: "0.3rem 0.65rem",
+                      border: isPaid
+                        ? "1px solid rgba(148, 187, 91, 0.36)"
+                        : "1px solid rgba(245, 240, 232, 0.16)",
+                      background: isPaid
+                        ? "rgba(148, 187, 91, 0.12)"
+                        : "rgba(245, 240, 232, 0.06)",
+                      color: isPaid ? "#eef8dd" : "rgba(245, 240, 232, 0.92)",
+                      fontFamily: "'Space Mono', monospace",
+                      fontSize: "0.64rem",
+                      letterSpacing: "0.12em",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    {summary?.statusLabel || "Not started"}
+                  </span>
+                </div>
+                <span style={{ color: "rgba(245, 240, 232, 0.7)", lineHeight: 1.6 }}>
+                  {summary?.priceLabel || purchase.priceLabel}
+                </span>
+                <span style={{ color: "rgba(245, 240, 232, 0.62)", lineHeight: 1.6 }}>
+                  {summary?.completedAt
+                    ? `Paid ${formatDate(summary.completedAt)}`
+                    : summary?.updatedAt
+                      ? `Updated ${formatDate(summary.updatedAt)}`
+                      : "No payment activity yet"}
+                </span>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </article>
   );
@@ -330,6 +416,10 @@ function AdminDashboard({ authUser, displayName, roleLabel }) {
           <DashboardStat
             label="Signed Docs"
             value={dashboard.metrics?.signedDocumentsCount ?? (dashboard.isLoading ? "..." : 0)}
+          />
+          <DashboardStat
+            label="Paid Packages"
+            value={dashboard.metrics?.paidPackageCount ?? (dashboard.isLoading ? "..." : 0)}
           />
         </section>
 

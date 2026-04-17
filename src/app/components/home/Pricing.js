@@ -2,8 +2,16 @@ import React from 'react'
 import "../../homepage.css"
 import Link from 'next/link'
 import { AGREEMENT_DEFINITIONS } from '@/lib/agreements'
+import { getPurchaseBySlug } from '@/lib/purchases'
+
+function getCheckoutStartHref(agreementSlug) {
+  return `/logged-in/checkout?agreement=${agreementSlug}`
+}
 
 export default function Pricing() {
+  const financialServices = getPurchaseBySlug("financial-orientation")
+  const premiumExpansionPack = getPurchaseBySlug("premium-expansion-pack")
+
   return (
     <section id="pricing" className="pricing">
       <div className="container">
@@ -22,8 +30,8 @@ export default function Pricing() {
         <div className="pricing-grid reveal" style={{ transitionDelay: "0.1s" }}>
           <div className="pricing-card featured">
             <div className="pricing-badge">Core Program</div>
-            <div className="pricing-name">Financial Orientation</div>
-            <div className="pricing-price">$500 <span>/ 1 year</span></div>
+            <div className="pricing-name">{financialServices?.displayName || "Financial Services"}</div>
+            <div className="pricing-price">{financialServices?.priceLabel || "$500"} <span>/ 1 year</span></div>
             <div className="pricing-desc">A flat-fee educational engagement to foster financial clarity and confidence. Forge Fog into Focus.</div>
             <ul className="pricing-features">
               <li>No recommendations</li>
@@ -33,19 +41,21 @@ export default function Pricing() {
             </ul>
             <div className="pricing-cta">
               <Link
-                href={`/agreements/${AGREEMENT_DEFINITIONS["financial-orientation"].slug}`}
+                href={getCheckoutStartHref(
+                  AGREEMENT_DEFINITIONS["financial-orientation"].slug
+                )}
                 className="btn-primary"
                 style={{ width: "100%", textAlign: "center", display: "block" }}
               >
-                Click Here to Review the Agreement -&gt;
+                Start Financial Services -&gt;
               </Link>
             </div>
           </div>
           <div className="pricing-card">
-            <div className="pricing-badge" style={{ background: "#cececeef", border: "1px solid var(--border)", color: "var(--red)" }}>Add-on</div>
-            <div className="pricing-name">Premium Expansion Pack</div>
-            <div className="pricing-price">+$250</div>
-            <div className="pricing-desc">For orienteers who value structure, tools, and accountability.</div>
+            <div className="pricing-badge" style={{ background: "#cececeef", border: "1px solid var(--border)", color: "var(--red)" }}>Premium Program</div>
+            <div className="pricing-name">{premiumExpansionPack?.displayName || "Premium Expansion Pack"}</div>
+            <div className="pricing-price">{premiumExpansionPack?.priceLabel || "$750"}</div>
+            <div className="pricing-desc">For members who value more structure, tools, and accountability from the start.</div>
             <ul className="pricing-features">
               <li>Dynamic progress mapping</li>
               <li>Scheduled check-ins & follow ups</li>
@@ -57,11 +67,13 @@ export default function Pricing() {
             </ul>
             <div className="pricing-cta">
               <Link
-                href={`/agreements/${AGREEMENT_DEFINITIONS["premium-expansion-pack"].slug}`}
+                href={getCheckoutStartHref(
+                  AGREEMENT_DEFINITIONS["premium-expansion-pack"].slug
+                )}
                 className="btn-primary"
                 style={{ width: "100%", textAlign: "center", display: "block" }}
               >
-                Click Here to Review the Agreement -&gt;
+                Start Premium Expansion -&gt;
               </Link>
             </div>
           </div>

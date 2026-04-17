@@ -53,6 +53,18 @@ const FORM_COPY = {
 const REDIRECT_PAGE_LABELS = [
   {
     match(pathname) {
+      return pathname.startsWith("/logged-in/checkout/success");
+    },
+    label: "payment confirmation",
+  },
+  {
+    match(pathname) {
+      return pathname.startsWith("/logged-in/checkout");
+    },
+    label: "checkout",
+  },
+  {
+    match(pathname) {
       return pathname === "/caddybook";
     },
     label: "Caddy Book",
