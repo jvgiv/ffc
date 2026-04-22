@@ -9,17 +9,29 @@ import Inputs from "./components/Inputs";
 export default function Home() {
   return (
     <div className={styles.page}>
-      {/* <main className={styles.main}> */}
-      <Image
+      <section className={styles.hero}>
+        <div className={styles.logoWrap}>
+          <Image
           className="images-test"
           src="/ffc-dark.svg"
           alt="FFC logo"
           width={250}
           height={250}
           priority
-        />     
-      <h2>This page is currently under construction.  Please check back later.</h2>
-      <Inputs />
+          />
+        </div>
+        <div className={styles.copyBlock}>
+          {/* <p className={styles.eyebrow}>First Financial Concepts</p> */}
+          <h2 className={styles.title}>
+            This page is currently under construction.
+          </h2>
+          <p className={styles.subtitle}>
+            We are putting the finishing touches on the full experience. Join
+            the list below and we will let you know when everything is live.
+          </p>
+        </div>
+        <Inputs />
+      </section>
         {/* 
         <Image
           className="images-test"
@@ -38,7 +50,7 @@ export default function Home() {
           width={324}
           height={270}
           priority
-          />  
+          />
           </a>
         <p className="ptc-2">Own :  YOUR TIME</p> */}
     </div>

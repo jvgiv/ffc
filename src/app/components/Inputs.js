@@ -81,7 +81,7 @@ export default function Inputs() {
         .contact-card {
           width: min(100%, 420px);
           margin: 0 auto;
-          margin-top: 72px;
+          margin-top: 40px;
           padding: 0;
           display: flex;
           flex-direction: column;
@@ -142,6 +142,7 @@ export default function Inputs() {
           border: none;
           border-radius: 999px;
           padding: 14px 18px;
+          min-height: 52px;
           background: linear-gradient(135deg, #b51219, #ed1c24);
           color: #ffffff;
           font-size: 1rem;
@@ -167,7 +168,28 @@ export default function Inputs() {
 
         @media (max-width: 600px) {
           .contact-card {
-            margin-top: 48px;
+            width: 100%;
+            margin-top: 28px;
+            gap: 18px;
+          }
+
+          .form-intro {
+            margin-bottom: 14px;
+            font-size: 0.98rem;
+            line-height: 1.6;
+          }
+
+          .field-label {
+            font-size: 0.82rem;
+          }
+
+          .field-input {
+            padding: 14px 0 12px;
+            font-size: 0.98rem;
+          }
+
+          .submit-button {
+            width: 100%;
           }
         }
       `}</style>
@@ -187,7 +209,7 @@ export default function Inputs() {
     <style jsx>{`
       .status-message {
         width: min(100%, 460px);
-        margin: 72px auto 0;
+        margin: 40px auto 0;
         padding: 40px 24px 28px;
         border-radius: 22px;
         text-align: center;
@@ -229,9 +251,20 @@ export default function Inputs() {
 
       @media (max-width: 600px) {
         .status-message {
-          margin-top: 48px;
-          padding: 32px 18px 22px;
+          width: 100%;
+          margin-top: 28px;
+          padding: 28px 18px 22px;
           border-radius: 18px;
+        }
+
+        .status-title {
+          font-size: 1.02rem;
+          line-height: 1.45;
+        }
+
+        .status-copy {
+          font-size: 0.93rem;
+          line-height: 1.6;
         }
       }
     `}</style>
