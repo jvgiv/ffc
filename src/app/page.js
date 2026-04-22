@@ -18,10 +18,11 @@ export default function Home() {
           <p className="hero-eyebrow-top">First Financial Advisory - Est. 1974</p>
           <div className="hero-logo-ring">
             <Image
-              src='/ffc-dark.svg'
+              className="hero-logo-image"
+              src='/fflogo.png'
               alt="FFC Logo"
               width={140}
-              height={140}
+              height={155}
             />
           </div>
           <h1 className="hero-title">
@@ -36,7 +37,7 @@ export default function Home() {
           <p className="hero-sub">Welcome to <span style={{color: "var(--red)"}}>Financial</span> Orientation</p>
           <div className="hero-actions">
             <Link href="#pricing" className="btn-primary">Get Oriented -&gt;</Link>
-            <Link href="/logged-in" className="btn-ghost">Unlock Free Caddy Book</Link>
+            <Link href="/logged-in" className="btn-ghost">Unlock FREE Caddy Book of Orientation + Scorecard</Link>
           </div>
           <div className="scroll-hint">
             <span>scroll</span>
