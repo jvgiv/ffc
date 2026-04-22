@@ -826,6 +826,14 @@
     gap: 2.5rem;
   }
 
+  .defs-homepage-inner .defs-homepage-copy {
+    order: 1;
+  }
+
+  .defs-homepage-inner .defs-homepage-preview {
+    order: 2;
+  }
+
   .scorecard-visual {
     padding: 1.5rem;
   }
