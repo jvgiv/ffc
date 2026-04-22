@@ -125,7 +125,7 @@ export default function Header() {
             href="/definitions"
             onClick={handleNavClose}
           >
-            DOGSTAR DEFINITIONS
+            GUIDED ORIENTATION
           </Link>
         </li>
         <li className="ffc-nav-item">
