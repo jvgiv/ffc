@@ -66,11 +66,11 @@ export default function CaddyBook() {
       { publicKey: publicKeyEnv }
     )
     .then(() => {
-      alert('Your notes have been sent to your email!')
+      setCurrent(13)
     })
     .catch((error) => {
-      console.error('EmailJS error:', error);
-      alert('There was an error sending your notes. Please try again later.');
+      // console.error('EmailJS error:', error);
+      setCurrent(12)
     });
   }
 
@@ -90,6 +90,7 @@ export default function CaddyBook() {
         handleChange={handleChange}
         memberProfile={memberProfile}
         handleSubmit={handleSubmit}
+        onRetrySubmit={() => goTo(current - 1)}
       />
       <NavBar 
         pages={PAGES}
