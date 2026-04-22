@@ -4,13 +4,13 @@ import Disclosures from "./components/ui/Disclosures";
 import TopHeader from "./components/ui/TopHeader"
 import Header from "./components/ui/Header"
 import Transition from "./components/ui/Transition";
+import Inputs from "./components/Inputs";
 
 export default function Home() {
   return (
     <div className={styles.page}>
       {/* <main className={styles.main}> */}
-      <h2>This page is currently under construction.  Please check back later.</h2>
-        {/* <Image
+      <Image
           className="images-test"
           src="/ffc-dark.svg"
           alt="FFC logo"
@@ -18,6 +18,9 @@ export default function Home() {
           height={250}
           priority
         />     
+      <h2>This page is currently under construction.  Please check back later.</h2>
+      <Inputs />
+        {/* 
         <Image
           className="images-test"
           src="/difbe.svg"
