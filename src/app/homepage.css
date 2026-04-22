@@ -1,6 +1,6 @@
 .home-page {
   width: 100%;
-  padding-top: 1.1rem;
+  padding-top: 0.25rem;
 }
 
 /* Hero */
@@ -11,7 +11,7 @@
   justify-content: flex-start;
   align-items: center;
   text-align: center;
-  padding: 2.4rem 2rem 4.25rem;
+  padding: 1.35rem 2rem 4.25rem;
   position: relative;
   overflow: hidden;
 }
@@ -775,12 +775,12 @@
 
 @media (max-width: 768px) {
   .home-page {
-    padding-top: 1.1rem;
+    padding-top: 0.2rem;
   }
 
   .hero {
     min-height: auto;
-    padding: 1.4rem 1.25rem 2.6rem;
+    padding: 0.9rem 1.25rem 2.6rem;
   }
 
   .hero-eyebrow {
@@ -824,6 +824,14 @@
   .scorecard-inner {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+  }
+
+  .defs-homepage-inner .defs-homepage-copy {
+    order: 1;
+  }
+
+  .defs-homepage-inner .defs-homepage-preview {
+    order: 2;
   }
 
   .scorecard-visual {

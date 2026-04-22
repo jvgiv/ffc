@@ -2,7 +2,7 @@ import { Bebas_Neue, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import '../../lib/fontawesome'
 import Header from "./components/ui/Header";
-import TopHeader from "./components/ui/TopHeader";
+// import TopHeader from "./components/ui/TopHeader";
 import Disclosures from "./components/ui/Disclosures";
 import TempFooter from "./components/ui/TempFooter";
 import ScrollEffects from "./ScrollEffects";
@@ -35,9 +35,9 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable} ${bebasNeue.variable}`}>
         <AuthProvider>
           <ScrollEffects />
-          <TopHeader />
+          {/* <TopHeader /> */}
           <Header />
-          {children}
+          <main className="site-content">{children}</main>
           <TempFooter />
           <Disclosures />
         </AuthProvider>
