@@ -16,7 +16,7 @@ export default function Header() {
   const homeSectionLinks = [
     { href: '/#problem', label: 'The Problem' },
     { href: '/#solution', label: 'The Guide' },
-    { href: '/#plan', label: 'The Plan' },
+    { href: '/#plan', label: 'The Process' },
     { href: '/#pricing', label: 'MenuBoard' },
     { href: '/#definitions-preview', label: 'Definitions' },
     { href: '/#scorecard', label: 'ScoreCard' },
