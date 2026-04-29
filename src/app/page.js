@@ -15,7 +15,7 @@ export default function Home() {
     <main className="home-page">
       <section className="hero">
         <div className="hero-inner container">
-          <p className="hero-eyebrow-top">First Financial Advisory - Est. 1974</p>
+          <p className="hero-eyebrow-top">A Special Program from First Financial Advisory - Est. 1974</p>
           <div className="hero-logo-ring">
             <Image
               className="hero-logo-image"
