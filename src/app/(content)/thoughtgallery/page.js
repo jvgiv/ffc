@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import GameTheory from '@/app/components/GameTheory'
+import MovieNight from '@/app/components/MovieNight'
 import styles from './page.module.css'
 import '../../homepage.css'
 
@@ -46,6 +47,19 @@ export default function ThoughtGallery() {
 
         <GameTheory />
       </section>
+       <section
+        className={`${styles.gallerySection} ${styles.revealCard} reveal`}
+        style={{ transitionDelay: '0.18s' }}
+      >
+        <div className={`${styles.galleryIntro} reveal`} style={{ transitionDelay: '0.24s' }}>
+          <p className={styles.sectionLabel}>Current collection</p>
+          <p className={styles.sectionCopy}>
+            This set focuses on Movie Night: images that are meant to spark reflection, discussion, and insight — the kind of frames that you might draw on a napkin to explain something important to a friend.
+          </p>
+          </div>
+
+        <MovieNight />
+        </section>
     </main>
   )
 }

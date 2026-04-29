@@ -7,18 +7,16 @@ import Image from 'next/image'
 import styles from './GameTheory.module.css'
 
 let images = [
-    { src: '/GT.1.png', alt: '', width: 1500, height: 1500 },
-    { src: '/GT.2.png', alt: '', width: 1500, height: 1500 },
-    { src: '/GT.3.png', alt: '', width: 1500, height: 1500 },
-    { src: '/GT.4.png', alt: '', width: 1500, height: 1500 },
-    { src: '/GT.5.png', alt: '', width: 1500, height: 1500 },
-    { src: '/GT.6.png', alt: '', width: 1500, height: 1500 },
-    { src: '/GT.7.png', alt: '', width: 1500, height: 1500 },
-    { src: '/GT.8.png', alt: '', width: 1500, height: 1500 },
-    { src: '/GT.9.jpg', alt: '', width: 1500, height: 1500 },
+    { src: '/mn1.png', alt: '', width: 1500, height: 1500 },
+    { src: '/mn2.png', alt: '', width: 1500, height: 1500 },
+    { src: '/mn3.png', alt: '', width: 1500, height: 1500 },
+    { src: '/mn4.png', alt: '', width: 1500, height: 1500 },
+    { src: '/mn5.png', alt: '', width: 1500, height: 1500 },
+    { src: '/mn6.png', alt: '', width: 3000, height: 3000 },
+    { src: '/mn7.jpg', alt: '', width: 1500, height: 1500 }
 ]
 
-export default function GameTheory() {
+export default function MovieNight() {
   const [index, setIndex] = useState(-1);
   
       const slides = images.map((img) => ({
@@ -32,8 +30,8 @@ export default function GameTheory() {
   return (
       <div className={styles.gallery}>
       <div className={styles.header}>
-        <h2 className={styles.title}>Game Theory</h2>
-        <p className={styles.meta}>9 frames in view</p>
+        <h2 className={styles.title}>Movie Night</h2>
+        <p className={styles.meta}>7 frames in view</p>
       </div>
       <div className={styles.grid}>
         {images.map(function (img, idx) {
