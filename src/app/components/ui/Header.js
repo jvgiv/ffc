@@ -259,6 +259,15 @@ export default function Header() {
               </Link>
             </li>
           ) : null}
+          <li className="ffc-nav-mobile-item">
+            <Link
+              className="ffc-nav-cta ffc-nav-cta-mobile"
+              href="/#pricing"
+              onClick={handleNavClose}
+            >
+              GET ORIENTED
+            </Link>
+          </li>
         </ul>
       </div>
 

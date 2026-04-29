@@ -864,6 +864,10 @@
     gap: 2.5rem;
   }
 
+  .scorecard .scorecard-inner {
+    grid-template-columns: 1fr;
+  }
+
   .defs-homepage-inner .defs-homepage-copy {
     order: 1;
   }
