@@ -17,13 +17,30 @@ let gameTheoryImages = [
 ]
 
 let movieNightImages = [
+    { src: '/mn.png', alt: '', width: 1500, height: 1500 },
     { src: '/mn1.png', alt: '', width: 1500, height: 1500 },
     { src: '/mn2.png', alt: '', width: 1500, height: 1500 },
     { src: '/mn3.png', alt: '', width: 1500, height: 1500 },
     { src: '/mn4.jpg', alt: '', width: 1500, height: 1500 },
     { src: '/mn5.png', alt: '', width: 1500, height: 1500 },
     { src: '/mn6.png', alt: '', width: 3000, height: 3000 },
-    { src: '/mn7.jpg', alt: '', width: 1500, height: 1500 }
+    { src: '/mn7.jpg', alt: '', width: 1500, height: 1500 },
+    { src: '/mn8.png', alt: '', width: 1500, height: 1500 }
+]
+
+let oriMattImages = [
+    { src: '/om1.png', alt: '', width: 1500, height: 1500 },
+    { src: '/om2.png', alt: '', width: 1500, height: 1500 },
+    { src: '/om3.png', alt: '', width: 1500, height: 1500 },
+    { src: '/allin1.png', alt: '', width: 1500, height: 1500 }
+]
+
+let fogSeriesImages = [
+    { src: '/fs1.png', alt: '', width: 1500, height: 1500 },
+    { src: '/fs2.png', alt: '', width: 1500, height: 1500 },
+    { src: '/fs3.jpg', alt: '', width: 1500, height: 1500 },
+    { src: '/fs4.png', alt: '', width: 1500, height: 1500 },
+    { src: '/fs5.png', alt: '', width: 1500, height: 1500 }
 ]
 
 
@@ -72,6 +89,44 @@ export default function ThoughtGallery() {
           title="Game Theory"
         />
       </section>
+
+
+       <section
+        className={`${styles.gallerySection} ${styles.revealCard} reveal`}
+        style={{ transitionDelay: '0.18s' }}
+      >
+        <div className={`${styles.galleryIntro} reveal`} style={{ transitionDelay: '0.24s' }}>
+          <p className={styles.sectionLabel}>Current collection</p>
+          <p className={styles.sectionCopy}>
+            NEED TEXT HERE
+          </p>
+          </div>
+
+        <ThoughtGalleryLightbox 
+          images={oriMattImages} 
+          title="Come on Up to the House"
+        />
+        </section>
+
+
+       <section
+        className={`${styles.gallerySection} ${styles.revealCard} reveal`}
+        style={{ transitionDelay: '0.18s' }}
+      >
+        <div className={`${styles.galleryIntro} reveal`} style={{ transitionDelay: '0.24s' }}>
+          <p className={styles.sectionLabel}>Current collection</p>
+          <p className={styles.sectionCopy}>
+            NEED FOG TEXT HERE
+          </p>
+          </div>
+
+        <ThoughtGalleryLightbox 
+          images={fogSeriesImages} 
+          title="Fog Bank"
+        />
+        </section>
+       
+       
        <section
         className={`${styles.gallerySection} ${styles.revealCard} reveal`}
         style={{ transitionDelay: '0.18s' }}
