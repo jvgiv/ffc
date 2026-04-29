@@ -20,7 +20,7 @@ let movieNightImages = [
     { src: '/mn1.png', alt: '', width: 1500, height: 1500 },
     { src: '/mn2.png', alt: '', width: 1500, height: 1500 },
     { src: '/mn3.png', alt: '', width: 1500, height: 1500 },
-    { src: '/mn4.png', alt: '', width: 1500, height: 1500 },
+    { src: '/mn4.jpg', alt: '', width: 1500, height: 1500 },
     { src: '/mn5.png', alt: '', width: 1500, height: 1500 },
     { src: '/mn6.png', alt: '', width: 3000, height: 3000 },
     { src: '/mn7.jpg', alt: '', width: 1500, height: 1500 }

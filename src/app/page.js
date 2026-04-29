@@ -8,7 +8,7 @@ import Quote from "./components/home/Quote";
 import PunchTheClock from "./components/home/PunchTheClock";
 import Image from "next/image";
 import Link from "next/link";
-import HomePageDefs from "./components/homepagedefs/HomePageDefs";
+import HomePageDefs from "./components/home/HomePageDefs";
 
 export default function Home() {
   return (
@@ -30,7 +30,7 @@ export default function Home() {
             <span className="hero-title-main">ORIENTATION</span>
           </h1>
           <p className="hero-sub">
-            Financial stress isn't mostly a money problem. It's mostly a fog problem. Far Flung Change clears the fog.  - {" "}
+            Financial stress isn&apos;t mostly a money problem. It&apos;s mostly a fog problem. Far Flung Change clears the fog.  - {" "}
             <strong style={{ color: "var(--white)" }}>Before you reach the clubhouse.</strong>
           </p>
           <p className="hero-sub">Welcome to <span style={{color: "var(--red)"}}>Financial</span> Orientation</p>
