@@ -1,9 +1,31 @@
 'use client'
 import React from 'react'
-import GameTheory from '@/app/components/GameTheory'
-import MovieNight from '@/app/components/MovieNight'
+import ThoughtGalleryLightbox from '@/app/components/ThoughtGalleryLightbox'
 import styles from './page.module.css'
 import '../../homepage.css'
+
+let gameTheoryImages = [
+    { src: '/GT.1.png', alt: '', width: 1500, height: 1500 },
+    { src: '/GT.2.png', alt: '', width: 1500, height: 1500 },
+    { src: '/GT.3.png', alt: '', width: 1500, height: 1500 },
+    { src: '/GT.4.png', alt: '', width: 1500, height: 1500 },
+    { src: '/GT.5.png', alt: '', width: 1500, height: 1500 },
+    { src: '/GT.6.png', alt: '', width: 1500, height: 1500 },
+    { src: '/GT.7.png', alt: '', width: 1500, height: 1500 },
+    { src: '/GT.8.png', alt: '', width: 1500, height: 1500 },
+    { src: '/GT.9.jpg', alt: '', width: 1500, height: 1500 },
+]
+
+let movieNightImages = [
+    { src: '/mn1.png', alt: '', width: 1500, height: 1500 },
+    { src: '/mn2.png', alt: '', width: 1500, height: 1500 },
+    { src: '/mn3.png', alt: '', width: 1500, height: 1500 },
+    { src: '/mn4.png', alt: '', width: 1500, height: 1500 },
+    { src: '/mn5.png', alt: '', width: 1500, height: 1500 },
+    { src: '/mn6.png', alt: '', width: 3000, height: 3000 },
+    { src: '/mn7.jpg', alt: '', width: 1500, height: 1500 }
+]
+
 
 export default function ThoughtGallery() {
   return (
@@ -45,7 +67,10 @@ export default function ThoughtGallery() {
           </p>
         </div>
 
-        <GameTheory />
+        <ThoughtGalleryLightbox 
+          images={gameTheoryImages} 
+          title="Game Theory"
+        />
       </section>
        <section
         className={`${styles.gallerySection} ${styles.revealCard} reveal`}
@@ -58,7 +83,10 @@ export default function ThoughtGallery() {
           </p>
           </div>
 
-        <MovieNight />
+        <ThoughtGalleryLightbox 
+          images={movieNightImages} 
+          title="Movie Night"
+        />
         </section>
     </main>
   )
