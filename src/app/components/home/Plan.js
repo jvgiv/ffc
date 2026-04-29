@@ -6,7 +6,7 @@ export default function Plan() {
     <section id="plan" className="plan">
       <div className="container">
         <div className="reveal">
-          <span className="section-label">The Plan</span>
+          <span className="section-label">The Process</span>
           <h2 className="section-title">Five moves. Zero mystery.</h2>
         </div>
         <div className="plan-steps reveal" style={{ transitionDelay: "0.1s" }}>

@@ -6,19 +6,7 @@ import 'yet-another-react-lightbox/styles.css'
 import Image from 'next/image'
 import styles from './GameTheory.module.css'
 
-let images = [
-    { src: '/GT.1.png', alt: '', width: 1500, height: 1500 },
-    { src: '/GT.2.png', alt: '', width: 1500, height: 1500 },
-    { src: '/GT.3.png', alt: '', width: 1500, height: 1500 },
-    { src: '/GT.4.png', alt: '', width: 1500, height: 1500 },
-    { src: '/GT.5.png', alt: '', width: 1500, height: 1500 },
-    { src: '/GT.6.png', alt: '', width: 1500, height: 1500 },
-    { src: '/GT.7.png', alt: '', width: 1500, height: 1500 },
-    { src: '/GT.8.png', alt: '', width: 1500, height: 1500 },
-    { src: '/GT.9.jpg', alt: '', width: 1500, height: 1500 },
-]
-
-export default function GameTheory() {
+export default function ThoughtGalleryLightbox({ images, title }) {
   const [index, setIndex] = useState(-1);
   
       const slides = images.map((img) => ({
@@ -32,8 +20,8 @@ export default function GameTheory() {
   return (
       <div className={styles.gallery}>
       <div className={styles.header}>
-        <h2 className={styles.title}>Game Theory</h2>
-        <p className={styles.meta}>9 frames in view</p>
+        <h2 className={styles.title}>{title}</h2>
+        <p className={styles.meta}>{images.length} frames in view</p>
       </div>
       <div className={styles.grid}>
         {images.map(function (img, idx) {
@@ -57,18 +45,10 @@ export default function GameTheory() {
                     />
                 </div>
                 )})}
-            {/* // (image, key) => (
-            // <Pic 
-            // image={image.src}
-            // key={key}
-            // alt={image.alt}
-            // />
-            // ))} */}
+            
       </div>
     
       
-      {/* <h1 className='tg-title'>Director's Cut</h1> */}
-
     <Lightbox
         open={index >= 0}
         close={function () {
@@ -76,9 +56,7 @@ export default function GameTheory() {
         }}
         slides={slides}
         index={index}
-        // plugins={[Zoom]} // remove if you don't want zoom
-        // carousel={{ finite: false }} // infinite scrolling (default is true)
-      />
+    />
     </div>
   )
 }

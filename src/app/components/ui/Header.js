@@ -16,7 +16,7 @@ export default function Header() {
   const homeSectionLinks = [
     { href: '/#problem', label: 'The Problem' },
     { href: '/#solution', label: 'The Guide' },
-    { href: '/#plan', label: 'The Plan' },
+    { href: '/#plan', label: 'The Process' },
     { href: '/#pricing', label: 'MenuBoard' },
     { href: '/#definitions-preview', label: 'Definitions' },
     { href: '/#scorecard', label: 'ScoreCard' },
@@ -259,6 +259,15 @@ export default function Header() {
               </Link>
             </li>
           ) : null}
+          <li className="ffc-nav-mobile-item">
+            <Link
+              className="ffc-nav-cta ffc-nav-cta-mobile"
+              href="/#pricing"
+              onClick={handleNavClose}
+            >
+              GET ORIENTED
+            </Link>
+          </li>
         </ul>
       </div>
 
