@@ -54,9 +54,14 @@ export default function Home() {
           </a>
         <p className="ptc-2">Own :  YOUR TIME</p> */}
         <p className={styles.footerNote}>
-          Far Flung Change provides financial orientation services only and does not offer securities advice, investment management, or financial planning.
+         
+        FAR FLUNG CHANGE IS A DIVISION OF FIRST FINANCIAL ADVISORY SECURITIES, INC., 85 BEACH STREET, WESTERLY, RI 02891
+      
+        <span>Far Flung Change provides financial orientation services only and does not offer securities advice, investment management, or financial planning.
+          </span>
+      </p>
 
-        </p>
+        
     </div>
   );
 }
