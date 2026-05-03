@@ -10,64 +10,66 @@ export class FirebaseAdminConfigurationError extends Error {
   }
 }
 
-function normalizePrivateKey(value) {
-  if (!value) {
-    return "";
+function getEnvValue(...names) {
+  for (const name of names) {
+    const value = process.env[name]?.trim();
+
+    if (value) {
+      return value;
+    }
   }
 
-  return value.replace(/\\n/g, "\n").trim();
+  return "";
 }
 
-function getRequiredEnv(name) {
-  const value = process.env[name]?.trim();
-
-  if (!value) {
-    return "";
-  }
-
-  return value;
+function normalizePrivateKey(privateKey) {
+  return privateKey.replace(/\\n/g, "\n");
 }
 
-function buildServiceAccountCredentialOptions() {
-  const projectId = getRequiredEnv("FIREBASE_PROJECT_ID");
-  const clientEmail = getRequiredEnv("FIREBASE_CLIENT_EMAIL");
-  const privateKey = normalizePrivateKey(getRequiredEnv("FIREBASE_PRIVATE_KEY"));
+function getFirebaseAdminConfig() {
+  const projectId = getEnvValue(
+    "FIREBASE_PROJECT_ID",
+    "FIREBASE_ADMIN_PROJECT_ID"
+  );
+  const clientEmail = getEnvValue(
+    "FIREBASE_CLIENT_EMAIL",
+    "FIREBASE_ADMIN_CLIENT_EMAIL"
+  );
+  const privateKey = getEnvValue(
+    "FIREBASE_PRIVATE_KEY",
+    "FIREBASE_ADMIN_PRIVATE_KEY"
+  );
   const missing = [];
 
   if (!projectId) {
-    missing.push("FIREBASE_PROJECT_ID");
+    missing.push("FIREBASE_PROJECT_ID or FIREBASE_ADMIN_PROJECT_ID");
   }
 
   if (!clientEmail) {
-    missing.push("FIREBASE_CLIENT_EMAIL");
+    missing.push("FIREBASE_CLIENT_EMAIL or FIREBASE_ADMIN_CLIENT_EMAIL");
   }
 
   if (!privateKey) {
-    missing.push("FIREBASE_PRIVATE_KEY");
+    missing.push("FIREBASE_PRIVATE_KEY or FIREBASE_ADMIN_PRIVATE_KEY");
   }
 
   if (missing.length) {
     throw new FirebaseAdminConfigurationError(
-      `Firebase Admin credentials are missing required environment variables: ${missing.join(
-        ", "
-      )}. Add them to your server environment, and store FIREBASE_PRIVATE_KEY with escaped newlines in Vercel if needed.`,
+      `Firebase Admin credentials are missing: ${missing.join(", ")}. Add these server-only environment variables in Vercel and your local environment.`,
       missing
     );
   }
 
   return {
-    credential: admin.credential.cert({
-      projectId,
-      clientEmail,
-      privateKey,
-    }),
     projectId,
+    clientEmail,
+    privateKey: normalizePrivateKey(privateKey),
   };
 }
 
 export function getFirebaseAdminStatus() {
   try {
-    buildServiceAccountCredentialOptions();
+    getFirebaseAdminConfig();
 
     return {
       ready: true,
@@ -87,18 +89,30 @@ export function getFirebaseAdminStatus() {
 
 export function getFirebaseAdminApp() {
   if (!admin.apps.length) {
-    admin.initializeApp(buildServiceAccountCredentialOptions());
+    const { projectId, clientEmail, privateKey } = getFirebaseAdminConfig();
+
+    admin.initializeApp({
+      credential: admin.credential.cert({
+        projectId,
+        clientEmail,
+        privateKey,
+      }),
+    });
   }
 
   return admin.app();
 }
 
 export function getAdminDb() {
-  return admin.firestore(getFirebaseAdminApp());
+  getFirebaseAdminApp();
+
+  return admin.firestore();
 }
 
 export function getAdminAuth() {
-  return admin.auth(getFirebaseAdminApp());
+  getFirebaseAdminApp();
+
+  return admin.auth();
 }
 
 export const FieldValue = admin.firestore.FieldValue;
